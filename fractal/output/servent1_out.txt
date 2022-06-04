@@ -1,0 +1,6 @@
+18:02:39 - [Job{name='triangle', n=3, p=0.5, w=1920, h=1080, A={(0, 1080)=Dot{x=0, y=1080}, (960, 0)=Dot{x=960, y=0}, (1920, 1080)=Dot{x=1920, y=1080}}}]
+18:02:39 - Fail{weak=100, strong=100}
+18:02:39 - BootstrapNode{ipAddress='127.0.0.1', listenerPort=1000}
+18:02:39 - Starting servent [1|localhost|1200]
+18:02:39 - Pausing for 15000 ms
+18:02:54 - Stopping...
