@@ -1,3 +1,4 @@
 pause 1000
+start
 pause 15000
 stop

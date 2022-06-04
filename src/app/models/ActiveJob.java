@@ -10,7 +10,7 @@ public class ActiveJob {
 
     private boolean active;
 
-    private HashMap<String, ServentInfo> jobNodes = new HashMap();
+    private HashMap<String, Node> jobNodes = new HashMap();
 
     private Section section;
 
@@ -20,7 +20,7 @@ public class ActiveJob {
         this.active = false;
     }
 
-    public ActiveJob(Job job, boolean active, HashMap<String, ServentInfo> jobNodes, Section section) {
+    public ActiveJob(Job job, boolean active, HashMap<String, Node> jobNodes, Section section) {
         this.job = job;
         this.active = active;
         this.jobNodes = jobNodes;
@@ -43,11 +43,11 @@ public class ActiveJob {
         this.active = active;
     }
 
-    public HashMap<String, ServentInfo> getJobNodes() {
+    public HashMap<String, Node> getJobNodes() {
         return jobNodes;
     }
 
-    public void setJobNodes(HashMap<String, ServentInfo> jobNodes) {
+    public void setJobNodes(HashMap<String, Node> Node) {
         this.jobNodes = jobNodes;
     }
 

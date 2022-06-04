@@ -243,9 +243,9 @@ public class AppConfig {
 		}
 
 
-		timestampedStandardPrint(jobList.toString());
-		timestampedStandardPrint(fail.toString());
-		timestampedStandardPrint(bootstrapNode.toString());
+//		timestampedStandardPrint(jobList.toString());
+//		timestampedStandardPrint(fail.toString());
+//		timestampedStandardPrint(bootstrapNode.toString());
 
 	}
 	
@@ -285,5 +285,8 @@ public class AppConfig {
 			AppConfig.activeJob = activeJob;
 		}
 	}
-	
+
+	public static List<Job> getJobList() {
+		return jobList;
+	}
 }

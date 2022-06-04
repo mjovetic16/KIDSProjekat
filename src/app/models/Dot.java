@@ -23,6 +23,14 @@ public class Dot {
     }
 
 
+    public Dot() {
+    }
+
+    public Dot(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
     @Override
     public String toString() {
         return "Dot{" +
@@ -33,5 +41,9 @@ public class Dot {
 
     public String toStringSimplified() {
         return "("+x+", "+y+")";
+    }
+
+    public Dot copy(){
+        return new Dot(x,y);
     }
 }

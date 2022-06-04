@@ -4,20 +4,13 @@ import java.util.HashMap;
 
 public class Section {
 
-    private String size;
+    private int size;
 
     private int depth;
 
     private HashMap<String,Dot> dots;
 
 
-    public String getSize() {
-        return size;
-    }
-
-    public void setSize(String size) {
-        this.size = size;
-    }
 
     public int getDepth() {
         return depth;
