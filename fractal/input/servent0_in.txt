@@ -1,4 +1,4 @@
 pause 1000
-start
+start all
 pause 15000
 stop

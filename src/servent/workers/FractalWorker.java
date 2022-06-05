@@ -83,29 +83,37 @@ public class FractalWorker implements Runnable, Cancellable {
     @Override
     public void stop() {
         active.set(false);
-        testDraw();
+        testDraw(imagePath);
     }
 
 
-    public void testDraw(){
-        final BufferedImage image = new BufferedImage ( 1920, 1080, BufferedImage.TYPE_INT_ARGB );
+    public void testDraw(String path){
+        final BufferedImage image = new BufferedImage ( activeJob.getJob().getW(), activeJob.getJob().getH(), BufferedImage.TYPE_INT_ARGB );
         final Graphics2D graphics2D = image.createGraphics ();
         graphics2D.setPaint ( Color.WHITE );
-        graphics2D.fillRect ( 0,0,1920,1080 );
+        graphics2D.fillRect ( 0,0,activeJob.getJob().getW(),activeJob.getJob().getH() );
         graphics2D.setPaint ( Color.RED );
         for(Dot d:filledDotList){
             graphics2D.drawOval ( d.getX(), d.getY(), 1, 1 );
         }
 
+//        //BLUE base dots
+//        graphics2D.setPaint(Color.BLUE);
+//        for(Dot d: activeJob.getJob().getA().values()){
+//            graphics2D.drawOval ( d.getX(), d.getY(), 3, 3 );
+//            graphics2D.drawString(d.toString(),d.getX(),d.getY());
+//        }
+
+
         graphics2D.dispose ();
 
         try {
-            ImageIO.write ( image, "png", new File( "fractal/images/"+activeJob.getJob().getName()+".png" ) );
+            ImageIO.write ( image, "png", new File( path ) );
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
-        AppConfig.timestampedStandardPrint("Done drawing");
+        AppConfig.timestampedStandardPrint("Done drawing: "+activeJob.getJob().getName() );
 
     }
 

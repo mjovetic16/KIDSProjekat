@@ -8,6 +8,7 @@ import servent.workers.FractalWorker;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class StartCommand implements CLICommand{
 
@@ -21,10 +22,30 @@ public class StartCommand implements CLICommand{
     @Override
     public void execute(String args) {
 
-
         try {
 
-            testRun();
+            if(args==null){
+                AppConfig.timestampedStandardPrint("Null argument in start command");
+                return;
+            }
+
+            if(args.equals("")){
+                AppConfig.timestampedStandardPrint("Empty argument in start command");
+            }else{
+                if(args.equals("all")){
+
+                    testRun();
+
+
+                }else{
+
+                    testRunSingle(args);
+
+                }
+
+
+            }
+
 
         } catch (Exception e) {
             AppConfig.timestampedErrorPrint("Exception in start command");
@@ -33,6 +54,36 @@ public class StartCommand implements CLICommand{
     }
 
 
+    public void testRunSingle(String name){
+        ArrayList<Job> jobs = (ArrayList<Job>) AppConfig.getJobList();
+
+        Job job = new Job();
+
+        for(Job j:jobs){
+            if(j.getName().equals(name))job = j;
+        }
+
+        if(job.getName()==null){
+            AppConfig.timestampedStandardPrint("Job not found for argument: "+name);
+            return;
+        }
+
+        ActiveJob activeJob = new ActiveJob();
+
+        activeJob.setActive(true);
+        activeJob.setJob(job);
+
+        Section section = new Section();
+        section.setDepth(1);
+        section.setDots(job.getA());
+
+        activeJob.setSection(section);
+
+
+        FractalWorker fractalWorker = new FractalWorker(activeJob,"fractal/images/"+activeJob.getJob().getName()+".png");
+        fractalWorker.run();
+
+    }
     public void testRun() throws Exception{
         ArrayList<Job> jobs = (ArrayList<Job>) AppConfig.getJobList();
 
@@ -93,10 +144,10 @@ public class StartCommand implements CLICommand{
 
 
 
-        FractalWorker fractalWorker1 = new FractalWorker(activeJob,"");
-        FractalWorker fractalWorker2 = new FractalWorker(activeJob2,"");
-        FractalWorker fractalWorker3 = new FractalWorker(activeJob3,"");
-        FractalWorker fractalWorker4 = new FractalWorker(activeJob4,"");
+        FractalWorker fractalWorker1 = new FractalWorker(activeJob,"fractal/images/"+activeJob.getJob().getName()+".png");
+        FractalWorker fractalWorker2 = new FractalWorker(activeJob2,"fractal/images/"+activeJob2.getJob().getName()+".png");
+        FractalWorker fractalWorker3 = new FractalWorker(activeJob3,"fractal/images/"+activeJob3.getJob().getName()+".png");
+        FractalWorker fractalWorker4 = new FractalWorker(activeJob4,"fractal/images/"+activeJob4.getJob().getName()+".png");
 
         fractalWorker1.run();
         fractalWorker2.run();
