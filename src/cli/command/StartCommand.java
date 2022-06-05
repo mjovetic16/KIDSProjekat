@@ -4,11 +4,9 @@ import app.AppConfig;
 import app.models.ActiveJob;
 import app.models.Job;
 import app.models.Section;
-import servent.workers.FractalWorker;
+import app.manager.worker.FractalWorker;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
 
 public class StartCommand implements CLICommand{
 

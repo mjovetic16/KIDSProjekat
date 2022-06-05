@@ -1,4 +1,4 @@
-package servent.workers;
+package app.manager.worker;
 
 import app.AppConfig;
 import app.Cancellable;
@@ -31,6 +31,9 @@ public class FractalWorker implements Runnable, Cancellable {
         this.activeJob = activeJob;
         this.imagePath = imagePath;
         this.filledDotList = new ConcurrentLinkedQueue<>();
+    }
+
+    public FractalWorker(){
 
     }
 

@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import app.AppConfig;
 import app.Cancellable;
+import app.manager.JobManager;
 import cli.command.*;
 import servent.SimpleServentListener;
 
@@ -33,7 +34,7 @@ public class CLIParser implements Runnable, Cancellable {
 	
 	private final List<CLICommand> commandList;
 	
-	public CLIParser(SimpleServentListener listener) {
+	public CLIParser(SimpleServentListener listener, JobManager jobManager) {
 		this.commandList = new ArrayList<>();
 		
 		commandList.add(new InfoCommand());
@@ -44,7 +45,7 @@ public class CLIParser implements Runnable, Cancellable {
 		commandList.add(new StatusCommand());
 		commandList.add(new ResultCommand());
 		commandList.add(new StopFractalCommand());
-		commandList.add(new QuitCommand());
+		commandList.add(new QuitCommand(this,listener,jobManager));
 	}
 	
 	@Override
