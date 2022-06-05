@@ -1,9 +1,15 @@
-package app.models;
+package app.models.job;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.HashMap;
-import java.util.List;
 
-public class Job {
+public class Job implements Serializable {
+
+
+    @Serial
+    private static final long serialVersionUID = -8213492467683356342L;
+
 
     private String name;
 

@@ -1,8 +1,14 @@
-package app.models;
+package app.models.job;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.HashMap;
 
-public class Section {
+public class Section implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = -5592091854643443266L;
+
 
     private int size;
 

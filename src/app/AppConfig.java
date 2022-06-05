@@ -1,6 +1,9 @@
 package app;
 
 import app.models.*;
+import app.models.job.ActiveJob;
+import app.models.job.Dot;
+import app.models.job.Job;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -211,7 +214,7 @@ public class AppConfig {
 			}
 
 
-			HashMap<String,Dot> dotMap = new HashMap<>();
+			HashMap<String, Dot> dotMap = new HashMap<>();
 			try{
 
 				String[] dArray = dots.split("/");
@@ -273,14 +276,13 @@ public class AppConfig {
 		return jobLock;
 	}
 
-	public ActiveJob getActiveJob(){
+	public static ActiveJob getActiveJob(){
 		synchronized (jobLock){
 			return activeJob;
 		}
 	}
 
-
-	public void setActiveJob(ActiveJob activeJob){
+	public static void setActiveJob(ActiveJob activeJob){
 		synchronized (jobLock){
 			AppConfig.activeJob = activeJob;
 		}

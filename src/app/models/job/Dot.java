@@ -1,6 +1,13 @@
-package app.models;
+package app.models.job;
 
-public class Dot {
+import java.io.Serial;
+import java.io.Serializable;
+
+public class Dot implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = -1519400727879612058L;
+
 
     private int x;
 

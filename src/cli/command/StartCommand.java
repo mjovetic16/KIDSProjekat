@@ -1,9 +1,9 @@
 package cli.command;
 
 import app.AppConfig;
-import app.models.ActiveJob;
-import app.models.Job;
-import app.models.Section;
+import app.models.job.ActiveJob;
+import app.models.job.Job;
+import app.models.job.Section;
 import app.manager.worker.FractalWorker;
 
 import java.util.ArrayList;

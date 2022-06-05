@@ -1,10 +1,17 @@
-package app.models;
+package app.models.job;
 
-import app.ServentInfo;
+import app.models.Node;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.HashMap;
 
-public class ActiveJob {
+public class ActiveJob implements Serializable {
+
+
+    @Serial
+    private static final long serialVersionUID = 1191422444574620316L;
+
 
     private Job job;
 

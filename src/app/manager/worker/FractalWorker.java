@@ -2,16 +2,15 @@ package app.manager.worker;
 
 import app.AppConfig;
 import app.Cancellable;
-import app.models.ActiveJob;
-import app.models.Dot;
-import app.models.Section;
+import app.models.job.ActiveJob;
+import app.models.job.Dot;
+import app.models.job.Section;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
