@@ -1,8 +1,8 @@
-17:20:39 - Starting servent [0|localhost|1100]
-17:20:39 - Pausing for 1000 ms
-17:20:41 - Done drawing: triangle
-17:20:41 - Done drawing: square
-17:20:41 - Done drawing: pentagon
-17:20:42 - Done drawing: cross
-17:20:42 - Pausing for 15000 ms
-17:20:57 - Stopping...
+17:37:23 - Starting servent [0|localhost|1100]
+17:37:23 - Pausing for 1000 ms
+17:37:25 - Done drawing: triangle
+17:37:25 - Done drawing: square
+17:37:25 - Done drawing: pentagon
+17:37:26 - Done drawing: cross
+17:37:26 - Pausing for 15000 ms
+17:37:41 - Stopping...
