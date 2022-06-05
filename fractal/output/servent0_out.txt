@@ -1,5 +1,8 @@
-19:29:34 - Starting servent [0|localhost|1100]
-19:29:34 - Pausing for 1000 ms
-19:29:35 - Done drawing
-19:29:35 - Pausing for 15000 ms
-19:29:50 - Stopping...
+15:37:36 - Starting servent [0|localhost|1100]
+15:37:36 - Pausing for 1000 ms
+15:37:38 - Done drawing
+15:37:38 - Done drawing
+15:37:38 - Done drawing
+15:37:39 - Done drawing
+15:37:39 - Pausing for 15000 ms
+15:37:54 - Stopping...

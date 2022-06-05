@@ -63,8 +63,8 @@ public class FractalWorker implements Runnable, Cancellable {
             Dot randomDot = dotsList.get(rand.nextInt(dotsList.size()));
 
             // (1-l)A + (l)B    //l=distance
-            int newX = (int) ((1-p)*currentDot.getX() + p*randomDot.getX());
-            int newY = (int) ((1-p)*currentDot.getY() + p*randomDot.getY());
+            int newX = (int) ((1-p)*randomDot.getX() + p*currentDot.getX());
+            int newY = (int) ((1-p)*randomDot.getY() + p*currentDot.getY());
 
             currentDot.setX(newX);
             currentDot.setY(newY);
@@ -73,7 +73,7 @@ public class FractalWorker implements Runnable, Cancellable {
 
 
 
-            if(tempCounter==100000)stop();
+            if(tempCounter==200000)stop();
             tempCounter++;
 
         }
@@ -94,7 +94,7 @@ public class FractalWorker implements Runnable, Cancellable {
         graphics2D.fillRect ( 0,0,1920,1080 );
         graphics2D.setPaint ( Color.RED );
         for(Dot d:filledDotList){
-            graphics2D.drawRect ( d.getX(), d.getY(), 1, 1 );
+            graphics2D.drawOval ( d.getX(), d.getY(), 1, 1 );
         }
 
         graphics2D.dispose ();
