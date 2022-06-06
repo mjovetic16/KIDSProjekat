@@ -278,6 +278,11 @@ public class AppConfig {
 
 	public static ActiveJob getActiveJob(){
 		synchronized (jobLock){
+			if(activeJob==null){
+				activeJob = new ActiveJob();
+				activeJob.setActive(false);
+			}
+
 			return activeJob;
 		}
 	}

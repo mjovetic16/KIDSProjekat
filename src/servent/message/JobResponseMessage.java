@@ -9,7 +9,7 @@ public class JobResponseMessage extends BasicMessage{
 
 
     public JobResponseMessage(ServentInfo originalSenderInfo, ServentInfo receiverInfo, Response response) {
-        super(MessageType.JOB_RESPONSE, originalSenderInfo, receiverInfo);
+        super(MessageType.JOB_RESPONSE, originalSenderInfo, receiverInfo, response.isAccepted()+"");
         this.response = response;
     }
 

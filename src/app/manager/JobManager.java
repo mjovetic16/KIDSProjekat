@@ -1,11 +1,14 @@
 package app.manager;
 
+import app.AppConfig;
 import app.Cancellable;
 import app.manager.handler.ConnectionHandler;
 import app.manager.handler.JobHandler;
 import app.manager.handler.ResultHandler;
 import app.manager.handler.StatusHandler;
 import app.manager.worker.FractalWorker;
+import app.models.job.ActiveJob;
+import app.models.message.Response;
 
 public class JobManager implements Runnable, Cancellable {
 
@@ -46,6 +49,67 @@ public class JobManager implements Runnable, Cancellable {
     }
 
 
+    public void startJob(Response response){
+        try{
+
+            AppConfig.setActiveJob((ActiveJob) response.getData());
+            ActiveJob activeJob = AppConfig.getActiveJob();
+
+            FractalWorker fractalWorker1 = new FractalWorker(activeJob,"fractal/images/"+activeJob.getJob().getName()+".png");
+            fractalWorker1.run();
 
 
+        }catch (Exception e){
+            AppConfig.timestampedErrorPrint(e.toString());
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+    public ConnectionHandler getConnectionHandler() {
+        return connectionHandler;
+    }
+
+    public void setConnectionHandler(ConnectionHandler connectionHandler) {
+        this.connectionHandler = connectionHandler;
+    }
+
+    public ResultHandler getResultHandler() {
+        return resultHandler;
+    }
+
+    public void setResultHandler(ResultHandler resultHandler) {
+        this.resultHandler = resultHandler;
+    }
+
+    public StatusHandler getStatusHandler() {
+        return statusHandler;
+    }
+
+    public void setStatusHandler(StatusHandler statusHandler) {
+        this.statusHandler = statusHandler;
+    }
+
+    public JobHandler getJobHandler() {
+        return jobHandler;
+    }
+
+    public void setJobHandler(JobHandler jobHandler) {
+        this.jobHandler = jobHandler;
+    }
+
+    public FractalWorker getFractalWorker() {
+        return fractalWorker;
+    }
+
+    public void setFractalWorker(FractalWorker fractalWorker) {
+        this.fractalWorker = fractalWorker;
+    }
 }

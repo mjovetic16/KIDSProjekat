@@ -1,6 +1,7 @@
 package cli.command;
 
 import app.AppConfig;
+import app.manager.JobManager;
 import app.models.job.ActiveJob;
 import app.models.job.Job;
 import app.models.job.Section;
@@ -10,7 +11,12 @@ import java.util.ArrayList;
 
 public class StartCommand implements CLICommand{
 
+    private JobManager jobManager;
 
+
+    public StartCommand(JobManager jobManager) {
+        this.jobManager = jobManager;
+    }
 
     @Override
     public String commandName() {
@@ -30,17 +36,8 @@ public class StartCommand implements CLICommand{
             if(args.equals("")){
                 AppConfig.timestampedStandardPrint("Empty argument in start command");
             }else{
-                if(args.equals("all")){
 
-                    testRun();
-
-
-                }else{
-
-                    testRunSingle(args);
-
-                }
-
+                jobManager.getJobHandler().start(args);
 
             }
 

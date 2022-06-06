@@ -4,6 +4,9 @@ import app.AppConfig;
 import app.ServentInfo;
 import app.models.Node;
 import app.models.job.ActiveJob;
+import app.models.job.Dot;
+import app.models.job.Job;
+import app.models.job.Section;
 import app.models.message.Response;
 import app.models.message.ResponseType;
 import servent.message.JobRequestMessage;
@@ -11,6 +14,9 @@ import servent.message.JobResponseMessage;
 import servent.message.Message;
 import servent.message.util.MessageUtil;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
@@ -27,7 +33,33 @@ public class JobHandler {
     }
 
 
-    public void start(){
+    public void start(String args){
+
+        Job job = null;
+
+        if(args.equals("all")){
+            return;
+        }else{
+            activeJob = new ActiveJob();
+            activeJob.setActive(true);
+
+            for(Job j:AppConfig.getJobList()){
+                if(j.getName().equals(args)){
+                    job = j;
+                }
+            }
+        }
+
+        if(job == null){
+            AppConfig.timestampedErrorPrint("Job not found for argument: "+args);
+            return;
+        }
+
+        activeJob.setJob(job);
+
+        AppConfig.setActiveJob(activeJob);
+
+
 
         //TODO number of possible nodes to join job
         tempAmount = 3;
@@ -39,7 +71,7 @@ public class JobHandler {
         Response response = new Response();
 
         response.setResponseType(ResponseType.JOB_RESPONSE);
-        response.setSender(new Node(AppConfig.myServentInfo,"NOT_SET"));
+        response.setSender(new Node(AppConfig.myServentInfo,"0"));
         response.setAccepted(true);
 
         responseMap.put(AppConfig.myServentInfo.getId()+"",response);
@@ -54,14 +86,29 @@ public class JobHandler {
     }
 
     public void recordResponse(Response response){
+        try{
 
-        if(checkIfResponsesDone())return;
 
 
-        responseMap.put(response.getSender().getID()+"",response);
+            if(checkIfResponsesDone()){
 
-        if(checkIfResponsesDone()){
-            sendResponses();
+                sendRejectResponse(response);
+
+                return;
+            }
+
+
+            responseMap.put(response.getSender().getServentInfo().getId()+"",response);
+
+            if(checkIfResponsesDone()){
+
+                jobDivide();
+            }
+
+
+        }
+        catch (Exception e){
+            AppConfig.timestampedErrorPrint(e.toString());
         }
 
     }
@@ -87,33 +134,151 @@ public class JobHandler {
 
     }
 
-    public void sendResponses(){
+    public void sendResponseAcceptNode(ActiveJob activeJob, Response r){
 
-        for(int neighborID : AppConfig.myServentInfo.getNeighbors()){
+        ServentInfo recepient = r.getSender().getServentInfo();
 
-            ServentInfo neighbor = AppConfig.getInfoById(neighborID);
+        Response response = new Response();
+        response.setResponseType(ResponseType.ACCEPTED_OR_REJECTED_JOB_RESPONSE);
+        response.setSender(new Node(AppConfig.myServentInfo,"0"));
+        response.setAccepted(true);
+        response.setData(activeJob);
 
-            boolean accepted = responseMap.containsKey(neighborID + "");
+        Message jobResponseMessage = new JobResponseMessage(
+                AppConfig.myServentInfo, recepient, response);
+
+        MessageUtil.sendMessage(jobResponseMessage);
+
+    }
+
+    public void sendRejectResponse(Response response){
+
+        ServentInfo recepient = AppConfig.getInfoById(response.getSender().getServentInfo().getId());
+
+        response.setResponseType(ResponseType.ACCEPTED_OR_REJECTED_JOB_RESPONSE);
+        response.setSender(new Node(AppConfig.myServentInfo,"NOT_SET"));
+        response.setAccepted(false);
+
+        Message jobResponseMessage = new JobResponseMessage(
+                AppConfig.myServentInfo, recepient, response);
+
+        MessageUtil.sendMessage(jobResponseMessage);
+
+    }
+
+    public void jobDivide(){
+
+        tempStupidJobDevide();
 
 
-            Response response = new Response();
-            response.setResponseType(ResponseType.ACCEPTED_OR_REJECTED_JOB_RESPONSE);
-            response.setSender(new Node(AppConfig.myServentInfo,"NOT_SET"));
-            response.setAccepted(accepted);
-
-            Message jobResponseMessage = new JobResponseMessage(
-                    AppConfig.myServentInfo, neighbor, response);
-
-            MessageUtil.sendMessage(jobResponseMessage);
-
-        }
 
 
     }
 
+    public void tempStupidJobDevide(){
+
+        int i = 0;
+        for(Response response:responseMap.values()){
+
+
+            Job job = AppConfig.getActiveJob().getJob();
+
+
+            activeJob.setActive(true);
+            activeJob.setJob(job);
+
+            Section section = new Section();
+            section.setDepth(1);
+
+
+            HashMap<String, Dot> dotMap = new HashMap<>();
+            List<Dot> allDots =  job.getA().values().stream().toList();
+            ArrayList<Dot> otherDots = new ArrayList<>();
+
+            Dot dot1 = allDots.get(i);
+            dotMap.put(dot1.toString(),dot1);
+
+            for(Dot d: allDots){
+                if(d==dot1)continue;
+
+                Dot newDot = new Dot();
+
+                double p = job.getP();
+
+                int newX = (int) ((1-p)*d.getX() + p*dot1.getX());
+                int newY = (int) ((1-p)*d.getY() + p*dot1.getY());
+
+                newDot.setX(newX);
+                newDot.setY(newY);
+
+                dotMap.put(newDot.toString(),newDot);
+            }
+
+
+            section.setDots(dotMap);
+
+            activeJob.setSection(section);
+
+            if(response.getSender().getID().equals("0")){
+                AppConfig.setActiveJob(activeJob);
+            }
+
+            sendResponseAcceptNode(activeJob, response);
+
+
+            i++;
+        }
+    }
+
+    public void clear(){
+        //Skida se aktivan job
+
+        ActiveJob activeJob1 = AppConfig.getActiveJob();
+        activeJob1.setActive(false);
+
+        AppConfig.setActiveJob(activeJob1);
+
+    }
+
+
+    public void setNewJob(ServentInfo sender,ActiveJob activeJob) {
+        //Ako je vec postavljen neki job na ovaj node odbija se request
+        //Ako nije prihvata se
+
+
+        if(AppConfig.getActiveJob().isActive()){
+
+            Response response = new Response();
+            response.setResponseType(ResponseType.JOB_RESPONSE);
+            response.setSender(new Node(AppConfig.myServentInfo,"NOT_SET"));
+            response.setAccepted(false);
+
+            Message jobResponseMessage = new JobResponseMessage(
+                    AppConfig.myServentInfo, sender, response);
+
+            MessageUtil.sendMessage(jobResponseMessage);
+
+            return;
+
+        }else{
+
+            AppConfig.setActiveJob(activeJob);
+
+            Response response = new Response();
+            response.setResponseType(ResponseType.JOB_RESPONSE);
+            response.setSender(new Node(AppConfig.myServentInfo,"NOT_SET"));
+            response.setAccepted(true);
+
+            Message jobResponseMessage = new JobResponseMessage(
+                    AppConfig.myServentInfo, sender, response);
+
+            MessageUtil.sendMessage(jobResponseMessage);
+
+
+        }
 
 
 
 
-
+    }
 }

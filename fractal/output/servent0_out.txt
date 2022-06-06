@@ -1,8 +1,19 @@
-17:37:23 - Starting servent [0|localhost|1100]
-17:37:23 - Pausing for 1000 ms
-17:37:25 - Done drawing: triangle
-17:37:25 - Done drawing: square
-17:37:25 - Done drawing: pentagon
-17:37:26 - Done drawing: cross
-17:37:26 - Pausing for 15000 ms
-17:37:41 - Stopping...
+16:10:42 - Starting servent [0|localhost|1100]
+16:10:42 - Pausing for 1000 ms
+16:10:43 - Pausing for 15000 ms
+16:10:43 - Sending message [0|2||JOB_REQUEST|3]
+16:10:44 - Sending message [0|1||JOB_REQUEST|2]
+16:10:44 - Sending message [0|3||JOB_REQUEST|4]
+16:10:44 - Sending message [0|0||JOB_REQUEST|1]
+16:10:45 - Got message [3|0|true|JOB_RESPONSE|0]
+16:10:45 - Got message [2|0|true|JOB_RESPONSE|0]
+16:10:45 - Got message [4|0|true|JOB_RESPONSE|0]
+16:10:46 - Sending message [0|5|true|JOB_RESPONSE|2]
+16:10:46 - Got message [1|0|true|JOB_RESPONSE|0]
+16:10:46 - Sending message [0|4|true|JOB_RESPONSE|0]
+16:10:46 - Got message [0|4|true|JOB_RESPONSE|0]
+16:10:46 - Sending message [0|6|true|JOB_RESPONSE|3]
+16:10:46 - Sending message [0|7|false|JOB_RESPONSE|4]
+16:10:47 - Done drawing: triangle
+16:10:47 - Sending message [0|8|false|JOB_RESPONSE|1]
+16:10:58 - Stopping...

@@ -59,7 +59,7 @@ public class ServentMain {
 		Thread jobManagerThread = new Thread(jobManager);
 		jobManagerThread.start();
 		
-		SimpleServentListener simpleListener = new SimpleServentListener();
+		SimpleServentListener simpleListener = new SimpleServentListener(jobManager);
 		Thread listenerThread = new Thread(simpleListener);
 		listenerThread.start();
 		

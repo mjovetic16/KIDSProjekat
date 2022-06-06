@@ -9,6 +9,9 @@ import java.util.concurrent.Executors;
 
 import app.AppConfig;
 import app.Cancellable;
+import app.manager.JobManager;
+import servent.handler.JobRequestMessageHandler;
+import servent.handler.JobResponseMessageHandler;
 import servent.handler.MessageHandler;
 import servent.handler.NullHandler;
 import servent.message.Message;
@@ -17,8 +20,11 @@ import servent.message.util.MessageUtil;
 public class SimpleServentListener implements Runnable, Cancellable {
 
 	private volatile boolean working = true;
+
+	private JobManager jobManager;
 	
-	public SimpleServentListener() {
+	public SimpleServentListener(JobManager jobManager) {
+		this.jobManager = jobManager;
 	}
 
 	/*
@@ -58,6 +64,13 @@ public class SimpleServentListener implements Runnable, Cancellable {
 				 * because that way is much simpler and less error prone.
 				 */
 				switch (clientMessage.getMessageType()) {
+
+					case JOB_REQUEST :
+						messageHandler = new JobRequestMessageHandler(clientMessage, jobManager);
+						break;
+					case JOB_RESPONSE :
+						messageHandler = new JobResponseMessageHandler(clientMessage, jobManager);
+						break;
 				}
 				
 				threadPool.submit(messageHandler);
