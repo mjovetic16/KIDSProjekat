@@ -101,6 +101,12 @@ public class FractalWorker implements Runnable, Cancellable {
     }
 
 
+
+    public ConcurrentLinkedQueue<Dot> returnDots(){
+        return filledDotList;
+    }
+
+    //TODO Ne moze ovako mora deljeni rezultat, neki result message na primer
     public void testDraw(String path) throws Exception{
 
             BufferedImage image = new BufferedImage(activeJob.getJob().getW(), activeJob.getJob().getH(), BufferedImage.TYPE_INT_ARGB);
