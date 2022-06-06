@@ -33,4 +33,13 @@ public class Section implements Serializable {
     public void setDots(HashMap<String, Dot> dots) {
         this.dots = dots;
     }
+
+    @Override
+    public String toString() {
+        return "Section{" +
+                "size=" + size +
+                ", depth=" + depth +
+                ", dots=" + dots.values() +
+                '}';
+    }
 }

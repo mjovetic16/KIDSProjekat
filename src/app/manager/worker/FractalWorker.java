@@ -11,6 +11,9 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
@@ -90,14 +93,56 @@ public class FractalWorker implements Runnable, Cancellable {
 
 
     public void testDraw(String path){
-        final BufferedImage image = new BufferedImage ( activeJob.getJob().getW(), activeJob.getJob().getH(), BufferedImage.TYPE_INT_ARGB );
-        final Graphics2D graphics2D = image.createGraphics ();
-        graphics2D.setPaint ( Color.WHITE );
-        graphics2D.fillRect ( 0,0,activeJob.getJob().getW(),activeJob.getJob().getH() );
-        graphics2D.setPaint ( Color.RED );
-        for(Dot d:filledDotList){
-            graphics2D.drawOval ( d.getX(), d.getY(), 1, 1 );
+
+        BufferedImage image = new BufferedImage(activeJob.getJob().getW(), activeJob.getJob().getH(), BufferedImage.TYPE_INT_ARGB);
+
+        synchronized (AppConfig.getImageWriteLock()) {
+
+            boolean exists = Files.exists(Paths.get(path));
+
+
+            if (exists) {
+                try {
+
+                    image = ImageIO.read(new File(path));
+
+
+                } catch (IOException e) {
+                    AppConfig.timestampedErrorPrint("Could not read image");
+                    AppConfig.timestampedErrorPrint(e.toString());
+                }
+            }
+
+
+
+            final Graphics2D graphics2D = image.createGraphics();
+            graphics2D.setPaint(Color.WHITE);
+            graphics2D.fillRect(0, 0, activeJob.getJob().getW(), activeJob.getJob().getH());
+            graphics2D.setPaint(Color.RED);
+            for (Dot d : filledDotList) {
+                graphics2D.drawOval(d.getX(), d.getY(), 1, 1);
+            }
+
+
+            graphics2D.dispose();
+
+
+
+            try {
+                ImageIO.write(image, "png", new File(path));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+            AppConfig.timestampedStandardPrint("Done drawing: " + activeJob.getJob().getName() +" with dots:"+activeJob.getSection().getDots().values());
+
         }
+    }
+
+
+}
+
+
 
 //        //BLUE base dots
 //        graphics2D.setPaint(Color.BLUE);
@@ -105,19 +150,3 @@ public class FractalWorker implements Runnable, Cancellable {
 //            graphics2D.drawOval ( d.getX(), d.getY(), 3, 3 );
 //            graphics2D.drawString(d.toString(),d.getX(),d.getY());
 //        }
-
-
-        graphics2D.dispose ();
-
-        try {
-            ImageIO.write ( image, "png", new File( path ) );
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-        AppConfig.timestampedStandardPrint("Done drawing: "+activeJob.getJob().getName() );
-
-    }
-
-
-}

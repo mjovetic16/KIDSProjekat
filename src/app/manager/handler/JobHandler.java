@@ -142,7 +142,9 @@ public class JobHandler {
         response.setResponseType(ResponseType.ACCEPTED_OR_REJECTED_JOB_RESPONSE);
         response.setSender(new Node(AppConfig.myServentInfo,"0"));
         response.setAccepted(true);
-        response.setData(activeJob);
+        response.setData(activeJob.copy());
+
+       // log(activeJob+"");
 
         Message jobResponseMessage = new JobResponseMessage(
                 AppConfig.myServentInfo, recepient, response);
@@ -196,6 +198,8 @@ public class JobHandler {
             ArrayList<Dot> otherDots = new ArrayList<>();
 
             Dot dot1 = allDots.get(i);
+
+
             dotMap.put(dot1.toString(),dot1);
 
             for(Dot d: allDots){
@@ -219,9 +223,12 @@ public class JobHandler {
 
             activeJob.setSection(section);
 
+//            AppConfig.timestampedStandardPrint("AC"+activeJob.getSection().getDots().values());
+
             if(response.getSender().getID().equals("0")){
                 AppConfig.setActiveJob(activeJob);
             }
+
 
             sendResponseAcceptNode(activeJob, response);
 
@@ -280,5 +287,13 @@ public class JobHandler {
 
 
 
+    }
+
+
+
+
+    public void log(String s){
+
+        AppConfig.timestampedStandardPrint("[JobHandler]: "+s);
     }
 }

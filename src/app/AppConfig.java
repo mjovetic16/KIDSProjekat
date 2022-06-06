@@ -39,6 +39,8 @@ public class AppConfig {
 
 	private static final String jobLock = "jobLock";
 
+	private static final String imageWriteLock = "imageLock";
+
 
 	/**
 	 * If this is true, the system is a clique - all nodes are each other's
@@ -295,5 +297,10 @@ public class AppConfig {
 
 	public static List<Job> getJobList() {
 		return jobList;
+	}
+
+
+	public static String getImageWriteLock(){
+		return imageWriteLock;
 	}
 }

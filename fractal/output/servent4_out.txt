@@ -1,6 +1,6 @@
-16:10:42 - Starting servent [4|localhost|1500]
-16:10:42 - Pausing for 15000 ms
-16:10:44 - Got message [0|3||JOB_REQUEST|4]
-16:10:45 - Sending message [4|0|true|JOB_RESPONSE|0]
-16:10:46 - Got message [0|7|false|JOB_RESPONSE|4]
-16:10:57 - Stopping...
+17:47:38 - Starting servent [4|localhost|1500]
+17:47:38 - Pausing for 15000 ms
+17:47:40 - Got message [0|3||JOB_REQUEST|4]
+17:47:40 - Sending message [4|0|true|JOB_RESPONSE|0]
+17:47:41 - Got message [0|6|true|JOB_RESPONSE|4]
+17:47:42 - Done drawing: triangle with dots:[Dot{x=1920, y=1080}, Dot{x=1440, y=540}, Dot{x=960, y=1080}]

@@ -50,9 +50,14 @@ public class JobManager implements Runnable, Cancellable {
 
 
     public void startJob(Response response){
+
+            //log(response+"");
+
         try{
 
             AppConfig.setActiveJob((ActiveJob) response.getData());
+
+
             ActiveJob activeJob = AppConfig.getActiveJob();
 
             FractalWorker fractalWorker1 = new FractalWorker(activeJob,"fractal/images/"+activeJob.getJob().getName()+".png");
@@ -111,5 +116,10 @@ public class JobManager implements Runnable, Cancellable {
 
     public void setFractalWorker(FractalWorker fractalWorker) {
         this.fractalWorker = fractalWorker;
+    }
+
+    public void log(String s){
+
+        AppConfig.timestampedStandardPrint("[JobManager]: "+s);
     }
 }

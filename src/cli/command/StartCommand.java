@@ -28,6 +28,8 @@ public class StartCommand implements CLICommand{
 
         try {
 
+            AppConfig.timestampedStandardPrint("Starting job: "+args+" ...");
+
             if(args==null){
                 AppConfig.timestampedStandardPrint("Null argument in start command");
                 return;

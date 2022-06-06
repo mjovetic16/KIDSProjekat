@@ -65,4 +65,25 @@ public class ActiveJob implements Serializable {
     public void setSection(Section section) {
         this.section = section;
     }
+
+    public ActiveJob copy(){
+        ActiveJob a = new ActiveJob();
+        a.setJob(job);
+        a.setActive(active);
+        a.setSection(section);
+        a.setJobNodes(jobNodes);
+
+        return a;
+
+    }
+
+    @Override
+    public String toString() {
+        return "ActiveJob{" +
+                "job=" + job +
+                ", active=" + active +
+                ", jobNodes=" + jobNodes +
+                ", section=" + section +
+                '}';
+    }
 }
