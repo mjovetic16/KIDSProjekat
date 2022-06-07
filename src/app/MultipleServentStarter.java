@@ -43,7 +43,7 @@ public class MultipleServentStarter {
 			while(true) {
 				String line = sc.nextLine();
 				
-				if (line.equals("stop")) {
+				if (line.equals("stop")||line.equals("quit")) {
 					for (Process process : serventProcesses) {
 						process.destroy();
 					}

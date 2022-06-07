@@ -1,5 +1,5 @@
 package servent.message;
 
 public enum MessageType {
-    JOB_REQUEST, JOB_RESPONSE
+    JOB_REQUEST, JOB_RESPONSE, RESULT
 }

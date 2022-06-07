@@ -179,18 +179,26 @@ public class JobHandler {
 
     public void tempStupidJobDevide(){
 
+
+        HashMap<String, Node> jobNodesMap = new HashMap<>();
+
         int i = 0;
+
+        //Calculate IDS
+        for(Response res: responseMap.values()){
+            String id = i+"";
+
+            jobNodesMap.put(id,res.getSender());
+
+
+        }
+
+
+        //Make active jobs, set their dots and send them in response messages
         for(Response response:responseMap.values()){
 
 
             Job job = AppConfig.getActiveJob().getJob();
-
-
-            activeJob.setActive(true);
-            activeJob.setJob(job);
-
-            Section section = new Section();
-            section.setDepth(1);
 
 
             HashMap<String, Dot> dotMap = new HashMap<>();
@@ -219,9 +227,17 @@ public class JobHandler {
             }
 
 
+            activeJob.setActive(true);
+            activeJob.setJob(job);
+
+            Section section = new Section();
+            section.setDepth(1);
+
             section.setDots(dotMap);
 
             activeJob.setSection(section);
+            activeJob.setJobNodes(jobNodesMap);
+
 
 //            AppConfig.timestampedStandardPrint("AC"+activeJob.getSection().getDots().values());
 
@@ -231,7 +247,6 @@ public class JobHandler {
 
 
             sendResponseAcceptNode(activeJob, response);
-
 
             i++;
         }

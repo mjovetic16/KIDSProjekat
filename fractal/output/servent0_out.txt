@@ -1,20 +1,21 @@
-18:41:04 - Starting servent [0|localhost|1100]
-18:41:04 - Pausing for 1000 ms
-18:41:05 - Starting job: triangle ...
-18:41:05 - Pausing for 15000 ms
-18:41:06 - Sending message [0|1||JOB_REQUEST|2]
-18:41:06 - Sending message [0|2||JOB_REQUEST|3]
-18:41:07 - Sending message [0|3||JOB_REQUEST|4]
-18:41:07 - Sending message [0|0||JOB_REQUEST|1]
-18:41:07 - Got message [2|0|true|JOB_RESPONSE|0]
-18:41:08 - Got message [4|0|true|JOB_RESPONSE|0]
-18:41:08 - Got message [3|0|true|JOB_RESPONSE|0]
-18:41:08 - Sending message [0|5|true|JOB_RESPONSE|2]
-18:41:08 - Sending message [0|4|true|JOB_RESPONSE|0]
-18:41:08 - Got message [0|4|true|JOB_RESPONSE|0]
-18:41:08 - Sending message [0|6|true|JOB_RESPONSE|4]
-18:41:08 - Got message [1|0|true|JOB_RESPONSE|0]
-18:41:09 - Done drawing: triangle with dots:[Dot{x=480, y=540}, Dot{x=960, y=1080}, Dot{x=0, y=1080}]
-18:41:09 - Sending message [0|7|false|JOB_RESPONSE|3]
-18:41:09 - Sending message [0|8|false|JOB_RESPONSE|1]
-18:41:20 - Stopping...
+17:06:43 - Starting servent [0|localhost|1100]
+17:06:43 - Pausing for 1000 ms
+17:06:44 - Starting job: triangle ...
+17:06:44 - Pausing for 15000 ms
+17:06:45 - Sending message [0|1||JOB_REQUEST|2]
+17:06:45 - Sending message [0|0||JOB_REQUEST|1]
+17:06:46 - Sending message [0|3||JOB_REQUEST|4]
+17:06:46 - Got message [2|0|true|JOB_RESPONSE|0]
+17:06:46 - Sending message [0|2||JOB_REQUEST|3]
+17:06:46 - Got message [1|0|true|JOB_RESPONSE|0]
+17:06:47 - Got message [4|0|true|JOB_RESPONSE|0]
+17:06:47 - Got message [3|0|true|JOB_RESPONSE|0]
+17:06:47 - Sending message [0|6|true|JOB_RESPONSE|2]
+17:06:48 - Sending message [0|4|true|JOB_RESPONSE|0]
+17:06:48 - Got message [0|4|true|JOB_RESPONSE|0]
+17:06:48 - [Fractal Worker]: Started fractal worker
+17:06:48 - Sending message [0|5|true|JOB_RESPONSE|1]
+17:06:48 - Sending message [0|7|false|JOB_RESPONSE|4]
+17:06:48 - Sending message [0|8|false|JOB_RESPONSE|3]
+17:06:59 - Quitting...
+17:07:00 - [Fractal Worker]: Done drawing: triangle with dots:[Dot{x=480, y=540}, Dot{x=960, y=1080}, Dot{x=0, y=1080}]

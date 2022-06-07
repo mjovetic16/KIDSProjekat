@@ -1,4 +1,4 @@
 pause 1000
 start triangle
 pause 15000
-stop
+quit

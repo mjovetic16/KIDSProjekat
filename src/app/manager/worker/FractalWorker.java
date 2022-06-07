@@ -15,9 +15,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.HashMap;
+import java.util.*;
 import java.util.List;
-import java.util.Random;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -28,12 +27,12 @@ public class FractalWorker implements Runnable, Cancellable {
 
     private AtomicBoolean active = new AtomicBoolean(false);
 
-    private ConcurrentLinkedQueue<Dot> filledDotList;
+    private HashMap<String,Dot> filledDotMap;
 
     public FractalWorker(ActiveJob activeJob, String imagePath) {
         this.activeJob = activeJob;
         this.imagePath = imagePath;
-        this.filledDotList = new ConcurrentLinkedQueue<>();
+        this.filledDotMap = new HashMap<>();
     }
 
     public FractalWorker(){
@@ -43,6 +42,8 @@ public class FractalWorker implements Runnable, Cancellable {
 
     @Override
     public void run() {
+
+        log("Started fractal worker");
 
         active.set(true);
 
@@ -75,12 +76,12 @@ public class FractalWorker implements Runnable, Cancellable {
             currentDot.setX(newX);
             currentDot.setY(newY);
 
-            filledDotList.add(currentDot.copy());
+            filledDotMap.put(currentDot.copy().toString(),currentDot.copy());
 
 
 
-            if(tempCounter==200000)stop();
-            tempCounter++;
+//            if(tempCounter==200000)stop();
+//            tempCounter++;
 
         }
 
@@ -88,6 +89,13 @@ public class FractalWorker implements Runnable, Cancellable {
 
     @Override
     public void stop() {
+
+
+    }
+
+    public void stopJob(){
+
+
         active.set(false);
         try {
 
@@ -98,44 +106,50 @@ public class FractalWorker implements Runnable, Cancellable {
         } catch (Exception e) {
             errorLog("testDraw exception",e);
         }
+
+
+        stop();
     }
 
 
 
-    public ConcurrentLinkedQueue<Dot> returnDots(){
-        return filledDotList;
+    public HashMap<String,Dot> returnDots(){
+        return filledDotMap;
     }
 
-    //TODO Ne moze ovako mora deljeni rezultat, neki result message na primer
     public void testDraw(String path) throws Exception{
 
-            BufferedImage image = new BufferedImage(activeJob.getJob().getW(), activeJob.getJob().getH(), BufferedImage.TYPE_INT_ARGB);
+
+        BufferedImage image = new BufferedImage(activeJob.getJob().getW(), activeJob.getJob().getH(), BufferedImage.TYPE_INT_ARGB);
+
+
+        final Graphics2D graphics2D = image.createGraphics ();
+        graphics2D.setPaint(Color.WHITE);
+        graphics2D.fillRect(0, 0, activeJob.getJob().getW(), activeJob.getJob().getH());
+
+
+        Color randColor = new Color((int)(Math.random() * 0x1000000));
+        graphics2D.setPaint(randColor);
+
+
+        for (Dot d : filledDotMap.values()) {
+            graphics2D.drawOval(d.getX(), d.getY(), 1, 1);
+        }
 
 
 
-            final Graphics2D graphics2D = (Graphics2D) image.getGraphics();
-            graphics2D.setPaint(Color.WHITE);
-            graphics2D.fillRect(0, 0, activeJob.getJob().getW(), activeJob.getJob().getH());
+        graphics2D.dispose();
 
 
-            Color randColor = new Color((int)(Math.random() * 0x1000000));
-            graphics2D.setPaint(randColor);
-            for (Dot d : filledDotList) {
-                graphics2D.drawOval(d.getX(), d.getY(), 1, 1);
-            }
+        try {
+            ImageIO.write(image, "png", new File(path+"."+AppConfig.myServentInfo.getId()+".png"));
+
+        } catch (IOException e) {
+            errorLog("Error writing file",e);
+        }
 
 
-            graphics2D.dispose();
-
-
-            try {
-                ImageIO.write(image, "png", new File(path));
-
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-
-            AppConfig.timestampedStandardPrint("Done drawing: " + activeJob.getJob().getName() +" with dots:"+activeJob.getSection().getDots().values());
+        log("Done drawing: " + activeJob.getJob().getName() +" with dots:"+activeJob.getSection().getDots().values());
 
     }
 
@@ -149,6 +163,7 @@ public class FractalWorker implements Runnable, Cancellable {
 
         AppConfig.timestampedErrorPrint("[Fractal Worker]: "+s);
         AppConfig.timestampedErrorPrint("[Fractal Worker]: "+e.toString());
+        AppConfig.timestampedErrorPrint("[Fractal Worker]: "+ Arrays.toString(e.getStackTrace()));
     }
 
 }

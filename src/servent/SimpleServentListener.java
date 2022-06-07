@@ -10,10 +10,7 @@ import java.util.concurrent.Executors;
 import app.AppConfig;
 import app.Cancellable;
 import app.manager.JobManager;
-import servent.handler.JobRequestMessageHandler;
-import servent.handler.JobResponseMessageHandler;
-import servent.handler.MessageHandler;
-import servent.handler.NullHandler;
+import servent.handler.*;
 import servent.message.Message;
 import servent.message.util.MessageUtil;
 
@@ -70,6 +67,9 @@ public class SimpleServentListener implements Runnable, Cancellable {
 						break;
 					case JOB_RESPONSE :
 						messageHandler = new JobResponseMessageHandler(clientMessage, jobManager);
+						break;
+					case RESULT :
+						messageHandler = new ResultMessageHandler(clientMessage, jobManager);
 						break;
 				}
 				

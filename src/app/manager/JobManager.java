@@ -10,6 +10,8 @@ import app.manager.worker.FractalWorker;
 import app.models.job.ActiveJob;
 import app.models.message.Response;
 
+import java.util.Arrays;
+
 public class JobManager implements Runnable, Cancellable {
 
     private ConnectionHandler connectionHandler;
@@ -26,16 +28,17 @@ public class JobManager implements Runnable, Cancellable {
 
     public JobManager() {
         this.connectionHandler = new ConnectionHandler();
-        this.resultHandler = new ResultHandler();
+        this.resultHandler = new ResultHandler(this);
         this.statusHandler = new StatusHandler();
         this.jobHandler = new JobHandler();
-        this.fractalWorker = new FractalWorker();
+        this.fractalWorker = null;
     }
 
     @Override
     public void stop() {
 
-        fractalWorker.stop();
+
+
     }
 
     @Override
@@ -45,7 +48,26 @@ public class JobManager implements Runnable, Cancellable {
 
 
     public void stopJob(){
-        fractalWorker.stop();
+
+        try{
+            //log(getFractalWorker()+"");
+
+            if(getFractalWorker()!=null) {
+//                log("true");
+                getFractalWorker().stopJob();
+//                log("Here");
+
+            }else{
+//                log("false");
+            }
+
+
+        }catch (Exception e){
+            errorLog("Error in stopJob()",e);
+        }
+
+        stop();
+
     }
 
 
@@ -60,12 +82,13 @@ public class JobManager implements Runnable, Cancellable {
 
             ActiveJob activeJob = AppConfig.getActiveJob();
 
-            FractalWorker fractalWorker1 = new FractalWorker(activeJob,"fractal/images/"+activeJob.getJob().getName()+".png");
-            fractalWorker1.run();
+            FractalWorker f1 = new FractalWorker(activeJob,"fractal/images/"+activeJob.getJob().getName()+".png");
+            setFractalWorker(f1);
+            f1.run();
 
 
         }catch (Exception e){
-            AppConfig.timestampedErrorPrint(e.toString());
+            errorLog("Start job exception",e);
         }
     }
 
@@ -116,10 +139,19 @@ public class JobManager implements Runnable, Cancellable {
 
     public void setFractalWorker(FractalWorker fractalWorker) {
         this.fractalWorker = fractalWorker;
+
+//        log("Set fractal worker: "+fractalWorker);
     }
 
     public void log(String s){
 
         AppConfig.timestampedStandardPrint("[JobManager]: "+s);
+    }
+
+    public void errorLog(String s, Exception e){
+
+        AppConfig.timestampedErrorPrint("[JobManager]: "+s);
+        AppConfig.timestampedErrorPrint("[JobManager]: "+e.toString());
+        AppConfig.timestampedErrorPrint("[JobManager]: "+ Arrays.toString(e.getStackTrace()));
     }
 }
