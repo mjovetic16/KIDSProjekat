@@ -1,6 +1,6 @@
-17:06:43 - Starting servent [4|localhost|1500]
-17:06:43 - Pausing for 15000 ms
-17:06:46 - Got message [0|3||JOB_REQUEST|4]
-17:06:47 - Sending message [4|0|true|JOB_RESPONSE|0]
-17:06:48 - Got message [0|7|false|JOB_RESPONSE|4]
-17:06:58 - Quitting...
+19:04:56 - Starting servent [4|localhost|1500]
+19:04:56 - Pausing for 15000 ms
+19:04:58 - Got message [0|3||JOB_REQUEST|4]
+19:04:59 - Sending message [4|0|true|JOB_RESPONSE|0]
+19:05:00 - Got message [0|7|false|JOB_RESPONSE|4]
+19:05:11 - Quitting...

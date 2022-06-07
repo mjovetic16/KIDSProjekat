@@ -29,6 +29,8 @@ public class JobHandler {
     private int tempAmount = 0;
 
 
+
+
     public JobHandler() {
     }
 
@@ -71,7 +73,7 @@ public class JobHandler {
         Response response = new Response();
 
         response.setResponseType(ResponseType.JOB_RESPONSE);
-        response.setSender(new Node(AppConfig.myServentInfo,"0"));
+        response.setSender(new Node("0",AppConfig.myServentInfo));
         response.setAccepted(true);
 
         responseMap.put(AppConfig.myServentInfo.getId()+"",response);
@@ -140,7 +142,7 @@ public class JobHandler {
 
         Response response = new Response();
         response.setResponseType(ResponseType.ACCEPTED_OR_REJECTED_JOB_RESPONSE);
-        response.setSender(new Node(AppConfig.myServentInfo,"0"));
+        response.setSender(new Node("0",AppConfig.myServentInfo));
         response.setAccepted(true);
         response.setData(activeJob.copy());
 
@@ -158,7 +160,7 @@ public class JobHandler {
         ServentInfo recepient = AppConfig.getInfoById(response.getSender().getServentInfo().getId());
 
         response.setResponseType(ResponseType.ACCEPTED_OR_REJECTED_JOB_RESPONSE);
-        response.setSender(new Node(AppConfig.myServentInfo,"NOT_SET"));
+        response.setSender(new Node("NOT_SET",AppConfig.myServentInfo));
         response.setAccepted(false);
 
         Message jobResponseMessage = new JobResponseMessage(
@@ -190,7 +192,9 @@ public class JobHandler {
 
             jobNodesMap.put(id,res.getSender());
 
-
+            if(res.getSender().getServentInfo()==AppConfig.myServentInfo){
+                activeJob.setMyNode(new Node(id,AppConfig.myServentInfo));
+            }
         }
 
 
@@ -272,7 +276,7 @@ public class JobHandler {
 
             Response response = new Response();
             response.setResponseType(ResponseType.JOB_RESPONSE);
-            response.setSender(new Node(AppConfig.myServentInfo,"NOT_SET"));
+            response.setSender(new Node("NOT_SET",AppConfig.myServentInfo));
             response.setAccepted(false);
 
             Message jobResponseMessage = new JobResponseMessage(
@@ -288,7 +292,7 @@ public class JobHandler {
 
             Response response = new Response();
             response.setResponseType(ResponseType.JOB_RESPONSE);
-            response.setSender(new Node(AppConfig.myServentInfo,"NOT_SET"));
+            response.setSender(new Node("NOT_SET",AppConfig.myServentInfo));
             response.setAccepted(true);
 
             Message jobResponseMessage = new JobResponseMessage(

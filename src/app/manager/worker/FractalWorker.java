@@ -4,6 +4,7 @@ import app.AppConfig;
 import app.Cancellable;
 import app.models.job.ActiveJob;
 import app.models.job.Dot;
+import app.models.job.Result;
 import app.models.job.Section;
 
 import javax.imageio.ImageIO;
@@ -28,6 +29,8 @@ public class FractalWorker implements Runnable, Cancellable {
     private AtomicBoolean active = new AtomicBoolean(false);
 
     private HashMap<String,Dot> filledDotMap;
+
+    long iteration=0;
 
     public FractalWorker(ActiveJob activeJob, String imagePath) {
         this.activeJob = activeJob;
@@ -78,7 +81,7 @@ public class FractalWorker implements Runnable, Cancellable {
 
             filledDotMap.put(currentDot.copy().toString(),currentDot.copy());
 
-
+            iteration++;
 
 //            if(tempCounter==200000)stop();
 //            tempCounter++;
@@ -113,7 +116,8 @@ public class FractalWorker implements Runnable, Cancellable {
 
 
 
-    public HashMap<String,Dot> returnDots(){
+    public HashMap<String,Dot> returnResult(){
+        Result result = new Result(filledDotMap,iteration);
         return filledDotMap;
     }
 
@@ -152,6 +156,8 @@ public class FractalWorker implements Runnable, Cancellable {
         log("Done drawing: " + activeJob.getJob().getName() +" with dots:"+activeJob.getSection().getDots().values());
 
     }
+
+
 
 
     public void log(String s){

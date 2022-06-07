@@ -1,6 +1,7 @@
 package cli;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -70,6 +71,7 @@ public class CLIParser implements Runnable, Cancellable {
 			
 			for (CLICommand cliCommand : commandList) {
 				if (cliCommand.commandName().equals(commandName)) {
+					//log(commandName+"|"+cliCommand.commandName());
 					cliCommand.execute(commandArgs);
 					found = true;
 					break;
@@ -88,5 +90,17 @@ public class CLIParser implements Runnable, Cancellable {
 	public void stop() {
 		this.working = false;
 		
+	}
+
+	public void log(String s){
+
+		AppConfig.timestampedStandardPrint("[CLIParser]: "+s);
+	}
+
+	public void errorLog(String s, Exception e){
+
+		AppConfig.timestampedErrorPrint("[CLIParser]: "+s);
+		AppConfig.timestampedErrorPrint("[CLIParser]: "+e.toString());
+		AppConfig.timestampedErrorPrint("[CLIParser]: "+ Arrays.toString(e.getStackTrace()));
 	}
 }

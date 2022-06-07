@@ -22,6 +22,9 @@ public class ActiveJob implements Serializable {
     private Section section;
 
 
+    private Node myNode;
+
+
     public ActiveJob() {
 
         this.active = false;
@@ -66,12 +69,21 @@ public class ActiveJob implements Serializable {
         this.section = section;
     }
 
+    public Node getMyNode() {
+        return myNode;
+    }
+
+    public void setMyNode(Node myNode) {
+        this.myNode = myNode;
+    }
+
     public ActiveJob copy(){
         ActiveJob a = new ActiveJob();
         a.setJob(job);
         a.setActive(active);
         a.setSection(section);
         a.setJobNodes(jobNodes);
+        a.setMyNode(myNode);
 
         return a;
 

@@ -7,6 +7,8 @@ import servent.message.JobResponseMessage;
 import servent.message.Message;
 import servent.message.ResultMessage;
 
+import java.util.Arrays;
+
 public class ResultMessageHandler implements MessageHandler{
 
     private Message clientMessage;
@@ -28,6 +30,19 @@ public class ResultMessageHandler implements MessageHandler{
             ResultMessage message = (ResultMessage) clientMessage;
 
 
+            //Ako je primljen zahtev za rezultat
+            if(message.getResponse().getResponseType()==ResponseType.RESULT_REQUEST){
+
+                log("Send answer");
+                jobManager.getResultHandler().sendResult(message.getResponse());
+
+            //Ako je primljen odgovor na zahtev za rezultat
+            }else if(message.getResponse().getResponseType()==ResponseType.RESULT_RESPONSE){
+
+                log("Got answer");
+                jobManager.getResultHandler().recordResponse(message.getResponse());
+
+            }
 
 
 
@@ -36,5 +51,18 @@ public class ResultMessageHandler implements MessageHandler{
             AppConfig.timestampedErrorPrint(e.toString());
         }
 
+    }
+
+
+    public void log(String s){
+
+        AppConfig.timestampedStandardPrint("[ResultMessageHandler]: "+s);
+    }
+
+    public void errorLog(String s, Exception e){
+
+        AppConfig.timestampedErrorPrint("[ResultMessageHandler]: "+s);
+        AppConfig.timestampedErrorPrint("[ResultMessageHandler]: "+e.toString());
+        AppConfig.timestampedErrorPrint("[ResultMessageHandler]: "+ Arrays.toString(e.getStackTrace()));
     }
 }

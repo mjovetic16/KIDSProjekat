@@ -28,9 +28,9 @@ public class JobManager implements Runnable, Cancellable {
 
     public JobManager() {
         this.connectionHandler = new ConnectionHandler();
-        this.resultHandler = new ResultHandler(this);
         this.statusHandler = new StatusHandler();
         this.jobHandler = new JobHandler();
+        this.resultHandler = new ResultHandler();
         this.fractalWorker = null;
     }
 
@@ -87,9 +87,14 @@ public class JobManager implements Runnable, Cancellable {
             f1.run();
 
 
+
+
         }catch (Exception e){
             errorLog("Start job exception",e);
         }
+
+        setResultHandler(new ResultHandler(this, AppConfig.getActiveJob()));
+
     }
 
 
@@ -115,6 +120,8 @@ public class JobManager implements Runnable, Cancellable {
 
     public void setResultHandler(ResultHandler resultHandler) {
         this.resultHandler = resultHandler;
+
+        log("Result handler set: "+getResultHandler());
     }
 
     public StatusHandler getStatusHandler() {

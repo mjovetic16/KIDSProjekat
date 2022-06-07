@@ -17,7 +17,7 @@ public class Node implements Serializable {
     public Node() {
     }
 
-    public Node(ServentInfo serventInfo, String ID) {
+    public Node(String ID, ServentInfo serventInfo) {
         this.serventInfo = serventInfo;
         this.ID = ID;
     }

@@ -1,8 +1,9 @@
-17:06:43 - Starting servent [1|localhost|1200]
-17:06:43 - Pausing for 15000 ms
-17:06:46 - Got message [0|0||JOB_REQUEST|1]
-17:06:46 - Sending message [1|0|true|JOB_RESPONSE|0]
-17:06:48 - Got message [0|5|true|JOB_RESPONSE|1]
-17:06:48 - [Fractal Worker]: Started fractal worker
-17:06:58 - Quitting...
-17:06:59 - [Fractal Worker]: Done drawing: triangle with dots:[Dot{x=1440, y=540}, Dot{x=480, y=540}, Dot{x=960, y=0}]
+19:04:56 - Starting servent [1|localhost|1200]
+19:04:56 - Pausing for 15000 ms
+19:04:58 - Got message [0|0||JOB_REQUEST|1]
+19:04:59 - Sending message [1|0|true|JOB_RESPONSE|0]
+19:05:00 - Got message [0|5|true|JOB_RESPONSE|1]
+19:05:00 - [Fractal Worker]: Started fractal worker
+19:05:11 - Quitting...
+19:05:11 - [JobManager]: Result handler set: app.manager.handler.ResultHandler@64f246a7
+19:05:11 - [Fractal Worker]: Done drawing: triangle with dots:[Dot{x=1440, y=540}, Dot{x=480, y=540}, Dot{x=960, y=0}]

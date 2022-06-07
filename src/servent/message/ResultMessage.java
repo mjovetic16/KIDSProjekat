@@ -2,6 +2,7 @@ package servent.message;
 
 import app.ServentInfo;
 import app.models.job.ActiveJob;
+import app.models.message.Response;
 
 import java.io.Serial;
 
@@ -10,11 +11,11 @@ public class ResultMessage extends BasicMessage{
     @Serial
     private static final long serialVersionUID = 4452467686344097362L;
 
-    private ActiveJob activeJob;
+    private Response response;
 
-    public ResultMessage(ServentInfo sender, ServentInfo receiver, ActiveJob activeJob) {
+    public ResultMessage(ServentInfo sender, ServentInfo receiver, Response response) {
         super(MessageType.JOB_REQUEST, sender, receiver);
-        this.activeJob = activeJob;
+        this.response = response;
 
     }
 
@@ -24,11 +25,11 @@ public class ResultMessage extends BasicMessage{
 
     }
 
-    public ActiveJob getActiveJob() {
-        return activeJob;
+    public Response getResponse() {
+        return response;
     }
 
-    public void setActiveJob(ActiveJob activeJob) {
-        this.activeJob = activeJob;
+    public void setResponse(Response response) {
+        this.response = response;
     }
 }
