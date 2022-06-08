@@ -82,6 +82,8 @@ public class JobManager implements Runnable, Cancellable {
 
             ActiveJob activeJob = AppConfig.getActiveJob();
 
+            setResultHandler(new ResultHandler(this, AppConfig.getActiveJob()));
+
             FractalWorker f1 = new FractalWorker(activeJob,"fractal/images/"+activeJob.getJob().getName()+".png");
             setFractalWorker(f1);
             f1.run();
@@ -93,7 +95,7 @@ public class JobManager implements Runnable, Cancellable {
             errorLog("Start job exception",e);
         }
 
-        setResultHandler(new ResultHandler(this, AppConfig.getActiveJob()));
+
 
     }
 
@@ -121,7 +123,7 @@ public class JobManager implements Runnable, Cancellable {
     public void setResultHandler(ResultHandler resultHandler) {
         this.resultHandler = resultHandler;
 
-        log("Result handler set: "+getResultHandler());
+//        log("Result handler set: "+getResultHandler());
     }
 
     public StatusHandler getStatusHandler() {
@@ -160,5 +162,17 @@ public class JobManager implements Runnable, Cancellable {
         AppConfig.timestampedErrorPrint("[JobManager]: "+s);
         AppConfig.timestampedErrorPrint("[JobManager]: "+e.toString());
         AppConfig.timestampedErrorPrint("[JobManager]: "+ Arrays.toString(e.getStackTrace()));
+    }
+
+
+    @Override
+    public String toString() {
+        return "JobManager{" +
+                "connectionHandler=" + connectionHandler +
+//                ", resultHandler=" + resultHandler +
+                ", statusHandler=" + statusHandler +
+                ", jobHandler=" + jobHandler +
+//                ", fractalWorker=" + fractalWorker +
+                '}';
     }
 }

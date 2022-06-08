@@ -26,7 +26,7 @@ public class ResultHandler {
 
     private JobManager jobManager;
 
-    private ConcurrentHashMap<String,Response> responseMap;
+    private ConcurrentHashMap<String,Response> responseMap = new ConcurrentHashMap<>();
 
     private String path;
 
@@ -77,6 +77,7 @@ public class ResultHandler {
 
 
             responseMap.put(response.getSender().getServentInfo().getId()+"",response);
+            log(response.getSender().getServentInfo().getId()+"");
 
 
             if(checkIfResponsesDone()){
@@ -92,6 +93,8 @@ public class ResultHandler {
     }
 
     public boolean checkIfResponsesDone(){
+        log("Not done yet rm:"+ responseMap.size());
+        log("Not done yet ac:"+ activeJob.getJobNodes().size());
         return responseMap.size() >= activeJob.getJobNodes().size();
     }
 
@@ -101,11 +104,11 @@ public class ResultHandler {
 
         //TODO kome se salje?
 
-        log("In send rquest");
+//        log("In send rquest");
         activeJob = AppConfig.getActiveJob();;
 
-        log(activeJob.getJobNodes().size()+"");
-        log(activeJob+"");
+//        log(activeJob.getJobNodes().size()+"");
+//        log(activeJob+"");
 
         for(Node neighborNode : activeJob.getJobNodes().values()){
 
@@ -120,11 +123,14 @@ public class ResultHandler {
 
             MessageUtil.sendMessage(resultRequestMessage);
 
-            log("Sent message: "+resultRequestMessage);
+
+            log("Sent result request message");
+
+//            log("Sent message: "+resultRequestMessage);
 
         }
 
-        log("Out of send rquest");
+//        log("Out of send rquest");
 
 
 
@@ -186,17 +192,24 @@ public class ResultHandler {
     }
 
     public void sendResult(Response response) {
+
+//        log("Send result enter");
         Response myResponse = new Response();
+//        log((this.jobManager==null)+"");
+//        log((getJobManager()==null)+"");
 
         myResponse.setResponseType(ResponseType.RESULT_RESPONSE);
         myResponse.setData(jobManager.getFractalWorker().returnResult());
-        myResponse.setSender(activeJob.getMyNode());
+        log("Before sending result my node is:"+AppConfig.getActiveJob().getMyNode());
+        myResponse.setSender(AppConfig.getActiveJob().getMyNode());
 
 
         Message resultResponseMessage = new ResultMessage(
                 AppConfig.myServentInfo, response.getSender().getServentInfo(), myResponse);
 
         MessageUtil.sendMessage(resultResponseMessage);
+
+        log("Sent result response message");
 
 
     }
@@ -208,5 +221,24 @@ public class ResultHandler {
 
     public void setActiveJob(ActiveJob activeJob) {
         this.activeJob = activeJob;
+    }
+
+    public JobManager getJobManager() {
+        return jobManager;
+    }
+
+    public void setJobManager(JobManager jobManager) {
+        this.jobManager = jobManager;
+    }
+
+
+    @Override
+    public String toString() {
+        return "ResultHandler{" +
+                "activeJob=" + activeJob +
+                ", jobManager=" + jobManager +
+                ", responseMap=" + responseMap +
+                ", path='" + path + '\'' +
+                '}';
     }
 }

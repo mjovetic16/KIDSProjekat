@@ -1,6 +1,13 @@
-19:04:56 - Starting servent [3|localhost|1400]
-19:04:56 - Pausing for 15000 ms
-19:04:58 - Got message [0|2||JOB_REQUEST|3]
-19:04:59 - Sending message [3|0|true|JOB_RESPONSE|0]
-19:05:01 - Got message [0|8|false|JOB_RESPONSE|3]
-19:05:11 - Quitting...
+17:44:55 - Starting servent [3|localhost|1400]
+17:44:55 - Pausing for 15000 ms
+17:44:57 - Got message [0|2||JOB_REQUEST|3]
+17:44:57 - [AppConfig]: Set active job to : ActiveJob{job=Job{name='triangle', n=3, p=0.5, w=1920, h=1080, A={(0, 1080)=Dot{x=0, y=1080}, (960, 0)=Dot{x=960, y=0}, (1920, 1080)=Dot{x=1920, y=1080}}}, active=true, jobNodes={}, section=null}
+17:44:58 - Sending message [3|0|true|JOB_RESPONSE|0]
+17:44:59 - Got message [0|5|true|JOB_RESPONSE|3]
+17:44:59 - [AppConfig]: Set active job to : ActiveJob{job=Job{name='triangle', n=3, p=0.5, w=1920, h=1080, A={(0, 1080)=Dot{x=0, y=1080}, (960, 0)=Dot{x=960, y=0}, (1920, 1080)=Dot{x=1920, y=1080}}}, active=true, jobNodes={0=Node{serventInfo=[0|localhost|1100], ID='0'}, 1=Node{serventInfo=[3|localhost|1400], ID='NOT_SET'}, 2=Node{serventInfo=[4|localhost|1500], ID='NOT_SET'}}, section=Section{size=0, depth=1, dots=[Dot{x=1440, y=540}, Dot{x=480, y=540}, Dot{x=960, y=0}]}}
+17:44:59 - [Fractal Worker]: Started fractal worker
+17:45:02 - Got message [0|10||RESULT|3]
+17:45:02 - [ResultMessageHandler]: Got request message from[0|10||RESULT|3]
+17:45:02 - [Result Handler]: Before sending result my node is:Node{serventInfo=[4|localhost|1500], ID='2'}
+17:45:02 - [Result Handler]: Sent result response message
+17:45:03 - Sending message [3|1||RESULT|4]

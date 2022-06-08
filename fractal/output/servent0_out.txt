@@ -1,28 +1,38 @@
-19:04:55 - Starting servent [0|localhost|1100]
-19:04:56 - Pausing for 1000 ms
-19:04:57 - Starting job: triangle ...
-19:04:57 - Pausing for 5000 ms
-19:04:58 - Sending message [0|0||JOB_REQUEST|1]
-19:04:58 - Sending message [0|1||JOB_REQUEST|2]
-19:04:58 - Sending message [0|3||JOB_REQUEST|4]
-19:04:58 - Sending message [0|2||JOB_REQUEST|3]
-19:04:58 - Got message [2|0|true|JOB_RESPONSE|0]
-19:04:59 - Got message [1|0|true|JOB_RESPONSE|0]
-19:04:59 - Got message [4|0|true|JOB_RESPONSE|0]
-19:04:59 - Got message [3|0|true|JOB_RESPONSE|0]
-19:04:59 - Sending message [0|4|true|JOB_RESPONSE|0]
-19:04:59 - Got message [0|4|true|JOB_RESPONSE|0]
-19:04:59 - [Fractal Worker]: Started fractal worker
-19:05:00 - Sending message [0|5|true|JOB_RESPONSE|1]
-19:05:00 - Sending message [0|6|true|JOB_RESPONSE|2]
-19:05:00 - Sending message [0|7|false|JOB_RESPONSE|4]
-19:05:00 - Sending message [0|8|false|JOB_RESPONSE|3]
-19:05:02 - [ResultCommand]: Finding result for: triangle
-19:05:02 - [Result Handler]: In send rquest
-19:05:02 - [Result Handler]: 0
-19:05:02 - [Result Handler]: ActiveJob{job=Job{name='triangle', n=3, p=0.5, w=1920, h=1080, A={(0, 1080)=Dot{x=0, y=1080}, (960, 0)=Dot{x=960, y=0}, (1920, 1080)=Dot{x=1920, y=1080}}}, active=true, jobNodes={}, section=Section{size=0, depth=1, dots=[Dot{x=480, y=540}, Dot{x=960, y=1080}, Dot{x=0, y=1080}]}}
-19:05:02 - [Result Handler]: Out of send rquest
-19:05:02 - Pausing for 10000 ms
-19:05:12 - Quitting...
-19:05:12 - [JobManager]: Result handler set: app.manager.handler.ResultHandler@4fdd16d9
-19:05:12 - [Fractal Worker]: Done drawing: triangle with dots:[Dot{x=480, y=540}, Dot{x=960, y=1080}, Dot{x=0, y=1080}]
+17:44:55 - Starting servent [0|localhost|1100]
+17:44:55 - Pausing for 1000 ms
+17:44:56 - Starting job: triangle ...
+17:44:56 - [AppConfig]: Set active job to : ActiveJob{job=Job{name='triangle', n=3, p=0.5, w=1920, h=1080, A={(0, 1080)=Dot{x=0, y=1080}, (960, 0)=Dot{x=960, y=0}, (1920, 1080)=Dot{x=1920, y=1080}}}, active=true, jobNodes={}, section=null}
+17:44:56 - Pausing for 5000 ms
+17:44:57 - Sending message [0|3||JOB_REQUEST|4]
+17:44:57 - Sending message [0|0||JOB_REQUEST|1]
+17:44:57 - Sending message [0|1||JOB_REQUEST|2]
+17:44:57 - Sending message [0|2||JOB_REQUEST|3]
+17:44:58 - Got message [4|0|true|JOB_RESPONSE|0]
+17:44:58 - Got message [3|0|true|JOB_RESPONSE|0]
+17:44:58 - [JobHandler]: In jobdevide the res.getSender is :Node{serventInfo=[0|localhost|1100], ID='0'}
+17:44:58 - [JobHandler]: In jobdevide the res.getSender is :Node{serventInfo=[3|localhost|1400], ID='NOT_SET'}
+17:44:58 - [JobHandler]: In jobdevide the res.getSender is :Node{serventInfo=[4|localhost|1500], ID='NOT_SET'}
+17:44:58 - [AppConfig]: Set active job to : ActiveJob{job=Job{name='triangle', n=3, p=0.5, w=1920, h=1080, A={(0, 1080)=Dot{x=0, y=1080}, (960, 0)=Dot{x=960, y=0}, (1920, 1080)=Dot{x=1920, y=1080}}}, active=true, jobNodes={0=Node{serventInfo=[0|localhost|1100], ID='0'}, 1=Node{serventInfo=[3|localhost|1400], ID='NOT_SET'}, 2=Node{serventInfo=[4|localhost|1500], ID='NOT_SET'}}, section=Section{size=0, depth=1, dots=[Dot{x=480, y=540}, Dot{x=960, y=1080}, Dot{x=0, y=1080}]}}
+17:44:59 - Sending message [0|5|true|JOB_RESPONSE|3]
+17:44:59 - Sending message [0|6|true|JOB_RESPONSE|4]
+17:44:59 - Got message [1|0|true|JOB_RESPONSE|0]
+17:44:59 - Got message [2|0|true|JOB_RESPONSE|0]
+17:44:59 - Sending message [0|4|true|JOB_RESPONSE|0]
+17:44:59 - Got message [0|4|true|JOB_RESPONSE|0]
+17:44:59 - [AppConfig]: Set active job to : ActiveJob{job=Job{name='triangle', n=3, p=0.5, w=1920, h=1080, A={(0, 1080)=Dot{x=0, y=1080}, (960, 0)=Dot{x=960, y=0}, (1920, 1080)=Dot{x=1920, y=1080}}}, active=true, jobNodes={0=Node{serventInfo=[0|localhost|1100], ID='0'}, 1=Node{serventInfo=[3|localhost|1400], ID='NOT_SET'}, 2=Node{serventInfo=[4|localhost|1500], ID='NOT_SET'}}, section=Section{size=0, depth=1, dots=[Dot{x=480, y=540}, Dot{x=960, y=1080}, Dot{x=0, y=1080}]}}
+17:44:59 - [Fractal Worker]: Started fractal worker
+17:45:00 - Sending message [0|8|false|JOB_RESPONSE|2]
+17:45:00 - Sending message [0|7|false|JOB_RESPONSE|1]
+17:45:01 - [ResultCommand]: Finding result for: triangle
+17:45:01 - [Result Handler]: Sent result request message
+17:45:01 - [Result Handler]: Sent result request message
+17:45:01 - [Result Handler]: Sent result request message
+17:45:01 - Pausing for 10000 ms
+17:45:02 - Sending message [0|9||RESULT|0]
+17:45:02 - Got message [0|9||RESULT|0]
+17:45:02 - [ResultMessageHandler]: Got request message from[0|9||RESULT|0]
+17:45:02 - [Result Handler]: Before sending result my node is:Node{serventInfo=[4|localhost|1500], ID='2'}
+17:45:02 - [Result Handler]: Sent result response message
+17:45:02 - Sending message [0|11||RESULT|4]
+17:45:02 - Sending message [0|10||RESULT|3]
+17:45:03 - Sending message [0|12||RESULT|4]

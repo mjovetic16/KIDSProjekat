@@ -185,16 +185,21 @@ public class JobHandler {
         HashMap<String, Node> jobNodesMap = new HashMap<>();
 
         int i = 0;
+        int j = 0;
 
         //Calculate IDS
         for(Response res: responseMap.values()){
-            String id = i+"";
+            String id = j+"";
 
             jobNodesMap.put(id,res.getSender());
 
-            if(res.getSender().getServentInfo()==AppConfig.myServentInfo){
-                activeJob.setMyNode(new Node(id,AppConfig.myServentInfo));
-            }
+
+            log("In jobdevide the res.getSender is :" +res.getSender());
+            activeJob.setMyNode(new Node(id,res.getSender().getServentInfo()));
+
+
+            j++;
+
         }
 
 
@@ -241,6 +246,9 @@ public class JobHandler {
 
             activeJob.setSection(section);
             activeJob.setJobNodes(jobNodesMap);
+
+//            log("When setting job nodes: "+jobNodesMap);
+//            log(activeJob+"");
 
 
 //            AppConfig.timestampedStandardPrint("AC"+activeJob.getSection().getDots().values());

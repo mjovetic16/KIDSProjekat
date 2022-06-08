@@ -292,6 +292,8 @@ public class AppConfig {
 	public static void setActiveJob(ActiveJob activeJob){
 		synchronized (jobLock){
 			AppConfig.activeJob = activeJob;
+
+			log("Set active job to : "+activeJob);
 		}
 	}
 
@@ -302,5 +304,18 @@ public class AppConfig {
 
 	public static String getImageWriteLock(){
 		return imageWriteLock;
+	}
+
+
+	public static void log(String s){
+
+		AppConfig.timestampedStandardPrint("[AppConfig]: "+s);
+	}
+
+	public static void errorLog(String s, Exception e){
+
+		AppConfig.timestampedErrorPrint("[AppConfig]: "+s);
+		AppConfig.timestampedErrorPrint("[AppConfig]: "+e.toString());
+		AppConfig.timestampedErrorPrint("[AppConfig]: "+ Arrays.toString(e.getStackTrace()));
 	}
 }

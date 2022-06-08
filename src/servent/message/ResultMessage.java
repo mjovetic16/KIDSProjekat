@@ -14,7 +14,7 @@ public class ResultMessage extends BasicMessage{
     private Response response;
 
     public ResultMessage(ServentInfo sender, ServentInfo receiver, Response response) {
-        super(MessageType.JOB_REQUEST, sender, receiver);
+        super(MessageType.RESULT, sender, receiver);
         this.response = response;
 
     }

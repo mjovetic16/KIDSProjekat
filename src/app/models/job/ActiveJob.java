@@ -58,7 +58,7 @@ public class ActiveJob implements Serializable {
     }
 
     public void setJobNodes(HashMap<String, Node> Node) {
-        this.jobNodes = jobNodes;
+        this.jobNodes = Node;
     }
 
     public Section getSection() {

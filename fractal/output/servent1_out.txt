@@ -1,9 +1,7 @@
-19:04:56 - Starting servent [1|localhost|1200]
-19:04:56 - Pausing for 15000 ms
-19:04:58 - Got message [0|0||JOB_REQUEST|1]
-19:04:59 - Sending message [1|0|true|JOB_RESPONSE|0]
-19:05:00 - Got message [0|5|true|JOB_RESPONSE|1]
-19:05:00 - [Fractal Worker]: Started fractal worker
-19:05:11 - Quitting...
-19:05:11 - [JobManager]: Result handler set: app.manager.handler.ResultHandler@64f246a7
-19:05:11 - [Fractal Worker]: Done drawing: triangle with dots:[Dot{x=1440, y=540}, Dot{x=480, y=540}, Dot{x=960, y=0}]
+17:44:55 - Starting servent [1|localhost|1200]
+17:44:55 - Pausing for 15000 ms
+17:44:57 - Got message [0|0||JOB_REQUEST|1]
+17:44:57 - [AppConfig]: Set active job to : ActiveJob{job=Job{name='triangle', n=3, p=0.5, w=1920, h=1080, A={(0, 1080)=Dot{x=0, y=1080}, (960, 0)=Dot{x=960, y=0}, (1920, 1080)=Dot{x=1920, y=1080}}}, active=true, jobNodes={}, section=null}
+17:44:59 - Sending message [1|0|true|JOB_RESPONSE|0]
+17:45:00 - Got message [0|7|false|JOB_RESPONSE|1]
+17:45:00 - [AppConfig]: Set active job to : ActiveJob{job=Job{name='triangle', n=3, p=0.5, w=1920, h=1080, A={(0, 1080)=Dot{x=0, y=1080}, (960, 0)=Dot{x=960, y=0}, (1920, 1080)=Dot{x=1920, y=1080}}}, active=false, jobNodes={}, section=null}
