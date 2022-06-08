@@ -96,6 +96,7 @@ public class ActiveJob implements Serializable {
                 ", active=" + active +
                 ", jobNodes=" + jobNodes +
                 ", section=" + section +
+                ", myNode="+myNode+
                 '}';
     }
 }

@@ -1,8 +1,6 @@
-17:44:55 - Starting servent [2|localhost|1300]
-17:44:55 - Pausing for 15000 ms
-17:44:57 - Got message [0|1||JOB_REQUEST|2]
-17:44:57 - [AppConfig]: Set active job to : ActiveJob{job=Job{name='triangle', n=3, p=0.5, w=1920, h=1080, A={(0, 1080)=Dot{x=0, y=1080}, (960, 0)=Dot{x=960, y=0}, (1920, 1080)=Dot{x=1920, y=1080}}}, active=true, jobNodes={}, section=null}
-17:44:59 - Sending message [2|0|true|JOB_RESPONSE|0]
-17:45:00 - Got message [0|8|false|JOB_RESPONSE|2]
-17:45:00 - [AppConfig]: Set active job to : ActiveJob{job=Job{name='triangle', n=3, p=0.5, w=1920, h=1080, A={(0, 1080)=Dot{x=0, y=1080}, (960, 0)=Dot{x=960, y=0}, (1920, 1080)=Dot{x=1920, y=1080}}}, active=false, jobNodes={}, section=null}
-17:45:10 - Quitting...
+18:10:32 - Starting servent [2|localhost|1300]
+18:10:32 - Pausing for 15000 ms
+18:10:35 - Got message [0|1||JOB_REQUEST|2]
+18:10:35 - Sending message [2|0|true|JOB_RESPONSE|0]
+18:10:36 - Got message [0|8|false|JOB_RESPONSE|2]
+18:10:47 - Quitting...

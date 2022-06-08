@@ -77,7 +77,7 @@ public class ResultHandler {
 
 
             responseMap.put(response.getSender().getServentInfo().getId()+"",response);
-            log(response.getSender().getServentInfo().getId()+"");
+            //log(response.getSender().getServentInfo().getId()+"");
 
 
             if(checkIfResponsesDone()){
@@ -93,8 +93,8 @@ public class ResultHandler {
     }
 
     public boolean checkIfResponsesDone(){
-        log("Not done yet rm:"+ responseMap.size());
-        log("Not done yet ac:"+ activeJob.getJobNodes().size());
+        //log("Not done yet rm:"+ responseMap.size());
+        //log("Not done yet ac:"+ activeJob.getJobNodes().size());
         return responseMap.size() >= activeJob.getJobNodes().size();
     }
 
@@ -124,7 +124,7 @@ public class ResultHandler {
             MessageUtil.sendMessage(resultRequestMessage);
 
 
-            log("Sent result request message");
+            //log("Sent result request message");
 
 //            log("Sent message: "+resultRequestMessage);
 
@@ -137,8 +137,6 @@ public class ResultHandler {
     }
 
     public void drawResult(String path){
-
-        //TODO draw
 
         BufferedImage image = new BufferedImage(activeJob.getJob().getW(), activeJob.getJob().getH(), BufferedImage.TYPE_INT_ARGB);
         final Graphics2D graphics2D = image.createGraphics ();
@@ -171,7 +169,7 @@ public class ResultHandler {
         }
 
 
-        log("Done drawing: " + activeJob.getJob().getName() +" with dots:"+activeJob.getSection().getDots().values());
+        log("Done drawing job: " + activeJob.getJob().getName() +" with dots:"+activeJob.getJob().getA().values());
 
         graphics2D.dispose();
 
@@ -200,7 +198,7 @@ public class ResultHandler {
 
         myResponse.setResponseType(ResponseType.RESULT_RESPONSE);
         myResponse.setData(jobManager.getFractalWorker().returnResult());
-        log("Before sending result my node is:"+AppConfig.getActiveJob().getMyNode());
+        //log("Before sending result my node is:"+AppConfig.getActiveJob().getMyNode());
         myResponse.setSender(AppConfig.getActiveJob().getMyNode());
 
 
@@ -209,7 +207,7 @@ public class ResultHandler {
 
         MessageUtil.sendMessage(resultResponseMessage);
 
-        log("Sent result response message");
+        //log("Sent result response message");
 
 
     }

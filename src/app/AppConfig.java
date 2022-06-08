@@ -293,7 +293,7 @@ public class AppConfig {
 		synchronized (jobLock){
 			AppConfig.activeJob = activeJob;
 
-			log("Set active job to : "+activeJob);
+			//log("Set active job to : "+activeJob);
 		}
 	}
 

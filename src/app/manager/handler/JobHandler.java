@@ -184,6 +184,9 @@ public class JobHandler {
 
         HashMap<String, Node> jobNodesMap = new HashMap<>();
 
+        //UZASNO resenje ali radi
+        HashMap<Integer, String> jobNameMap = new HashMap<>();
+
         int i = 0;
         int j = 0;
 
@@ -191,11 +194,15 @@ public class JobHandler {
         for(Response res: responseMap.values()){
             String id = j+"";
 
+
             jobNodesMap.put(id,res.getSender());
+            jobNameMap.put(res.getSender().getServentInfo().getId(),id);
 
 
-            log("In jobdevide the res.getSender is :" +res.getSender());
-            activeJob.setMyNode(new Node(id,res.getSender().getServentInfo()));
+            //log("In jobdevide the res.getSender is :" +res.getSender());
+
+
+//            activeJob.setMyNode(new Node(id,res.getSender().getServentInfo()));
 
 
             j++;
@@ -246,6 +253,16 @@ public class JobHandler {
 
             activeJob.setSection(section);
             activeJob.setJobNodes(jobNodesMap);
+
+
+
+            String id = jobNameMap.get(response.getSender().getServentInfo().getId());
+
+            Node n = new Node();
+            n.setServentInfo(response.getSender().getServentInfo());
+            n.setID(jobNodesMap.get(id).getID());
+
+            activeJob.setMyNode(n);
 
 //            log("When setting job nodes: "+jobNodesMap);
 //            log(activeJob+"");

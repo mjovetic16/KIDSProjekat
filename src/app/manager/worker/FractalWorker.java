@@ -116,9 +116,9 @@ public class FractalWorker implements Runnable, Cancellable {
 
 
 
-    public HashMap<String,Dot> returnResult(){
+    public Result returnResult(){
         Result result = new Result(filledDotMap,iteration);
-        return filledDotMap;
+        return result;
     }
 
     public void testDraw(String path) throws Exception{
@@ -153,7 +153,7 @@ public class FractalWorker implements Runnable, Cancellable {
         }
 
 
-        log("Done drawing: " + activeJob.getJob().getName() +" with dots:"+activeJob.getSection().getDots().values());
+        log("Done drawing part of job: " + activeJob.getJob().getName() +" with dots:"+activeJob.getSection().getDots().values());
 
     }
 

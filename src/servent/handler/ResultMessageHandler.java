@@ -42,7 +42,7 @@ public class ResultMessageHandler implements MessageHandler{
 //                ResultHandler resultHandler = jobManager.getResultHandler();
 //                log("Zadnji"+resultHandler);
 
-                log("Got request message from"+message+"");
+                //log("Got request message from"+message.getResponse().getData()+"");
                 jobManager.getResultHandler().sendResult(message.getResponse());
 
             //Ako je primljen odgovor na zahtev za rezultat
