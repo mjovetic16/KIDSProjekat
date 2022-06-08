@@ -17,3 +17,5 @@
 17:45:04 - [Result Handler]: Not done yet rm:0
 17:45:04 - Got message [4|1||RESULT|4]
 17:45:04 - [Result Handler]: Not done yet rm:0
+17:45:10 - Quitting...
+17:45:11 - [Fractal Worker]: Done drawing: triangle with dots:[Dot{x=1920, y=1080}, Dot{x=1440, y=540}, Dot{x=960, y=1080}]
