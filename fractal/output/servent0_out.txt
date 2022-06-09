@@ -1,38 +1,77 @@
-17:28:44 - Starting servent [0|localhost|1100]
-17:28:44 - Pausing for 1000 ms
-17:28:45 - Starting job: triangle ...
-17:28:45 - [AppConfig]: Set active job to : false
-17:28:45 - [JobHandler]: The limit is: 1 The servent count is:5
-17:28:45 - Pausing for 5000 ms
-17:28:46 - Sending message [0|2||JOB_REQUEST|3]
-17:28:46 - Sending message [0|0||JOB_REQUEST|1]
-17:28:46 - Sending message [0|3||JOB_REQUEST|4]
-17:28:46 - Sending message [0|1||JOB_REQUEST|2]
-17:28:47 - Got message [1|0|true|JOB_RESPONSE|0]
-17:28:47 - [JobHandler]: 0
-17:28:47 - [JobHandler]: [JobNodeData{id='0'}]
-17:28:47 - Got message [4|0|true|JOB_RESPONSE|0]
-17:28:47 - Got message [3|0|true|JOB_RESPONSE|0]
-17:28:47 - Sending message [0|6|false|JOB_RESPONSE|3]
-17:28:48 - Got message [2|0|true|JOB_RESPONSE|0]
-17:28:48 - Sending message [0|4|true|JOB_RESPONSE|1]
-17:28:48 - Sending message [0|5|false|JOB_RESPONSE|4]
-17:28:49 - Sending message [0|7|false|JOB_RESPONSE|2]
-17:28:50 - [ResultCommand]: Finding result for: triangle
-17:28:50 - [Result Handler]: false
-17:28:50 - Pausing for 10000 ms
-17:28:51 - Sending message [0|8|RESULT_REQUEST|RESULT|0]
-17:28:51 - Got message [0|8|RESULT_REQUEST|RESULT|0]
-17:28:51 - Sending message [0|11|RESULT_REQUEST|RESULT|3]
-17:28:51 - Sending message [0|12|RESULT_REQUEST|RESULT|4]
-17:28:51 - Sending message [0|9|RESULT_REQUEST|RESULT|1]
-17:28:51 - Sending message [0|10|RESULT_REQUEST|RESULT|2]
-17:28:53 - Got message [1|1|RESULT_RESPONSE|RESULT|0]
-17:28:53 - [Result Handler]: 1
-17:28:54 - [Result Handler]: 2
-17:28:54 - [Result Handler]: 3
-17:28:54 - [Result Handler]: 4
-17:28:54 - [Result Handler]: 5
-17:28:54 - [Result Handler]: Done drawing job: triangle with dots:[Dot{x=0, y=1080}, Dot{x=960, y=0}, Dot{x=1920, y=1080}]
-17:28:54 - [Result Handler]: 6
-17:29:00 - Quitting...
+17:32:32 - Starting servent [0|localhost|1100]
+17:32:32 - Pausing for 1000 ms
+17:32:33 - Starting job: triangle ...
+17:32:33 - [AppConfig]: Set active job to : false
+17:32:33 - [JobHandler]: The limit is: 7 The servent count is:15
+17:32:33 - Pausing for 5000 ms
+17:32:34 - Sending message [0|6||JOB_REQUEST|7]
+17:32:34 - Sending message [0|2||JOB_REQUEST|3]
+17:32:34 - Sending message [0|1||JOB_REQUEST|2]
+17:32:34 - Sending message [0|8||JOB_REQUEST|9]
+17:32:34 - Sending message [0|5||JOB_REQUEST|6]
+17:32:34 - Sending message [0|7||JOB_REQUEST|8]
+17:32:34 - Sending message [0|10||JOB_REQUEST|11]
+17:32:34 - Sending message [0|3||JOB_REQUEST|4]
+17:32:34 - Sending message [0|9||JOB_REQUEST|10]
+17:32:34 - Sending message [0|12||JOB_REQUEST|13]
+17:32:34 - Sending message [0|11||JOB_REQUEST|12]
+17:32:34 - Sending message [0|13||JOB_REQUEST|14]
+17:32:34 - Sending message [0|0||JOB_REQUEST|1]
+17:32:34 - Sending message [0|4||JOB_REQUEST|5]
+17:32:35 - Got message [7|0|true|JOB_RESPONSE|0]
+17:32:35 - Got message [6|0|true|JOB_RESPONSE|0]
+17:32:35 - Got message [9|0|true|JOB_RESPONSE|0]
+17:32:35 - Got message [10|0|true|JOB_RESPONSE|0]
+17:32:35 - Got message [14|0|true|JOB_RESPONSE|0]
+17:32:35 - Got message [3|0|true|JOB_RESPONSE|0]
+17:32:35 - Got message [4|0|true|JOB_RESPONSE|0]
+17:32:35 - Got message [11|0|true|JOB_RESPONSE|0]
+17:32:35 - [JobHandler]: [JobNodeData{id='2'}, JobNodeData{id='00'}, JobNodeData{id='01'}, JobNodeData{id='02'}, JobNodeData{id='10'}, JobNodeData{id='11'}, JobNodeData{id='12'}]
+17:32:35 - Got message [2|0|true|JOB_RESPONSE|0]
+17:32:35 - Got message [1|0|true|JOB_RESPONSE|0]
+17:32:35 - Got message [8|0|true|JOB_RESPONSE|0]
+17:32:35 - Got message [5|0|true|JOB_RESPONSE|0]
+17:32:35 - Got message [13|0|true|JOB_RESPONSE|0]
+17:32:36 - Got message [12|0|true|JOB_RESPONSE|0]
+17:32:36 - Sending message [0|18|true|JOB_RESPONSE|10]
+17:32:36 - Sending message [0|16|true|JOB_RESPONSE|9]
+17:32:36 - Sending message [0|23|false|JOB_RESPONSE|1]
+17:32:36 - Sending message [0|19|true|JOB_RESPONSE|14]
+17:32:36 - Sending message [0|14|false|JOB_RESPONSE|11]
+17:32:36 - Sending message [0|25|false|JOB_RESPONSE|5]
+17:32:36 - Sending message [0|15|true|JOB_RESPONSE|3]
+17:32:36 - Sending message [0|22|false|JOB_RESPONSE|2]
+17:32:36 - Sending message [0|24|false|JOB_RESPONSE|8]
+17:32:37 - Sending message [0|21|true|JOB_RESPONSE|7]
+17:32:37 - Sending message [0|20|true|JOB_RESPONSE|6]
+17:32:37 - Sending message [0|17|true|JOB_RESPONSE|4]
+17:32:37 - Sending message [0|26|false|JOB_RESPONSE|13]
+17:32:37 - Sending message [0|27|false|JOB_RESPONSE|12]
+17:32:38 - [ResultCommand]: Finding result for: triangle
+17:32:38 - [Result Handler]: false
+17:32:38 - Pausing for 10000 ms
+17:32:39 - Sending message [0|31|RESULT_REQUEST|RESULT|3]
+17:32:39 - Sending message [0|35|RESULT_REQUEST|RESULT|7]
+17:32:39 - Sending message [0|34|RESULT_REQUEST|RESULT|6]
+17:32:39 - Sending message [0|29|RESULT_REQUEST|RESULT|1]
+17:32:39 - Sending message [0|37|RESULT_REQUEST|RESULT|9]
+17:32:39 - Sending message [0|42|RESULT_REQUEST|RESULT|14]
+17:32:39 - Sending message [0|32|RESULT_REQUEST|RESULT|4]
+17:32:39 - Sending message [0|30|RESULT_REQUEST|RESULT|2]
+17:32:39 - Sending message [0|38|RESULT_REQUEST|RESULT|10]
+17:32:39 - Sending message [0|39|RESULT_REQUEST|RESULT|11]
+17:32:39 - Sending message [0|41|RESULT_REQUEST|RESULT|13]
+17:32:39 - Sending message [0|28|RESULT_REQUEST|RESULT|0]
+17:32:39 - Got message [0|28|RESULT_REQUEST|RESULT|0]
+17:32:39 - Sending message [0|36|RESULT_REQUEST|RESULT|8]
+17:32:39 - Sending message [0|33|RESULT_REQUEST|RESULT|5]
+17:32:39 - Sending message [0|40|RESULT_REQUEST|RESULT|12]
+17:32:40 - Got message [7|1|RESULT_RESPONSE|RESULT|0]
+17:32:40 - Got message [3|1|RESULT_RESPONSE|RESULT|0]
+17:32:40 - Got message [9|1|RESULT_RESPONSE|RESULT|0]
+17:32:40 - Got message [10|1|RESULT_RESPONSE|RESULT|0]
+17:32:40 - Got message [6|1|RESULT_RESPONSE|RESULT|0]
+17:32:40 - Got message [14|1|RESULT_RESPONSE|RESULT|0]
+17:32:41 - Got message [4|1|RESULT_RESPONSE|RESULT|0]
+17:32:42 - [Result Handler]: Done drawing job: triangle with dots:[Dot{x=0, y=1080}, Dot{x=960, y=0}, Dot{x=1920, y=1080}]
+17:32:48 - Quitting...

@@ -247,7 +247,7 @@ public class JobHandler {
 
         int pointer = 0;
         List<JobNodeData> bufferList = new ArrayList<>();
-        log(numberOfNodesToDevide+"");
+        //log(numberOfNodesToDevide+"");
         numberOfNodesToDevide++;
         while(numberOfNodesToDevide>0){
             JobNodeData currentNode = jobNodeDataQueue.peek();

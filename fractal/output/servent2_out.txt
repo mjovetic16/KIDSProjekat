@@ -1,11 +1,11 @@
-17:28:44 - Starting servent [2|localhost|1300]
-17:28:44 - Pausing for 15000 ms
-17:28:46 - Got message [0|1||JOB_REQUEST|2]
-17:28:46 - [AppConfig]: Set active job to : false
-17:28:48 - Sending message [2|0|true|JOB_RESPONSE|0]
-17:28:49 - Got message [0|7|false|JOB_RESPONSE|2]
-17:28:49 - [JobResponseMessageHandler]: izaslo iz clear
-17:28:49 - [AppConfig]: Set active job to : false
-17:28:49 - [JobResponseMessageHandler]: Uslo u clear
-17:28:51 - Got message [0|10|RESULT_REQUEST|RESULT|2]
-17:28:59 - Quitting...
+17:32:32 - Starting servent [2|localhost|1300]
+17:32:32 - Pausing for 15000 ms
+17:32:34 - Got message [0|1||JOB_REQUEST|2]
+17:32:34 - [AppConfig]: Set active job to : false
+17:32:35 - Sending message [2|0|true|JOB_RESPONSE|0]
+17:32:36 - Got message [0|22|false|JOB_RESPONSE|2]
+17:32:36 - [JobResponseMessageHandler]: izaslo iz clear
+17:32:36 - [AppConfig]: Set active job to : false
+17:32:36 - [JobResponseMessageHandler]: Uslo u clear
+17:32:39 - Got message [0|30|RESULT_REQUEST|RESULT|2]
+17:32:47 - Quitting...

@@ -93,7 +93,7 @@ public class ResultHandler {
             if(checkIfResponsesDone()){
                 drawResult(path);
             }
-            log("6");
+            //log("6");
 
         }
         catch (Exception e){
@@ -115,9 +115,6 @@ public class ResultHandler {
 
     public void sendResultRequestMessages(String argument){
 
-        //TODO kome se salje?
-
-        //TODO Nula kad trazi nema setovan active job
 
 //        log("In send rquest");
         activeJob = AppConfig.getActiveJob();;
@@ -125,12 +122,6 @@ public class ResultHandler {
 
         log(AppConfig.getActiveJob().isActive()+"");
 
-
-
-
-
-//        log(activeJob.getJobNodes().size()+"");
-//        log(activeJob+"");
 
         for(ServentInfo neighbor : AppConfig.getServentInfoList()){
 
@@ -161,17 +152,14 @@ public class ResultHandler {
 
     public void drawResult(String path){
 
-        log("1");
 
         BufferedImage image = new BufferedImage(requestedJob.getJob().getW(), requestedJob.getJob().getH(), BufferedImage.TYPE_INT_ARGB);
         final Graphics2D graphics2D = image.createGraphics ();
 
-        log("2");
 
         graphics2D.setPaint(Color.WHITE);
         graphics2D.fillRect(0, 0, requestedJob.getJob().getW(), requestedJob.getJob().getH());
 
-        log("3");
         for(Response r: responseMap.values()){
 
 
@@ -187,7 +175,6 @@ public class ResultHandler {
             }
 
         }
-        log("4");
 
 
         try {
@@ -197,7 +184,6 @@ public class ResultHandler {
             errorLog("Error writing file",e);
         }
 
-        log("5");
 
         log("Done drawing job: " + requestedJob.getJob().getName() +" with dots:"+requestedJob.getJob().getA().values());
 
