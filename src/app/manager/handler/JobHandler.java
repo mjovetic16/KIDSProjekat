@@ -60,6 +60,7 @@ public class JobHandler {
 
         //TODO number of possible nodes to join job
         tempAmount = job.getN();
+        tempAmount = 5;
 
         activeJob = AppConfig.getActiveJob();
 
@@ -131,9 +132,7 @@ public class JobHandler {
 
     }
 
-    public void sendResponseAcceptNode(ActiveJob activeJob, Response r){
-
-        ServentInfo recepient = r.getSender().getServentInfo();
+    public void sendResponseAcceptNode(ActiveJob activeJob, ServentInfo recepient){
 
         Response response = new Response();
         response.setResponseType(ResponseType.ACCEPTED_OR_REJECTED_JOB_RESPONSE);
@@ -166,8 +165,8 @@ public class JobHandler {
     }
 
     public void jobDivide(){
-        realJobDivide(15);
-        tempStupidJobDevide();
+        realJobDivide(5);
+        //tempStupidJobDevide();
     }
 
 
@@ -201,18 +200,12 @@ public class JobHandler {
     public void realJobDivide(int numberOfNodesToDevide){
 
 
-        HashMap<String, Node> jobNodesMap = new HashMap<>();
-        //UZASNO resenje ali radi
-        HashMap<Integer, String> jobNameMap = new HashMap<>();
-
-
         Job job = AppConfig.getActiveJob().getJob();
 
         int n = job.getN();
         int subN = n-1 ;
 
-        int i = 0;
-        int j = 0;
+
 
 
         Queue<JobNodeData> jobNodeDataQueue = new LinkedList<>();
@@ -263,89 +256,56 @@ public class JobHandler {
 
 
 
-//        //Calculate IDS
-//        for(Response res: responseMap.values()){
-//            String id = j+"";
-//
-//
-//            jobNodesMap.put(id,res.getSender());
-//            jobNameMap.put(res.getSender().getServentInfo().getId(),id);
-//
-//
-//            j++;
-//
-//        }
-//
-//
-//        //Make active jobs, set their dots and send them in response messages
-//        for(Response response:responseMap.values()){
-//
-//
-//            Job job = AppConfig.getActiveJob().getJob();
-//
-//
-//            HashMap<String, Dot> dotMap = new HashMap<>();
-//            List<Dot> allDots =  job.getA().values().stream().toList();
-//            ArrayList<Dot> otherDots = new ArrayList<>();
-//
-//            Dot dot1 = allDots.get(i);
-//
-//
-//            dotMap.put(dot1.toString(),dot1);
-//
-//            for(Dot d: allDots){
-//                if(d==dot1)continue;
-//
-//                Dot newDot = new Dot();
-//
-//                double p = job.getP();
-//
-//                int newX = (int) ((1-p)*dot1.getX() + p*d.getX());
-//                int newY = (int) ((1-p)*dot1.getY() + p*d.getY());
-//
-//                newDot.setX(newX);
-//                newDot.setY(newY);
-//
-//                dotMap.put(newDot.toString(),newDot);
-//            }
-//
-//
-//            activeJob.setActive(true);
-//            activeJob.setJob(job);
-//
-//            Section section = new Section();
-//            section.setDepth(1);
-//
-//            section.setDots(dotMap);
-//
-//            activeJob.setSection(section);
-//            activeJob.setJobNodes(jobNodesMap);
-//
-//
-//
-//            String id = jobNameMap.get(response.getSender().getServentInfo().getId());
-//
-//            Node n = new Node();
-//            n.setServentInfo(response.getSender().getServentInfo());
-//            n.setID(jobNodesMap.get(id).getID());
-//
-//            activeJob.setMyNode(n);
-//
-////            log("When setting job nodes: "+jobNodesMap);
-////            log(activeJob+"");
-//
-//
-////            AppConfig.timestampedStandardPrint("AC"+activeJob.getSection().getDots().values());
-//
-//            if(response.getSender().getID().equals("0")){
-//                AppConfig.setActiveJob(activeJob);
-//            }
-//
-//
-//            sendResponseAcceptNode(activeJob, response);
-//
-//            i++;
-//        }
+        HashMap<String, Node> jobNodesServentMap = new HashMap<>();
+        HashMap<String, JobNodeData>  jobNodesDataMap= new HashMap<>();
+
+        for(Response res: responseMap.values()){
+            JobNodeData jobNodeDataForCurrentNode = jobNodeDataQueue.poll();
+
+
+            jobNodesServentMap.put(jobNodeDataForCurrentNode.getId(),res.getSender());
+            jobNodesDataMap.put(jobNodeDataForCurrentNode.getId(),jobNodeDataForCurrentNode);
+
+        }
+
+
+
+        for(JobNodeData jobNodeData: jobNodesDataMap.values()){
+
+            activeJob.setActive(true);
+            activeJob.setJob(job);
+
+            Section section = new Section();
+
+            HashMap<String,Dot> dotMap = new HashMap<>();
+            for(Dot d: jobNodeData.getDots()){
+                dotMap.put(d.toString(),d);
+            }
+            section.setDots(dotMap);
+
+            activeJob.setSection(section);
+            activeJob.setJobNodes(jobNodesServentMap);
+
+
+
+            Node node = new Node();
+            node.setServentInfo(jobNodesServentMap.get(jobNodeData.getId()).getServentInfo());
+            node.setID(jobNodeData.getId());
+
+            activeJob.setMyNode(node);
+
+
+            if(node.getServentInfo().getId()==AppConfig.myServentInfo.getId()){
+                AppConfig.setActiveJob(activeJob);
+            }
+
+
+            sendResponseAcceptNode(activeJob, jobNodesServentMap.get(jobNodeData.getId()).getServentInfo());
+
+
+        }
+
+
 
 
 
@@ -447,7 +407,7 @@ public class JobHandler {
             }
 
 
-            sendResponseAcceptNode(activeJob, response);
+            sendResponseAcceptNode(activeJob, response.getSender().getServentInfo());
 
             i++;
         }
