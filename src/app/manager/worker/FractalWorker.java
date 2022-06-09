@@ -117,7 +117,7 @@ public class FractalWorker implements Runnable, Cancellable {
 
 
     public Result returnResult(){
-        Result result = new Result(filledDotMap,iteration);
+        Result result = new Result(filledDotMap,iteration,AppConfig.getActiveJob());
         return result;
     }
 

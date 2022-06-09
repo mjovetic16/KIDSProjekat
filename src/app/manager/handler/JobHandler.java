@@ -21,7 +21,7 @@ public class JobHandler {
 
     private ConcurrentHashMap<String,Response> responseMap;
 
-    private int tempAmount = 0;
+    private int limit = 0;
 
 
 
@@ -38,7 +38,7 @@ public class JobHandler {
             return;
         }else{
             activeJob = new ActiveJob();
-            activeJob.setActive(true);
+            activeJob.setActive(false);
 
             for(Job j:AppConfig.getJobList()){
                 if(j.getName().equals(args)){
@@ -59,22 +59,32 @@ public class JobHandler {
 
 
         //TODO number of possible nodes to join job
-        tempAmount = job.getN();
-        tempAmount = 5;
+//        tempAmount = job.getN();
+//        tempAmount = 5;
+
+        limit = AppConfig.getServentCount()/AppConfig.getJobList().size();
+        if(limit<job.getN())limit = 1;
+        log("The limit is: "+limit+" The servent count is:"+AppConfig.getServentCount());
+
+        activeJob.setJobNodesLimit(limit);
 
         activeJob = AppConfig.getActiveJob();
 
         responseMap = new ConcurrentHashMap<>();
-
-        Response response = new Response();
-
-        response.setResponseType(ResponseType.JOB_RESPONSE);
-        response.setSender(new Node("0",AppConfig.myServentInfo));
-        response.setAccepted(true);
-
-        responseMap.put(AppConfig.myServentInfo.getId()+"",response);
+//
+//        Response response = new Response();
+//
+//        response.setResponseType(ResponseType.JOB_RESPONSE);
+//        response.setSender(new Node("0",AppConfig.myServentInfo));
+//        response.setAccepted(true);
+//
+//        responseMap.put(AppConfig.myServentInfo.getId()+"",response);
 
         sendJobRequestMessages();
+
+//        if(limit==1){
+//            jobDivide();
+//        }
 
     }
 
@@ -86,9 +96,8 @@ public class JobHandler {
     public void recordResponse(Response response){
         try{
 
-
-
             if(checkIfResponsesDone()){
+
 
                 sendRejectResponse(response);
 
@@ -112,7 +121,8 @@ public class JobHandler {
     }
 
     public boolean checkIfResponsesDone(){
-        return responseMap.size()>=tempAmount;
+
+        return responseMap.size()>=AppConfig.getActiveJob().getJobNodesLimit();
     }
 
 
@@ -165,7 +175,9 @@ public class JobHandler {
     }
 
     public void jobDivide(){
-        realJobDivide(5);
+
+        int size = responseMap.size();
+        realJobDivide(size);
         //tempStupidJobDevide();
     }
 
@@ -211,17 +223,27 @@ public class JobHandler {
         Queue<JobNodeData> jobNodeDataQueue = new LinkedList<>();
         List<Dot> oldDots = job.getA().values().stream().toList();
 
-        for(int i1 = 0;i1<n;i1++){
-            List<Dot> newDots = returnNewDots(oldDots,job.getP(),i1);
-
-            JobNodeData jobNodeData = new JobNodeData(i1+"",newDots);
+        if(limit<n){
+//            List<Dot> newDots = returnNewDots(oldDots,job.getP(),0);
+            JobNodeData jobNodeData = new JobNodeData(0+"",oldDots);
 
 
             jobNodeDataQueue.add(jobNodeData);
-
-
             numberOfNodesToDevide--;
+        }else{
+            for(int i1 = 0;i1<n;i1++){
+                List<Dot> newDots = returnNewDots(oldDots,job.getP(),i1);
+
+                JobNodeData jobNodeData = new JobNodeData(i1+"",newDots);
+
+
+                jobNodeDataQueue.add(jobNodeData);
+
+
+                numberOfNodesToDevide--;
+            }
         }
+
 
         int pointer = 0;
         List<JobNodeData> bufferList = new ArrayList<>();
@@ -259,7 +281,9 @@ public class JobHandler {
         HashMap<String, Node> jobNodesServentMap = new HashMap<>();
         HashMap<String, JobNodeData>  jobNodesDataMap= new HashMap<>();
 
+
         for(Response res: responseMap.values()){
+
             JobNodeData jobNodeDataForCurrentNode = jobNodeDataQueue.poll();
 
 
@@ -272,8 +296,10 @@ public class JobHandler {
 
         for(JobNodeData jobNodeData: jobNodesDataMap.values()){
 
-            activeJob.setActive(true);
-            activeJob.setJob(job);
+            ActiveJob jobToSend = new ActiveJob();
+
+            jobToSend.setActive(true);
+            jobToSend.setJob(job);
 
             Section section = new Section();
 
@@ -283,8 +309,8 @@ public class JobHandler {
             }
             section.setDots(dotMap);
 
-            activeJob.setSection(section);
-            activeJob.setJobNodes(jobNodesServentMap);
+            jobToSend.setSection(section);
+            jobToSend.setJobNodes(jobNodesServentMap);
 
 
 
@@ -292,15 +318,15 @@ public class JobHandler {
             node.setServentInfo(jobNodesServentMap.get(jobNodeData.getId()).getServentInfo());
             node.setID(jobNodeData.getId());
 
-            activeJob.setMyNode(node);
+            jobToSend.setMyNode(node);
 
 
             if(node.getServentInfo().getId()==AppConfig.myServentInfo.getId()){
-                AppConfig.setActiveJob(activeJob);
+                AppConfig.setActiveJob(jobToSend);
             }
 
 
-            sendResponseAcceptNode(activeJob, jobNodesServentMap.get(jobNodeData.getId()).getServentInfo());
+            sendResponseAcceptNode(jobToSend, jobNodesServentMap.get(jobNodeData.getId()).getServentInfo());
 
 
         }

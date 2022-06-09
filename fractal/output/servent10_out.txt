@@ -1,0 +1,6 @@
+16:40:43 - Starting servent [10|localhost|1111]
+16:40:43 - Pausing for 15000 ms
+16:40:46 - Got message [0|9||JOB_REQUEST|10]
+16:40:47 - Sending message [10|0|true|JOB_RESPONSE|0]
+16:40:47 - Got message [0|23|false|JOB_RESPONSE|10]
+16:40:58 - Quitting...

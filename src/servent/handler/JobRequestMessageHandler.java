@@ -9,6 +9,7 @@ import servent.message.JobRequestMessage;
 import servent.message.Message;
 
 import java.security.spec.ECField;
+import java.util.Arrays;
 
 public class JobRequestMessageHandler implements MessageHandler{
 
@@ -36,8 +37,21 @@ public class JobRequestMessageHandler implements MessageHandler{
 
 
         }catch (Exception e){
-            AppConfig.timestampedErrorPrint(e.toString());
+            errorLog("Error in JobRequestMessageHandler",e);
         }
 
+    }
+
+
+    public void log(String s){
+
+        AppConfig.timestampedStandardPrint("[JobRequestMessageHandler]: "+s);
+    }
+
+    public void errorLog(String s, Exception e){
+
+        AppConfig.timestampedErrorPrint("[JobRequestMessageHandler]: "+s);
+        AppConfig.timestampedErrorPrint("[JobRequestMessageHandler]: "+e.toString());
+        AppConfig.timestampedErrorPrint("[JobRequestMessageHandler]: "+ Arrays.toString(e.getStackTrace()));
     }
 }

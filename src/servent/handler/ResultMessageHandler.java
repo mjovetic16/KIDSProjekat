@@ -43,7 +43,16 @@ public class ResultMessageHandler implements MessageHandler{
 //                log("Zadnji"+resultHandler);
 
                 //log("Got request message from"+message.getResponse().getData()+"");
-                jobManager.getResultHandler().sendResult(message.getResponse());
+
+                if(AppConfig.getActiveJob()==null)return;
+                if(message.getResponse().getData().equals(AppConfig.getActiveJob().getJob().getName())){
+                    if(!AppConfig.getActiveJob().isActive())return;
+//                    log("checkup");
+//                    log(message.getResponse().getData()+"");
+//                    log(AppConfig.getActiveJob().getJob().getName());
+                    jobManager.getResultHandler().sendResult(message.getResponse());
+                }
+
 
             //Ako je primljen odgovor na zahtev za rezultat
             }else if(message.getResponse().getResponseType()==ResponseType.RESULT_RESPONSE){
@@ -58,7 +67,7 @@ public class ResultMessageHandler implements MessageHandler{
 
 
         }catch (Exception e){
-            AppConfig.timestampedErrorPrint(e.toString());
+            errorLog("Error in result message handler",e);
         }
 
     }

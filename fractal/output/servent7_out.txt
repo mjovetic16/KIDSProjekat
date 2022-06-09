@@ -1,0 +1,18 @@
+16:40:43 - Starting servent [7|localhost|1800]
+16:40:43 - Pausing for 15000 ms
+16:40:46 - Got message [0|6||JOB_REQUEST|7]
+16:40:46 - Sending message [7|0|true|JOB_RESPONSE|0]
+16:40:48 - Got message [0|20|true|JOB_RESPONSE|7]
+16:40:48 - [Fractal Worker]: Started fractal worker
+16:40:50 - Got message [0|34|RESULT_REQUEST|RESULT|7]
+16:40:51 - Sending message [7|1|RESULT_RESPONSE|RESULT|7]
+16:40:52 - Got message [7|1|RESULT_RESPONSE|RESULT|7]
+16:40:52 - Got message [1|1|RESULT_RESPONSE|RESULT|7]
+16:40:52 - Got message [12|1|RESULT_RESPONSE|RESULT|7]
+16:40:52 - Got message [8|1|RESULT_RESPONSE|RESULT|7]
+16:40:53 - Got message [5|1|RESULT_RESPONSE|RESULT|7]
+16:40:53 - Got message [9|1|RESULT_RESPONSE|RESULT|7]
+16:40:53 - Got message [14|1|RESULT_RESPONSE|RESULT|7]
+16:40:58 - Quitting...
+16:40:58 - [JobManager]: My job ID is: 10
+16:40:59 - [Fractal Worker]: Done drawing part of job: triangle with dots:[Dot{x=960, y=0}, Dot{x=720, y=270}, Dot{x=1200, y=270}]

@@ -26,6 +26,8 @@ public class ResultHandler {
 
     private JobManager jobManager;
 
+    private ActiveJob requestedJob;
+
     private ConcurrentHashMap<String,Response> responseMap = new ConcurrentHashMap<>();
 
     private String path;
@@ -35,7 +37,7 @@ public class ResultHandler {
 
     public ResultHandler(JobManager jobManager, ActiveJob activeJob) {
         this.jobManager = jobManager;
-        this.path = "fractal/images/"+activeJob.getJob().getName()+".png";
+        this.path = "fractal/images/"+"empty"+".png";
     }
 
     public void start(String args){
@@ -70,6 +72,14 @@ public class ResultHandler {
     public void recordResponse(Response response){
         try{
 
+            if(requestedJob==null){
+
+                Result res = ((Result) response.getData());
+
+                setRequestedJob(res.getActiveJob());
+
+            }
+
             if(checkIfResponsesDone()){
 
                 return;
@@ -83,11 +93,11 @@ public class ResultHandler {
             if(checkIfResponsesDone()){
                 drawResult(path);
             }
-
+            log("6");
 
         }
         catch (Exception e){
-            AppConfig.timestampedErrorPrint(e.toString());
+            errorLog(e.getMessage(),e);
         }
 
     }
@@ -95,7 +105,10 @@ public class ResultHandler {
     public boolean checkIfResponsesDone(){
         //log("Not done yet rm:"+ responseMap.size());
         //log("Not done yet ac:"+ activeJob.getJobNodes().size());
-        return responseMap.size() >= activeJob.getJobNodes().size();
+
+        if(requestedJob==null)return false;
+
+        return responseMap.size() >= requestedJob.getJobNodes().size();
     }
 
 
@@ -104,19 +117,29 @@ public class ResultHandler {
 
         //TODO kome se salje?
 
+        //TODO Nula kad trazi nema setovan active job
+
 //        log("In send rquest");
         activeJob = AppConfig.getActiveJob();;
+
+
+        log(AppConfig.getActiveJob().isActive()+"");
+
+
+
+
 
 //        log(activeJob.getJobNodes().size()+"");
 //        log(activeJob+"");
 
-        for(Node neighborNode : activeJob.getJobNodes().values()){
+        for(ServentInfo neighbor : AppConfig.getServentInfoList()){
 
-            ServentInfo neighbor = neighborNode.getServentInfo();
 
             Response myResponse = new Response();
-            myResponse.setSender(activeJob.getMyNode());
+            Node meNode = new Node("NOT_SET",AppConfig.myServentInfo);
+            myResponse.setSender(meNode);
             myResponse.setResponseType(ResponseType.RESULT_REQUEST);
+            myResponse.setData(argument);
 
             Message resultRequestMessage = new ResultMessage(
                     AppConfig.myServentInfo, neighbor, myResponse);
@@ -138,12 +161,17 @@ public class ResultHandler {
 
     public void drawResult(String path){
 
-        BufferedImage image = new BufferedImage(activeJob.getJob().getW(), activeJob.getJob().getH(), BufferedImage.TYPE_INT_ARGB);
+        log("1");
+
+        BufferedImage image = new BufferedImage(requestedJob.getJob().getW(), requestedJob.getJob().getH(), BufferedImage.TYPE_INT_ARGB);
         final Graphics2D graphics2D = image.createGraphics ();
 
-        graphics2D.setPaint(Color.WHITE);
-        graphics2D.fillRect(0, 0, activeJob.getJob().getW(), activeJob.getJob().getH());
+        log("2");
 
+        graphics2D.setPaint(Color.WHITE);
+        graphics2D.fillRect(0, 0, requestedJob.getJob().getW(), requestedJob.getJob().getH());
+
+        log("3");
         for(Response r: responseMap.values()){
 
 
@@ -159,6 +187,7 @@ public class ResultHandler {
             }
 
         }
+        log("4");
 
 
         try {
@@ -168,8 +197,9 @@ public class ResultHandler {
             errorLog("Error writing file",e);
         }
 
+        log("5");
 
-        log("Done drawing job: " + activeJob.getJob().getName() +" with dots:"+activeJob.getJob().getA().values());
+        log("Done drawing job: " + requestedJob.getJob().getName() +" with dots:"+requestedJob.getJob().getA().values());
 
         graphics2D.dispose();
 
@@ -229,6 +259,14 @@ public class ResultHandler {
         this.jobManager = jobManager;
     }
 
+    public ActiveJob getRequestedJob() {
+        return requestedJob;
+    }
+
+    public void setRequestedJob(ActiveJob requestedJob) {
+        this.requestedJob = requestedJob;
+        this.path = "fractal/images/"+requestedJob.getJob().getName()+".png";
+    }
 
     @Override
     public String toString() {

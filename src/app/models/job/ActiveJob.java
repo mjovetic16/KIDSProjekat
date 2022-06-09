@@ -21,6 +21,8 @@ public class ActiveJob implements Serializable {
 
     private Section section;
 
+    private int jobNodesLimit;
+
 
     private Node myNode;
 
@@ -35,6 +37,7 @@ public class ActiveJob implements Serializable {
         this.active = active;
         this.jobNodes = jobNodes;
         this.section = section;
+        this.jobNodesLimit = 0;
     }
 
     public Job getJob() {
@@ -77,6 +80,14 @@ public class ActiveJob implements Serializable {
         this.myNode = myNode;
     }
 
+    public int getJobNodesLimit() {
+        return jobNodesLimit;
+    }
+
+    public void setJobNodesLimit(int jobNodesLimit) {
+        this.jobNodesLimit = jobNodesLimit;
+    }
+
     public ActiveJob copy(){
         ActiveJob a = new ActiveJob();
         a.setJob(job);
@@ -84,6 +95,7 @@ public class ActiveJob implements Serializable {
         a.setSection(section);
         a.setJobNodes(jobNodes);
         a.setMyNode(myNode);
+        a.setJobNodesLimit(a.getJobNodesLimit());
 
         return a;
 

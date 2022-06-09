@@ -73,11 +73,14 @@ public class JobManager implements Runnable, Cancellable {
 
     public void startJob(Response response){
 
-            //log(response+"");
+//            log("Start job");
+
+
 
         try{
 
             AppConfig.setActiveJob((ActiveJob) response.getData());
+//            log("Setovan");
 
 
             ActiveJob activeJob = AppConfig.getActiveJob();
@@ -88,6 +91,7 @@ public class JobManager implements Runnable, Cancellable {
             setFractalWorker(f1);
             f1.run();
 
+            log("My job ID is: "+activeJob.getMyNode().getID());
 
 
 

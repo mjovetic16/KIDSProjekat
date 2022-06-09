@@ -293,13 +293,19 @@ public class AppConfig {
 		synchronized (jobLock){
 			AppConfig.activeJob = activeJob;
 
-			//log("Set active job to : "+activeJob);
+			log("Set active job to : "+activeJob.isActive());
 		}
 	}
 
 	public static List<Job> getJobList() {
 		return jobList;
 	}
+
+	public static List<ServentInfo> getServentInfoList(){
+
+		return serventInfoList;
+	}
+
 
 
 	public static String getImageWriteLock(){

@@ -7,6 +7,8 @@ import servent.message.JobResponseMessage;
 import servent.message.Message;
 import servent.message.MessageType;
 
+import java.util.Arrays;
+
 public class JobResponseMessageHandler implements MessageHandler{
 
 
@@ -43,7 +45,9 @@ public class JobResponseMessageHandler implements MessageHandler{
                     jobManager.startJob(message.getResponse());
                 }else{
                     //Ako nije prihvacen resetuje se
+                    log("izaslo iz clear");
                     jobManager.getJobHandler().clear();
+                    log("Uslo u clear");
                 }
 
             }
@@ -54,8 +58,21 @@ public class JobResponseMessageHandler implements MessageHandler{
 
 
         }catch (Exception e){
-            AppConfig.timestampedErrorPrint(e.toString());
+            errorLog("Error in JobResponseMessageHandler",e);
         }
 
+    }
+
+
+    public void log(String s){
+
+        AppConfig.timestampedStandardPrint("[JobResponseMessageHandler]: "+s);
+    }
+
+    public void errorLog(String s, Exception e){
+
+        AppConfig.timestampedErrorPrint("[JobResponseMessageHandler]: "+s);
+        AppConfig.timestampedErrorPrint("[JobResponseMessageHandler]: "+e.toString());
+        AppConfig.timestampedErrorPrint("[JobResponseMessageHandler]: "+ Arrays.toString(e.getStackTrace()));
     }
 }

@@ -1,0 +1,7 @@
+16:40:52 - java.lang.NullPointerException: Cannot invoke "app.models.job.ActiveJob.getJobNodes()" because "this.activeJob" is null
+16:40:52 - java.lang.NullPointerException: Cannot invoke "app.models.job.ActiveJob.getJobNodes()" because "this.activeJob" is null
+16:40:52 - java.lang.NullPointerException: Cannot invoke "app.models.job.ActiveJob.getJobNodes()" because "this.activeJob" is null
+16:40:52 - java.lang.NullPointerException: Cannot invoke "app.models.job.ActiveJob.getJobNodes()" because "this.activeJob" is null
+16:40:53 - java.lang.NullPointerException: Cannot invoke "app.models.job.ActiveJob.getJobNodes()" because "this.activeJob" is null
+16:40:53 - java.lang.NullPointerException: Cannot invoke "app.models.job.ActiveJob.getJobNodes()" because "this.activeJob" is null
+16:40:53 - java.lang.NullPointerException: Cannot invoke "app.models.job.ActiveJob.getJobNodes()" because "this.activeJob" is null

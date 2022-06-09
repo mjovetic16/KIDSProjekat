@@ -1,10 +1,11 @@
-13:58:43 - Starting servent [3|localhost|1400]
-13:58:43 - Pausing for 15000 ms
-13:58:46 - Got message [0|2||JOB_REQUEST|3]
-13:58:47 - Sending message [3|0|true|JOB_RESPONSE|0]
-13:58:48 - Got message [0|6|true|JOB_RESPONSE|3]
-13:58:48 - [Fractal Worker]: Started fractal worker
-13:58:50 - Got message [0|11|RESULT_REQUEST|RESULT|3]
-13:58:51 - Sending message [3|1|RESULT_RESPONSE|RESULT|0]
-13:58:58 - Quitting...
-13:58:59 - [Fractal Worker]: Done drawing part of job: triangle with dots:[Dot{x=480, y=540}, Dot{x=720, y=810}, Dot{x=240, y=810}]
+17:28:44 - Starting servent [3|localhost|1400]
+17:28:44 - Pausing for 15000 ms
+17:28:46 - Got message [0|2||JOB_REQUEST|3]
+17:28:46 - [AppConfig]: Set active job to : false
+17:28:47 - Sending message [3|0|true|JOB_RESPONSE|0]
+17:28:47 - Got message [0|6|false|JOB_RESPONSE|3]
+17:28:47 - [JobResponseMessageHandler]: izaslo iz clear
+17:28:47 - [AppConfig]: Set active job to : false
+17:28:47 - [JobResponseMessageHandler]: Uslo u clear
+17:28:51 - Got message [0|11|RESULT_REQUEST|RESULT|3]
+17:28:59 - Quitting...

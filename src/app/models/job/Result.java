@@ -10,12 +10,14 @@ public class Result implements Serializable {
     private static final long serialVersionUID = -264843505940015240L;
 
     private HashMap<String,Dot> filledDotMap;
-
     private long iterationNumber;
 
-    public Result(HashMap<String, Dot> filledDotMap, long iterationNumber) {
+    private ActiveJob activeJob;
+
+    public Result(HashMap<String, Dot> filledDotMap, long iterationNumber, ActiveJob activeJob) {
         this.filledDotMap = filledDotMap;
         this.iterationNumber = iterationNumber;
+        this.activeJob = activeJob;
     }
 
     public HashMap<String, Dot> getFilledDotMap() {
@@ -32,5 +34,15 @@ public class Result implements Serializable {
 
     public void setIterationNumber(long iterationNumber) {
         this.iterationNumber = iterationNumber;
+    }
+
+
+
+    public ActiveJob getActiveJob() {
+        return activeJob;
+    }
+
+    public void setActiveJob(ActiveJob activeJob) {
+        this.activeJob = activeJob;
     }
 }
