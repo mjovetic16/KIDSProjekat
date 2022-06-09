@@ -1,32 +1,34 @@
-18:10:32 - Starting servent [0|localhost|1100]
-18:10:32 - Pausing for 1000 ms
-18:10:33 - Starting job: triangle ...
-18:10:33 - Pausing for 5000 ms
-18:10:34 - Sending message [0|2||JOB_REQUEST|3]
-18:10:34 - Sending message [0|0||JOB_REQUEST|1]
-18:10:34 - Sending message [0|1||JOB_REQUEST|2]
-18:10:34 - Sending message [0|3||JOB_REQUEST|4]
-18:10:35 - Got message [3|0|true|JOB_RESPONSE|0]
-18:10:35 - Got message [1|0|true|JOB_RESPONSE|0]
-18:10:35 - Got message [4|0|true|JOB_RESPONSE|0]
-18:10:35 - Got message [2|0|true|JOB_RESPONSE|0]
-18:10:36 - Sending message [0|8|false|JOB_RESPONSE|2]
-18:10:36 - Sending message [0|5|true|JOB_RESPONSE|1]
-18:10:36 - Sending message [0|7|false|JOB_RESPONSE|4]
-18:10:36 - Sending message [0|4|true|JOB_RESPONSE|0]
-18:10:36 - Got message [0|4|true|JOB_RESPONSE|0]
-18:10:36 - [Fractal Worker]: Started fractal worker
-18:10:37 - Sending message [0|6|true|JOB_RESPONSE|3]
-18:10:38 - [ResultCommand]: Finding result for: triangle
-18:10:38 - Pausing for 10000 ms
-18:10:39 - Sending message [0|10||RESULT|1]
-18:10:40 - Sending message [0|9||RESULT|0]
-18:10:40 - Got message [0|9||RESULT|0]
-18:10:40 - Sending message [0|11||RESULT|3]
-18:10:40 - Got message [1|1||RESULT|0]
-18:10:40 - Sending message [0|12||RESULT|0]
-18:10:41 - Got message [0|12||RESULT|0]
-18:10:42 - Got message [3|1||RESULT|0]
-18:10:42 - [Result Handler]: Done drawing job: triangle with dots:[Dot{x=0, y=1080}, Dot{x=960, y=0}, Dot{x=1920, y=1080}]
-18:10:48 - Quitting...
-18:10:48 - [Fractal Worker]: Done drawing part of job: triangle with dots:[Dot{x=480, y=540}, Dot{x=960, y=1080}, Dot{x=0, y=1080}]
+13:41:39 - Starting servent [0|localhost|1100]
+13:41:40 - Pausing for 1000 ms
+13:41:41 - Starting job: triangle ...
+13:41:41 - Pausing for 5000 ms
+13:41:42 - Sending message [0|0||JOB_REQUEST|1]
+13:41:42 - Sending message [0|3||JOB_REQUEST|4]
+13:41:42 - Sending message [0|2||JOB_REQUEST|3]
+13:41:42 - Sending message [0|1||JOB_REQUEST|2]
+13:41:42 - Got message [1|0|true|JOB_RESPONSE|0]
+13:41:43 - Got message [4|0|true|JOB_RESPONSE|0]
+13:41:43 - [JobHandler]: 12
+13:41:43 - [JobHandler]: [JobNodeData{id='10'}, JobNodeData{id='11'}, JobNodeData{id='12'}, JobNodeData{id='20'}, JobNodeData{id='21'}, JobNodeData{id='22'}, JobNodeData{id='000'}, JobNodeData{id='001'}, JobNodeData{id='002'}, JobNodeData{id='010'}, JobNodeData{id='011'}, JobNodeData{id='012'}, JobNodeData{id='020'}, JobNodeData{id='021'}, JobNodeData{id='022'}]
+13:41:43 - Got message [3|0|true|JOB_RESPONSE|0]
+13:41:43 - Sending message [0|5|true|JOB_RESPONSE|1]
+13:41:43 - Got message [2|0|true|JOB_RESPONSE|0]
+13:41:44 - Sending message [0|4|true|JOB_RESPONSE|0]
+13:41:44 - Got message [0|4|true|JOB_RESPONSE|0]
+13:41:44 - [Fractal Worker]: Started fractal worker
+13:41:44 - Sending message [0|6|true|JOB_RESPONSE|4]
+13:41:44 - Sending message [0|7|false|JOB_RESPONSE|3]
+13:41:44 - Sending message [0|8|false|JOB_RESPONSE|2]
+13:41:46 - [ResultCommand]: Finding result for: triangle
+13:41:46 - Pausing for 10000 ms
+13:41:46 - Sending message [0|10|RESULT_REQUEST|RESULT|1]
+13:41:46 - Sending message [0|11|RESULT_REQUEST|RESULT|4]
+13:41:47 - Sending message [0|9|RESULT_REQUEST|RESULT|0]
+13:41:47 - Got message [1|1|RESULT_RESPONSE|RESULT|0]
+13:41:47 - Got message [0|9|RESULT_REQUEST|RESULT|0]
+13:41:48 - Got message [4|1|RESULT_RESPONSE|RESULT|0]
+13:41:48 - Sending message [0|12|RESULT_RESPONSE|RESULT|0]
+13:41:49 - Got message [0|12|RESULT_RESPONSE|RESULT|0]
+13:41:49 - [Result Handler]: Done drawing job: triangle with dots:[Dot{x=0, y=1080}, Dot{x=960, y=0}, Dot{x=1920, y=1080}]
+13:41:56 - Quitting...
+13:41:56 - [Fractal Worker]: Done drawing part of job: triangle with dots:[Dot{x=480, y=540}, Dot{x=960, y=1080}, Dot{x=0, y=1080}]

@@ -73,6 +73,7 @@ public class BasicMessage implements Message {
 	public String getMessageText() {
 		return messageText;
 	}
+
 	
 	@Override
 	public int getMessageId() {
@@ -171,4 +172,6 @@ public class BasicMessage implements Message {
 	public void sendEffect() {
 		
 	}
+
+
 }
