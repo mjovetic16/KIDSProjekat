@@ -1,11 +1,14 @@
-17:35:19 - Starting servent [9|localhost|2000]
-17:35:19 - Pausing for 15000 ms
-17:35:21 - Got message [0|8||JOB_REQUEST|9]
-17:35:22 - Got message [5|8||JOB_REQUEST|9]
-17:35:22 - Sending message [9|0|true|JOB_RESPONSE|0]
-17:35:24 - Got message [0|27|false|JOB_RESPONSE|9]
-17:35:24 - [JobHandler]: Uslo u clear
-17:35:25 - Sending message [9|1|true|JOB_RESPONSE|5]
-17:35:26 - Got message [0|38|RESULT_REQUEST|RESULT|9]
-17:35:27 - Got message [5|29|RESULT_REQUEST|RESULT|9]
-17:35:34 - Quitting...
+17:42:50 - Starting servent [9|localhost|2000]
+17:42:50 - Pausing for 15000 ms
+17:42:52 - Got message [0|8||JOB_REQUEST|9]
+17:42:52 - Got message [5|9||JOB_REQUEST|9]
+17:42:53 - Sending message [9|0|true|JOB_RESPONSE|0]
+17:42:54 - Got message [0|15|true|JOB_RESPONSE|9]
+17:42:54 - [Fractal Worker]: Started fractal worker
+17:42:54 - Sending message [9|1|false|JOB_RESPONSE|5]
+17:42:57 - Got message [0|38|RESULT_REQUEST|RESULT|9]
+17:42:58 - Sending message [9|2|RESULT_RESPONSE|RESULT|0]
+17:42:58 - Got message [5|31|RESULT_REQUEST|RESULT|9]
+17:43:05 - Quitting...
+17:43:05 - [JobManager]: My job ID is: 11
+17:43:05 - [Fractal Worker]: Done drawing part of job: triangle with dots:[Dot{x=960, y=540}, Dot{x=480, y=540}, Dot{x=720, y=270}]

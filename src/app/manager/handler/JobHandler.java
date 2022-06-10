@@ -265,6 +265,8 @@ public class JobHandler {
         Queue<JobNodeData> jobNodeDataQueue = new LinkedList<>();
         List<Dot> oldDots = job.getA().values().stream().toList();
 
+
+
         if(limit<n){
 //            List<Dot> newDots = returnNewDots(oldDots,job.getP(),0);
             JobNodeData jobNodeData = new JobNodeData(0+"",oldDots);
@@ -285,6 +287,7 @@ public class JobHandler {
                 numberOfNodesToDevide--;
             }
         }
+
 
 
         int pointer = 0;
@@ -323,6 +326,7 @@ public class JobHandler {
         HashMap<String, Node> jobNodesServentMap = new HashMap<>();
         HashMap<String, JobNodeData>  jobNodesDataMap= new HashMap<>();
 
+        log("1");
 
         for(Response res: responseMap.values()){
 
@@ -335,6 +339,8 @@ public class JobHandler {
             jobNodesDataMap.put(jobNodeDataForCurrentNode.getId(),jobNodeDataForCurrentNode);
 
         }
+
+        log("2");
 
 
 
@@ -375,6 +381,7 @@ public class JobHandler {
 
         }
 
+        log("3");
 
 
 
