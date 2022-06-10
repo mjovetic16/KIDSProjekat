@@ -23,6 +23,8 @@ public class JobHandler {
 
     private ConcurrentHashMap<String,Response> responseMap;
 
+    private ConcurrentHashMap<String,Response> falseResponseMap;
+
     private int limit = 0;
 
 
@@ -34,7 +36,14 @@ public class JobHandler {
 
     public void start(String args){
 
+
+
         Job job = null;
+
+        responseMap = new ConcurrentHashMap<>();
+        falseResponseMap = new ConcurrentHashMap<>();
+
+        resetData();
 
         if(args.equals("all")){
             return;
@@ -58,9 +67,6 @@ public class JobHandler {
 
         //AppConfig.setActiveJob(activeJob);
 
-
-
-        //TODO number of possible nodes to join job
 //        tempAmount = job.getN();
 //        tempAmount = 5;
 
@@ -72,7 +78,7 @@ public class JobHandler {
 
 
 
-        responseMap = new ConcurrentHashMap<>();
+
 //
 //        Response response = new Response();
 //
@@ -90,11 +96,6 @@ public class JobHandler {
 
     }
 
-    public void reset(){
-        jobToStart = null;
-        responseMap = null;
-    }
-
     public void recordResponse(Response response){
         try{
 
@@ -105,7 +106,6 @@ public class JobHandler {
 
                 return;
             }
-
 
             responseMap.put(response.getSender().getServentInfo().getId()+"",response);
 
@@ -122,13 +122,47 @@ public class JobHandler {
 
     }
 
+    public void recordFalseResponse(Response response){
+        try{
+
+            if(checkIfResponsesDone()){
+
+
+                sendRejectResponse(response);
+
+                return;
+            }
+
+            falseResponseMap.put(response.getSender().getServentInfo().getId()+"",response);
+
+            if(checkIfResponsesDone()){
+
+                jobDivide();
+            }
+
+
+        }
+        catch (Exception e){
+            errorLog("Error",e);
+        }
+
+    }
+
     public boolean checkIfResponsesDone(){
-        return responseMap.size()>=jobToStart.getJobNodesLimit();
+
+        if(responseMap.size()>=jobToStart.getJobNodesLimit())
+            return true;
+
+        if((responseMap.size()+ falseResponseMap.size())==AppConfig.getServentCount())
+            return true;
+
+        return false;
     }
 
 
 
     public void sendJobRequestMessages(){
+
 
         for(int neighborID : AppConfig.myServentInfo.getNeighbors()){
 
@@ -179,6 +213,8 @@ public class JobHandler {
 
         int size = responseMap.size();
         realJobDivide(size);
+
+        resetData();
         //tempStupidJobDevide();
     }
 
@@ -350,8 +386,16 @@ public class JobHandler {
         ActiveJob activeJob1 = AppConfig.getActiveJob();
         activeJob1.setActive(false);
 
-        AppConfig.setActiveJob(activeJob1);
+        AppConfig.setActiveJob(null);
 
+
+
+    }
+
+    public void resetData(){
+//        responseMap.clear();
+//        falseResponseMap.clear();
+//        jobToStart = null;
     }
 
 

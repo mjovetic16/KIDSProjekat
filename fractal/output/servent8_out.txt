@@ -1,7 +1,7 @@
-14:41:33 - Starting servent [8|localhost|1900]
-14:41:33 - Pausing for 15000 ms
-14:41:35 - Got message [0|7||JOB_REQUEST|8]
-14:41:36 - Sending message [8|0|true|JOB_RESPONSE|0]
-14:41:37 - Got message [0|24|false|JOB_RESPONSE|8]
-14:41:39 - Got message [0|36|RESULT_REQUEST|RESULT|8]
-14:41:48 - Quitting...
+15:42:21 - Starting servent [8|localhost|1900]
+15:42:21 - Pausing for 15000 ms
+15:42:23 - Got message [0|7||JOB_REQUEST|8]
+15:42:25 - Sending message [8|0|true|JOB_RESPONSE|0]
+15:42:26 - Got message [0|14|false|JOB_RESPONSE|8]
+15:42:28 - Got message [0|36|RESULT_REQUEST|RESULT|8]
+15:42:36 - Quitting...

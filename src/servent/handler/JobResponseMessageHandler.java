@@ -34,8 +34,11 @@ public class JobResponseMessageHandler implements MessageHandler{
             //Handler je dobio poruku
             if(message.getResponse().getResponseType()== ResponseType.JOB_RESPONSE){
 
-                jobManager.getJobHandler().recordResponse(message.getResponse());
-
+                if(message.getResponse().isAccepted()) {
+                    jobManager.getJobHandler().recordResponse(message.getResponse());
+                }else{
+                    jobManager.getJobHandler().recordFalseResponse(message.getResponse());
+                }
 
             }else if(message.getResponse().getResponseType()== ResponseType.ACCEPTED_OR_REJECTED_JOB_RESPONSE){
                //Node je dobio poruku da li je odobren ili ne
