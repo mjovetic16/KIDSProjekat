@@ -1,13 +1,7 @@
-17:32:32 - Starting servent [10|localhost|1111]
-17:32:32 - Pausing for 15000 ms
-17:32:34 - Got message [0|9||JOB_REQUEST|10]
-17:32:34 - [AppConfig]: Set active job to : false
-17:32:35 - Sending message [10|0|true|JOB_RESPONSE|0]
-17:32:36 - Got message [0|18|true|JOB_RESPONSE|10]
-17:32:36 - [AppConfig]: Set active job to : true
-17:32:36 - [Fractal Worker]: Started fractal worker
-17:32:39 - Got message [0|38|RESULT_REQUEST|RESULT|10]
-17:32:40 - Sending message [10|1|RESULT_RESPONSE|RESULT|0]
-17:32:47 - Quitting...
-17:32:47 - [JobManager]: My job ID is: 12
-17:32:48 - [Fractal Worker]: Done drawing part of job: triangle with dots:[Dot{x=960, y=540}, Dot{x=1440, y=540}, Dot{x=1200, y=270}]
+14:41:33 - Starting servent [10|localhost|1111]
+14:41:33 - Pausing for 15000 ms
+14:41:35 - Got message [0|9||JOB_REQUEST|10]
+14:41:36 - Sending message [10|0|true|JOB_RESPONSE|0]
+14:41:37 - Got message [0|27|false|JOB_RESPONSE|10]
+14:41:40 - Got message [0|38|RESULT_REQUEST|RESULT|10]
+14:41:48 - Quitting...

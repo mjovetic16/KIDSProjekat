@@ -120,7 +120,7 @@ public class ResultHandler {
         activeJob = AppConfig.getActiveJob();;
 
 
-        log(AppConfig.getActiveJob().isActive()+"");
+        //log(AppConfig.getActiveJob().isActive()+"");
 
 
         for(ServentInfo neighbor : AppConfig.getServentInfoList()){

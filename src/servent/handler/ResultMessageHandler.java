@@ -45,6 +45,7 @@ public class ResultMessageHandler implements MessageHandler{
                 //log("Got request message from"+message.getResponse().getData()+"");
 
                 if(AppConfig.getActiveJob()==null)return;
+                if(AppConfig.getActiveJob().getJob()==null)return;
                 if(message.getResponse().getData().equals(AppConfig.getActiveJob().getJob().getName())){
                     if(!AppConfig.getActiveJob().isActive())return;
 //                    log("checkup");

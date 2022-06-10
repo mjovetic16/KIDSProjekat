@@ -45,9 +45,9 @@ public class JobResponseMessageHandler implements MessageHandler{
                     jobManager.startJob(message.getResponse());
                 }else{
                     //Ako nije prihvacen resetuje se
-                    log("izaslo iz clear");
+
                     jobManager.getJobHandler().clear();
-                    log("Uslo u clear");
+
                 }
 
             }
