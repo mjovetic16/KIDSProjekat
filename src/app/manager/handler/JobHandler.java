@@ -326,7 +326,6 @@ public class JobHandler {
         HashMap<String, Node> jobNodesServentMap = new HashMap<>();
         HashMap<String, JobNodeData>  jobNodesDataMap= new HashMap<>();
 
-        log("1");
 
         for(Response res: responseMap.values()){
 
@@ -340,7 +339,7 @@ public class JobHandler {
 
         }
 
-        log("2");
+
 
 
 
@@ -381,7 +380,7 @@ public class JobHandler {
 
         }
 
-        log("3");
+
 
 
 
@@ -476,6 +475,9 @@ public class JobHandler {
             return;
 
         }else{
+
+            log("Elsovao");
+            log(AppConfig.getActiveJob()+"");
 
 
             AppConfig.setActiveJob(activeJob);

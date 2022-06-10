@@ -1,11 +1,24 @@
-17:42:50 - Starting servent [2|localhost|1300]
-17:42:50 - Pausing for 15000 ms
-17:42:52 - Got message [0|1||JOB_REQUEST|2]
-17:42:52 - Got message [5|3||JOB_REQUEST|2]
-17:42:53 - Sending message [2|0|true|JOB_RESPONSE|0]
-17:42:55 - Got message [0|28|false|JOB_RESPONSE|2]
-17:42:56 - Sending message [2|1|true|JOB_RESPONSE|5]
-17:42:56 - Got message [0|31|RESULT_REQUEST|RESULT|2]
-17:42:57 - Got message [5|20|false|JOB_RESPONSE|2]
-17:42:57 - Got message [5|24|RESULT_REQUEST|RESULT|2]
-17:43:05 - Quitting...
+18:31:21 - Starting servent [2|localhost|1300]
+18:31:21 - Pausing for 25000 ms
+18:31:24 - Got message [0|1||JOB_REQUEST|2]
+18:31:24 - [JobHandler]: Elsovao
+18:31:24 - [JobHandler]: ActiveJob{job=null, active=false, jobNodes={}, section=null, myNode=null}
+18:31:24 - Got message [5|3||JOB_REQUEST|2]
+18:31:24 - Sending message [2|0|true|JOB_RESPONSE|0]
+18:31:26 - Got message [0|29|false|JOB_RESPONSE|2]
+18:31:26 - Sending message [2|1|true|JOB_RESPONSE|5]
+18:31:29 - Got message [5|21|true|JOB_RESPONSE|2]
+18:31:29 - [Fractal Worker]: Started fractal worker
+18:31:38 - Got message [0|37|RESULT_REQUEST|RESULT|2]
+18:31:38 - [ResultMessageHandler]: Got request message fromtriangle
+18:31:39 - Got message [5|29|RESULT_REQUEST|RESULT|2]
+18:31:39 - [ResultMessageHandler]: Got request message frompentagon
+18:31:39 - [Result Handler]: 1
+18:31:39 - [Result Handler]: 2
+18:31:39 - [Result Handler]: 3
+18:31:39 - [Result Handler]: 4
+18:31:39 - [Result Handler]: 5
+18:31:40 - Sending message [2|2|RESULT_RESPONSE|RESULT|5]
+18:31:46 - Quitting...
+18:31:46 - [JobManager]: My job ID is: 2
+18:31:48 - [Fractal Worker]: Done drawing part of job: pentagon with dots:[Dot{x=1240, y=944}, Dot{x=1291, y=752}, Dot{x=1040, y=944}, Dot{x=973, y=752}, Dot{x=1132, y=635}]

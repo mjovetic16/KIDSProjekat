@@ -1,15 +1,24 @@
-17:42:49 - Starting servent [4|localhost|1500]
-17:42:50 - Pausing for 15000 ms
-17:42:52 - Got message [0|3||JOB_REQUEST|4]
-17:42:52 - Got message [5|5||JOB_REQUEST|4]
-17:42:53 - Sending message [4|0|true|JOB_RESPONSE|0]
-17:42:53 - Got message [0|26|false|JOB_RESPONSE|4]
-17:42:55 - Sending message [4|1|true|JOB_RESPONSE|5]
-17:42:57 - Got message [0|33|RESULT_REQUEST|RESULT|4]
-17:42:57 - Got message [5|19|true|JOB_RESPONSE|4]
-17:42:57 - [Fractal Worker]: Started fractal worker
-17:42:58 - Got message [5|26|RESULT_REQUEST|RESULT|4]
-17:42:58 - Sending message [4|2|RESULT_RESPONSE|RESULT|5]
-17:43:05 - Quitting...
-17:43:05 - [JobManager]: My job ID is: 4
-17:43:05 - [Fractal Worker]: Done drawing part of job: pentagon with dots:[Dot{x=1220, y=309}, Dot{x=1061, y=426}, Dot{x=1380, y=426}, Dot{x=1128, y=617}, Dot{x=1328, y=617}]
+18:31:21 - Starting servent [4|localhost|1500]
+18:31:21 - Pausing for 25000 ms
+18:31:23 - Got message [0|3||JOB_REQUEST|4]
+18:31:23 - [JobHandler]: Elsovao
+18:31:23 - [JobHandler]: ActiveJob{job=null, active=false, jobNodes={}, section=null, myNode=null}
+18:31:24 - Got message [5|5||JOB_REQUEST|4]
+18:31:24 - Sending message [4|0|true|JOB_RESPONSE|0]
+18:31:25 - Got message [0|28|false|JOB_RESPONSE|4]
+18:31:26 - Sending message [4|1|true|JOB_RESPONSE|5]
+18:31:28 - Got message [5|25|true|JOB_RESPONSE|4]
+18:31:28 - [Fractal Worker]: Started fractal worker
+18:31:39 - Got message [0|39|RESULT_REQUEST|RESULT|4]
+18:31:39 - [ResultMessageHandler]: Got request message fromtriangle
+18:31:39 - Got message [5|31|RESULT_REQUEST|RESULT|4]
+18:31:39 - [ResultMessageHandler]: Got request message frompentagon
+18:31:39 - [Result Handler]: 1
+18:31:39 - [Result Handler]: 2
+18:31:39 - [Result Handler]: 3
+18:31:39 - [Result Handler]: 4
+18:31:39 - [Result Handler]: 5
+18:31:40 - Sending message [4|2|RESULT_RESPONSE|RESULT|5]
+18:31:46 - Quitting...
+18:31:46 - [JobManager]: My job ID is: 4
+18:31:48 - [Fractal Worker]: Done drawing part of job: pentagon with dots:[Dot{x=1220, y=309}, Dot{x=1061, y=426}, Dot{x=1380, y=426}, Dot{x=1128, y=617}, Dot{x=1328, y=617}]

@@ -1,15 +1,23 @@
-17:42:50 - Starting servent [12|localhost|1113]
-17:42:50 - Pausing for 15000 ms
-17:42:52 - Got message [0|11||JOB_REQUEST|12]
-17:42:53 - Got message [5|12||JOB_REQUEST|12]
-17:42:53 - Sending message [12|0|true|JOB_RESPONSE|0]
-17:42:54 - Got message [0|23|false|JOB_RESPONSE|12]
-17:42:55 - Sending message [12|1|true|JOB_RESPONSE|5]
-17:42:57 - Got message [0|41|RESULT_REQUEST|RESULT|12]
-17:42:57 - Got message [5|16|true|JOB_RESPONSE|12]
-17:42:57 - [Fractal Worker]: Started fractal worker
-17:42:57 - Got message [5|34|RESULT_REQUEST|RESULT|12]
-17:42:58 - Sending message [12|2|RESULT_RESPONSE|RESULT|5]
-17:43:05 - Quitting...
-17:43:05 - [JobManager]: My job ID is: 1
-17:43:05 - [Fractal Worker]: Done drawing part of job: pentagon with dots:[Dot{x=1109, y=226}, Dot{x=950, y=110}, Dot{x=790, y=226}, Dot{x=1057, y=418}, Dot{x=857, y=418}]
+18:31:21 - Starting servent [12|localhost|1113]
+18:31:21 - Pausing for 25000 ms
+18:31:23 - Got message [0|11||JOB_REQUEST|12]
+18:31:23 - [JobHandler]: Elsovao
+18:31:23 - [JobHandler]: ActiveJob{job=null, active=false, jobNodes={}, section=null, myNode=null}
+18:31:24 - Got message [5|12||JOB_REQUEST|12]
+18:31:24 - Sending message [12|0|true|JOB_RESPONSE|0]
+18:31:25 - Got message [0|22|true|JOB_RESPONSE|12]
+18:31:25 - [Fractal Worker]: Started fractal worker
+18:31:27 - Sending message [12|1|false|JOB_RESPONSE|5]
+18:31:38 - Got message [0|47|RESULT_REQUEST|RESULT|12]
+18:31:38 - [ResultMessageHandler]: Got request message fromtriangle
+18:31:38 - [Result Handler]: 1
+18:31:38 - [Result Handler]: 2
+18:31:38 - [Result Handler]: 3
+18:31:38 - [Result Handler]: 4
+18:31:38 - [Result Handler]: 5
+18:31:39 - Got message [5|39|RESULT_REQUEST|RESULT|12]
+18:31:39 - [ResultMessageHandler]: Got request message frompentagon
+18:31:39 - Sending message [12|2|RESULT_RESPONSE|RESULT|0]
+18:31:46 - Quitting...
+18:31:46 - [JobManager]: My job ID is: 02
+18:31:48 - [Fractal Worker]: Done drawing part of job: triangle with dots:[Dot{x=480, y=1080}, Dot{x=960, y=1080}, Dot{x=720, y=810}]

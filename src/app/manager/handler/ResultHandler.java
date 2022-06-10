@@ -103,7 +103,7 @@ public class ResultHandler {
     }
 
     public boolean checkIfResponsesDone(){
-        //log("Not done yet rm:"+ responseMap.size());
+        log("Not done yet rm:"+ responseMap.size());
         //log("Not done yet ac:"+ activeJob.getJobNodes().size());
 
         if(requestedJob==null)return false;
@@ -206,22 +206,28 @@ public class ResultHandler {
     }
 
     public void sendResult(Response response) {
+        log("1");
 
 //        log("Send result enter");
         Response myResponse = new Response();
 //        log((this.jobManager==null)+"");
 //        log((getJobManager()==null)+"");
 
+        log("2");
         myResponse.setResponseType(ResponseType.RESULT_RESPONSE);
         myResponse.setData(jobManager.getFractalWorker().returnResult());
+        log("3");
         //log("Before sending result my node is:"+AppConfig.getActiveJob().getMyNode());
         myResponse.setSender(AppConfig.getActiveJob().getMyNode());
 
+        log("4");
 
         Message resultResponseMessage = new ResultMessage(
                 AppConfig.myServentInfo, response.getSender().getServentInfo(), myResponse);
 
         MessageUtil.sendMessage(resultResponseMessage);
+
+        log("5");
 
         //log("Sent result response message");
 

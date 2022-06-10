@@ -1,6 +1,6 @@
 pause 1000
 start triangle
-pause 5000
-result triangle
 pause 15000
+result triangle
+pause 5000
 quit
