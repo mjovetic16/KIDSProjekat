@@ -25,6 +25,8 @@ public class JobHandler {
 
     private ConcurrentHashMap<String,Response> falseResponseMap;
 
+    private ConcurrentLinkedQueue<JobRequest> jobToRespondTo = new ConcurrentLinkedQueue<>();
+
     private int limit = 0;
 
 
@@ -163,6 +165,7 @@ public class JobHandler {
 
     public void sendJobRequestMessages(){
 
+        jobToStart.setSet(true);
 
         for(int neighborID : AppConfig.myServentInfo.getNeighbors()){
 
@@ -214,7 +217,7 @@ public class JobHandler {
         int size = responseMap.size();
         realJobDivide(size);
 
-        resetData();
+//        resetData();
         //tempStupidJobDevide();
     }
 
@@ -380,22 +383,57 @@ public class JobHandler {
 
 
 
-    public void clear(){
-        //Skida se aktivan job
+    public void clear(boolean accepted){
 
-        ActiveJob activeJob1 = AppConfig.getActiveJob();
-        activeJob1.setActive(false);
 
-        AppConfig.setActiveJob(null);
+        if(accepted){
+
+            while(jobToRespondTo.size()!=0){
+                ServentInfo sender = jobToRespondTo.poll().getServentInfo();
+
+                Response response = new Response();
+                response.setResponseType(ResponseType.JOB_RESPONSE);
+                response.setSender(new Node("NOT_SET",AppConfig.myServentInfo));
+                response.setAccepted(false);
+
+                Message jobResponseMessage = new JobResponseMessage(
+                        AppConfig.myServentInfo, sender, response);
+
+                MessageUtil.sendMessage(jobResponseMessage);
+
+            }
+
+        }else{
+
+            if(jobToRespondTo.size()==0)return;
+
+            ServentInfo sender = jobToRespondTo.poll().getServentInfo();
+
+            Response response = new Response();
+            response.setResponseType(ResponseType.JOB_RESPONSE);
+            response.setSender(new Node("NOT_SET",AppConfig.myServentInfo));
+            response.setAccepted(true);
+
+            Message jobResponseMessage = new JobResponseMessage(
+                    AppConfig.myServentInfo, sender, response);
+
+            MessageUtil.sendMessage(jobResponseMessage);
+
+        }
+
+
+
+
+
 
 
 
     }
 
     public void resetData(){
-//        responseMap.clear();
-//        falseResponseMap.clear();
-//        jobToStart = null;
+        responseMap.clear();
+        falseResponseMap.clear();
+        jobToStart = null;
     }
 
 
@@ -403,22 +441,35 @@ public class JobHandler {
         //Ako je vec postavljen neki job na ovaj node odbija se request
         //Ako nije prihvata se
 
+        //odbijanje ako je vec u procesu stavljanja posla ili je vec aktivan posao
+        if(AppConfig.getActiveJob().isSet()){
 
-        if(AppConfig.getActiveJob().isActive()){
+            //Ako je aktivan odma reject ako nije, onda dodajem u queue da odgovorim kasnije
+            if(AppConfig.getActiveJob().isActive()){
+                Response response = new Response();
+                response.setResponseType(ResponseType.JOB_RESPONSE);
+                response.setSender(new Node("NOT_SET",AppConfig.myServentInfo));
+                response.setAccepted(false);
 
-            Response response = new Response();
-            response.setResponseType(ResponseType.JOB_RESPONSE);
-            response.setSender(new Node("NOT_SET",AppConfig.myServentInfo));
-            response.setAccepted(false);
+                Message jobResponseMessage = new JobResponseMessage(
+                        AppConfig.myServentInfo, sender, response);
 
-            Message jobResponseMessage = new JobResponseMessage(
-                    AppConfig.myServentInfo, sender, response);
+                MessageUtil.sendMessage(jobResponseMessage);
 
-            MessageUtil.sendMessage(jobResponseMessage);
+                return;
+            }
+
+            JobRequest jr = new JobRequest();
+            jr.setActiveJob(activeJob);
+            jr.setServentInfo(sender);
+            jobToRespondTo.add(jr);
+
+
 
             return;
 
         }else{
+
 
             AppConfig.setActiveJob(activeJob);
 

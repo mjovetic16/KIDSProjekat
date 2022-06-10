@@ -17,6 +17,8 @@ public class ActiveJob implements Serializable {
 
     private boolean active;
 
+    private boolean set;
+
     private HashMap<String, Node> jobNodes = new HashMap();
 
     private Section section;
@@ -30,6 +32,7 @@ public class ActiveJob implements Serializable {
     public ActiveJob() {
 
         this.active = false;
+        this.set = false;
     }
 
     public ActiveJob(Job job, boolean active, HashMap<String, Node> jobNodes, Section section) {
@@ -38,6 +41,7 @@ public class ActiveJob implements Serializable {
         this.jobNodes = jobNodes;
         this.section = section;
         this.jobNodesLimit = 0;
+        this.set = false;
     }
 
     public Job getJob() {
@@ -88,6 +92,14 @@ public class ActiveJob implements Serializable {
         this.jobNodesLimit = jobNodesLimit;
     }
 
+    public boolean isSet() {
+        return set;
+    }
+
+    public void setSet(boolean set) {
+        this.set = set;
+    }
+
     public ActiveJob copy(){
         ActiveJob a = new ActiveJob();
         a.setJob(job);
@@ -95,7 +107,8 @@ public class ActiveJob implements Serializable {
         a.setSection(section);
         a.setJobNodes(jobNodes);
         a.setMyNode(myNode);
-        a.setJobNodesLimit(a.getJobNodesLimit());
+        a.setJobNodesLimit(jobNodesLimit);
+        a.setSet(set);
 
         return a;
 

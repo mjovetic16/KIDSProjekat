@@ -45,11 +45,14 @@ public class JobResponseMessageHandler implements MessageHandler{
 
                 //Ako je prihvacen startuje posao
                 if(message.getResponse().isAccepted()) {
+                    jobManager.getJobHandler().clear(true);
+
                     jobManager.startJob(message.getResponse());
+                    //Brise se queue ako je prihvacen neki posao, i salju se rejectovi
                 }else{
                     //Ako nije prihvacen resetuje se
 
-                    jobManager.getJobHandler().clear();
+                    jobManager.getJobHandler().clear(false);
 
                 }
 

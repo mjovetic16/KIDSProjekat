@@ -1,7 +1,16 @@
-15:42:21 - Starting servent [2|localhost|1300]
-15:42:21 - Pausing for 15000 ms
-15:42:23 - Got message [0|1||JOB_REQUEST|2]
-15:42:25 - Sending message [2|0|true|JOB_RESPONSE|0]
-15:42:26 - Got message [0|22|false|JOB_RESPONSE|2]
-15:42:28 - Got message [0|30|RESULT_REQUEST|RESULT|2]
-15:42:36 - Quitting...
+17:35:19 - Starting servent [2|localhost|1300]
+17:35:19 - Pausing for 15000 ms
+17:35:21 - Got message [0|1||JOB_REQUEST|2]
+17:35:22 - Got message [5|2||JOB_REQUEST|2]
+17:35:22 - Sending message [2|0|true|JOB_RESPONSE|0]
+17:35:23 - Got message [0|15|false|JOB_RESPONSE|2]
+17:35:23 - [JobHandler]: Uslo u clear
+17:35:24 - Sending message [2|1|true|JOB_RESPONSE|5]
+17:35:26 - Got message [0|31|RESULT_REQUEST|RESULT|2]
+17:35:26 - Got message [5|22|RESULT_REQUEST|RESULT|2]
+17:35:27 - Got message [5|17|true|JOB_RESPONSE|2]
+17:35:27 - [JobHandler]: Uslo u clear
+17:35:27 - [Fractal Worker]: Started fractal worker
+17:35:34 - Quitting...
+17:35:34 - [JobManager]: My job ID is: 2
+17:35:35 - [Fractal Worker]: Done drawing part of job: pentagon with dots:[Dot{x=1240, y=944}, Dot{x=1291, y=752}, Dot{x=1040, y=944}, Dot{x=973, y=752}, Dot{x=1132, y=635}]
