@@ -1,23 +1,19 @@
-18:31:21 - Starting servent [3|localhost|1400]
-18:31:21 - Pausing for 25000 ms
-18:31:23 - Got message [0|2||JOB_REQUEST|3]
-18:31:23 - [JobHandler]: Elsovao
-18:31:23 - [JobHandler]: ActiveJob{job=null, active=false, jobNodes={}, section=null, myNode=null}
-18:31:24 - Sending message [3|0|true|JOB_RESPONSE|0]
-18:31:24 - Got message [5|4||JOB_REQUEST|3]
-18:31:25 - Got message [0|18|true|JOB_RESPONSE|3]
-18:31:25 - [Fractal Worker]: Started fractal worker
-18:31:26 - Sending message [3|1|false|JOB_RESPONSE|5]
-18:31:39 - Got message [0|38|RESULT_REQUEST|RESULT|3]
-18:31:39 - [ResultMessageHandler]: Got request message fromtriangle
-18:31:39 - [Result Handler]: 1
-18:31:39 - [Result Handler]: 2
-18:31:39 - [Result Handler]: 3
-18:31:39 - [Result Handler]: 4
-18:31:39 - [Result Handler]: 5
-18:31:39 - Got message [5|30|RESULT_REQUEST|RESULT|3]
-18:31:39 - [ResultMessageHandler]: Got request message frompentagon
-18:31:40 - Sending message [3|2|RESULT_RESPONSE|RESULT|0]
-18:31:46 - Quitting...
-18:31:46 - [JobManager]: My job ID is: 11
-18:31:48 - [Fractal Worker]: Done drawing part of job: triangle with dots:[Dot{x=960, y=540}, Dot{x=480, y=540}, Dot{x=720, y=270}]
+13:11:32 - Starting servent [3|localhost|1400]
+13:11:32 - Pausing for 25000 ms
+13:11:34 - Got message [0|2||JOB_REQUEST|3]
+13:11:34 - [JobHandler]: Elsovao
+13:11:34 - [JobHandler]: ActiveJob{job=null, active=false, jobNodes={}, section=null, myNode=null}
+13:11:35 - Sending message [3|0|true|JOB_RESPONSE|0]
+13:11:35 - Got message [5|4||JOB_REQUEST|3]
+13:11:36 - Got message [0|25|true|JOB_RESPONSE|3]
+13:11:36 - [Fractal Worker]: Started fractal worker
+13:11:37 - Sending message [3|1|false|JOB_RESPONSE|5]
+13:11:49 - Got message [0|38|RESULT_REQUEST|RESULT|3]
+13:11:49 - [ResultMessageHandler]: Got request message fromtriangle
+13:11:49 - [Result Handler]: 1
+13:11:50 - Got message [5|30|RESULT_REQUEST|RESULT|3]
+13:11:50 - [ResultMessageHandler]: Got request message frompentagon
+13:11:51 - Sending message [3|2|RESULT_RESPONSE|RESULT|0]
+13:11:57 - Quitting...
+13:11:57 - [JobManager]: My job ID is: 10
+13:11:58 - [Fractal Worker]: Done drawing part of job: triangle with dots:[Dot{x=960, y=0}, Dot{x=720, y=270}, Dot{x=1200, y=270}]

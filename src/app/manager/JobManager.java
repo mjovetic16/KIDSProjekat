@@ -87,7 +87,7 @@ public class JobManager implements Runnable, Cancellable {
 
             setResultHandler(new ResultHandler(this, AppConfig.getActiveJob()));
 
-            FractalWorker f1 = new FractalWorker(activeJob,"fractal/images/"+activeJob.getJob().getName()+".png");
+            FractalWorker f1 = new FractalWorker(activeJob,"fractal/images/parts/"+activeJob.getJob().getName());
             setFractalWorker(f1);
             f1.run();
 

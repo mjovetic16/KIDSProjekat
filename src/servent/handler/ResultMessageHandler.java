@@ -42,7 +42,7 @@ public class ResultMessageHandler implements MessageHandler{
 //                ResultHandler resultHandler = jobManager.getResultHandler();
 //                log("Zadnji"+resultHandler);
 
-                log("Got request message from"+message.getResponse().getData()+"");
+                log("Got request message from: "+message.getResponse().getData()+"");
 
                 if(AppConfig.getActiveJob()==null)return;
                 if(AppConfig.getActiveJob().getJob()==null)return;

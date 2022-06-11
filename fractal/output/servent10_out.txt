@@ -1,24 +1,20 @@
-18:31:21 - Starting servent [10|localhost|1111]
-18:31:21 - Pausing for 25000 ms
-18:31:23 - Got message [0|9||JOB_REQUEST|10]
-18:31:23 - [JobHandler]: Elsovao
-18:31:23 - [JobHandler]: ActiveJob{job=null, active=false, jobNodes={}, section=null, myNode=null}
-18:31:24 - Got message [5|10||JOB_REQUEST|10]
-18:31:25 - Sending message [10|0|true|JOB_RESPONSE|0]
-18:31:26 - Got message [0|31|false|JOB_RESPONSE|10]
-18:31:27 - Sending message [10|1|true|JOB_RESPONSE|5]
-18:31:28 - Got message [5|26|true|JOB_RESPONSE|10]
-18:31:28 - [Fractal Worker]: Started fractal worker
-18:31:39 - Got message [0|45|RESULT_REQUEST|RESULT|10]
-18:31:39 - [ResultMessageHandler]: Got request message fromtriangle
-18:31:39 - Got message [5|37|RESULT_REQUEST|RESULT|10]
-18:31:39 - [ResultMessageHandler]: Got request message frompentagon
-18:31:39 - [Result Handler]: 1
-18:31:39 - [Result Handler]: 2
-18:31:39 - [Result Handler]: 3
-18:31:39 - [Result Handler]: 4
-18:31:39 - [Result Handler]: 5
-18:31:40 - Sending message [10|2|RESULT_RESPONSE|RESULT|5]
-18:31:46 - Quitting...
-18:31:46 - [JobManager]: My job ID is: 04
-18:31:48 - [Fractal Worker]: Done drawing part of job: pentagon with dots:[Dot{x=951, y=752}, Dot{x=892, y=708}, Dot{x=931, y=823}, Dot{x=858, y=823}, Dot{x=833, y=752}]
+13:11:32 - Starting servent [10|localhost|1111]
+13:11:32 - Pausing for 25000 ms
+13:11:34 - Got message [0|9||JOB_REQUEST|10]
+13:11:34 - [JobHandler]: Elsovao
+13:11:34 - [JobHandler]: ActiveJob{job=null, active=false, jobNodes={}, section=null, myNode=null}
+13:11:35 - Sending message [10|0|true|JOB_RESPONSE|0]
+13:11:35 - Got message [5|10||JOB_REQUEST|10]
+13:11:36 - Got message [0|27|false|JOB_RESPONSE|10]
+13:11:37 - Sending message [10|1|true|JOB_RESPONSE|5]
+13:11:39 - Got message [5|26|true|JOB_RESPONSE|10]
+13:11:39 - [Fractal Worker]: Started fractal worker
+13:11:49 - Got message [0|45|RESULT_REQUEST|RESULT|10]
+13:11:49 - [ResultMessageHandler]: Got request message fromtriangle
+13:11:50 - Got message [5|37|RESULT_REQUEST|RESULT|10]
+13:11:51 - [ResultMessageHandler]: Got request message frompentagon
+13:11:51 - [Result Handler]: 1
+13:11:51 - Sending message [10|2|RESULT_RESPONSE|RESULT|5]
+13:11:57 - Quitting...
+13:11:57 - [JobManager]: My job ID is: 04
+13:11:58 - [Fractal Worker]: Done drawing part of job: pentagon with dots:[Dot{x=951, y=752}, Dot{x=892, y=708}, Dot{x=931, y=823}, Dot{x=858, y=823}, Dot{x=833, y=752}]
