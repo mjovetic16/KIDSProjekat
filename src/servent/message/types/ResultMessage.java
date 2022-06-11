@@ -1,9 +1,8 @@
-package servent.message;
+package servent.message.types;
 
 import app.ServentInfo;
-import app.models.job.ActiveJob;
 import app.models.message.Response;
-import app.models.message.ResponseType;
+import servent.message.MessageType;
 
 import java.io.Serial;
 

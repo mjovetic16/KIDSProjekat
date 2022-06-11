@@ -1,11 +1,10 @@
-package servent.message;
+package servent.message.types;
 
-import app.AppConfig;
 import app.ServentInfo;
 import app.models.job.ActiveJob;
+import servent.message.MessageType;
 
 import java.io.Serial;
-import java.util.List;
 
 public class JobRequestMessage extends BasicMessage {
 

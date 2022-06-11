@@ -2,12 +2,9 @@ package servent.handler;
 
 import app.AppConfig;
 import app.manager.JobManager;
-import app.manager.handler.ResultHandler;
-import app.models.message.Response;
 import app.models.message.ResponseType;
-import servent.message.JobResponseMessage;
 import servent.message.Message;
-import servent.message.ResultMessage;
+import servent.message.types.ResultMessage;
 
 import java.util.Arrays;
 

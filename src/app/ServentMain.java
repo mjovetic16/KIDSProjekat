@@ -1,5 +1,6 @@
 package app;
 
+import app.architecture.ServentInitializer;
 import app.manager.JobManager;
 import cli.CLIParser;
 import servent.SimpleServentListener;
@@ -62,6 +63,10 @@ public class ServentMain {
 		SimpleServentListener simpleListener = new SimpleServentListener(jobManager);
 		Thread listenerThread = new Thread(simpleListener);
 		listenerThread.start();
+
+		ServentInitializer serventInitializer = new ServentInitializer();
+		Thread initializerThread = new Thread(serventInitializer);
+		initializerThread.start();
 		
 		CLIParser cliParser = new CLIParser(simpleListener, jobManager);
 		Thread cliThread = new Thread(cliParser);

@@ -28,6 +28,10 @@ public class AppConfig {
 	
 	private static List<ServentInfo> serventInfoList = new ArrayList<>();
 
+	private static int serventCount = 0;
+
+	private static List<ServentInfo> neighborList = new ArrayList<>();
+
 
 	private static List<Job> jobList = new ArrayList<>();
 
@@ -270,9 +274,9 @@ public class AppConfig {
 	/**
 	 * Get number of servents in this system.
 	 */
-	public static int getServentCount() {
-		return serventInfoList.size();
-	}
+//	public static int getServentCount() {
+//		return serventInfoList.size();
+//	}
 
 	public String getJobLock(){
 		return jobLock;
@@ -310,6 +314,31 @@ public class AppConfig {
 
 	public static String getImageWriteLock(){
 		return imageWriteLock;
+	}
+
+	public static BootstrapNode getBootstrapNode(){
+		return bootstrapNode;
+	}
+
+
+	public static List<ServentInfo> getNeighbors(){
+
+		return neighborList;
+	}
+
+
+	public static void setNeighbors(List<ServentInfo> neighbors){
+
+		neighborList = neighbors;
+	}
+
+	public static void setServentCount(int n){
+
+		serventCount = n;
+	}
+
+	public static int getServentCount(){
+		return serventCount;
 	}
 
 

@@ -1,4 +1,4 @@
-package servent.message;
+package servent.message.types;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,6 +7,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import app.AppConfig;
 import app.ServentInfo;
+import servent.message.Message;
+import servent.message.MessageType;
 
 /**
  * A default message implementation. This should cover most situations.

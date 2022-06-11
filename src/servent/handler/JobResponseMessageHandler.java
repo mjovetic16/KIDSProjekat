@@ -3,9 +3,8 @@ package servent.handler;
 import app.AppConfig;
 import app.manager.JobManager;
 import app.models.message.ResponseType;
-import servent.message.JobResponseMessage;
+import servent.message.types.JobResponseMessage;
 import servent.message.Message;
-import servent.message.MessageType;
 
 import java.util.Arrays;
 

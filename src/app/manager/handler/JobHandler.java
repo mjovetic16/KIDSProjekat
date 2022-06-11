@@ -6,8 +6,8 @@ import app.models.Node;
 import app.models.job.*;
 import app.models.message.Response;
 import app.models.message.ResponseType;
-import servent.message.JobRequestMessage;
-import servent.message.JobResponseMessage;
+import servent.message.types.JobRequestMessage;
+import servent.message.types.JobResponseMessage;
 import servent.message.Message;
 import servent.message.util.MessageUtil;
 

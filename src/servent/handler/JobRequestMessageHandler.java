@@ -2,13 +2,9 @@ package servent.handler;
 
 import app.AppConfig;
 import app.manager.JobManager;
-import app.manager.handler.JobHandler;
-import app.models.Node;
-import app.models.message.Response;
-import servent.message.JobRequestMessage;
+import servent.message.types.JobRequestMessage;
 import servent.message.Message;
 
-import java.security.spec.ECField;
 import java.util.Arrays;
 
 public class JobRequestMessageHandler implements MessageHandler{

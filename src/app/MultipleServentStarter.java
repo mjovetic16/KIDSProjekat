@@ -3,6 +3,7 @@ package app;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -60,6 +61,10 @@ public class MultipleServentStarter {
 	 * contains a servent_list.properties file which will describe our distributed system.
 	 */
 	private static void startServentTest(String testName) {
+
+		log("Start");
+
+
 		List<Process> serventProcesses = new ArrayList<>();
 		
 		AppConfig.readConfig(testName+"/servent_list.properties");
@@ -86,6 +91,7 @@ public class MultipleServentStarter {
 				
 			} catch (IOException e) {
 				e.printStackTrace();
+				errorLog("",e);
 			}
 		}
 		
@@ -98,6 +104,7 @@ public class MultipleServentStarter {
 				process.waitFor(); //Wait for graceful process finish.
 			} catch (InterruptedException e) {
 				e.printStackTrace();
+				errorLog("",e);
 			}
 		}
 		
@@ -107,6 +114,19 @@ public class MultipleServentStarter {
 	public static void main(String[] args) {
 		startServentTest("fractal");
 		
+	}
+
+
+	public static void log(String s){
+
+		AppConfig.timestampedStandardPrint("[MSS]: "+s);
+	}
+
+	public static void errorLog(String s, Exception e){
+
+		AppConfig.timestampedErrorPrint("[MSS]: "+s);
+		AppConfig.timestampedErrorPrint("[MSS]: "+e.toString());
+		AppConfig.timestampedErrorPrint("[MSS]: "+ Arrays.toString(e.getStackTrace()));
 	}
 
 }

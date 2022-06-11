@@ -1,7 +1,8 @@
-package servent.message;
+package servent.message.types;
 
 import app.ServentInfo;
 import app.models.message.Response;
+import servent.message.MessageType;
 
 public class JobResponseMessage extends BasicMessage{
 

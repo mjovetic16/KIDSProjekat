@@ -8,7 +8,7 @@ import app.models.job.*;
 import app.models.message.Response;
 import app.models.message.ResponseType;
 import servent.message.Message;
-import servent.message.ResultMessage;
+import servent.message.types.ResultMessage;
 import servent.message.util.MessageUtil;
 
 import javax.imageio.ImageIO;
@@ -16,7 +16,6 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
 
