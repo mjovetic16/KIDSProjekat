@@ -5,10 +5,7 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class BootstrapServer {
 
@@ -73,6 +70,7 @@ public class BootstrapServer {
 				 * or -1 if he is the first one.
 				 */
 				if (message.equals("Hail")) {
+					log("Got HAIL");
 					int newServentPort = socketScanner.nextInt();
 					
 					System.out.println("got " + newServentPort);
@@ -88,7 +86,10 @@ public class BootstrapServer {
 					
 					socketWriter.flush();
 					newServentSocket.close();
+
+
 				} else if (message.equals("New")) {
+					log("Got NEW");
 					/**
 					 * When a servent is confirmed not to be a collider, we add him to the list.
 					 */
@@ -128,5 +129,18 @@ public class BootstrapServer {
 		
 		BootstrapServer bs = new BootstrapServer();
 		bs.doBootstrap(bsPort);
+	}
+
+
+	public void log(String s){
+
+		AppConfig.timestampedStandardPrint("[BS]: "+s);
+	}
+
+	public void errorLog(String s, Exception e){
+
+		AppConfig.timestampedErrorPrint("[BS]: "+s);
+		AppConfig.timestampedErrorPrint("[BS]: "+e.toString());
+		AppConfig.timestampedErrorPrint("[BS]: "+ Arrays.toString(e.getStackTrace()));
 	}
 }

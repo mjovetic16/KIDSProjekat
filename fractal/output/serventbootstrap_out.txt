@@ -1,7 +1,11 @@
-15:25:19 - Bootstrap server started on port: 1000
+15:39:04 - Bootstrap server started on port: 1000
+15:39:06 - [BS]: Got HAIL
 got 1100
+15:39:16 - [BS]: Got HAIL
 got 1200
+15:39:26 - [BS]: Got HAIL
 got 1300
+15:39:36 - [BS]: Got HAIL
 got 1400
+15:39:46 - [BS]: Got HAIL
 got 1500
-got 1600

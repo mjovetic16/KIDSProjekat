@@ -1,1 +1,4 @@
-15:25:53 - Couldn't send message: [3|0||NEW_NODE|10000]
+15:39:38 - Error in reading socket on /127.0.0.1:50289
+Exception in thread "Thread-1" java.lang.NullPointerException: Cannot invoke "servent.message.Message.getMessageType()" because "clientMessage" is null
+	at servent.SimpleServentListener.run(SimpleServentListener.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:833)

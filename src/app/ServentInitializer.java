@@ -11,6 +11,7 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class ServentInitializer implements Runnable {
@@ -50,10 +51,22 @@ public class ServentInitializer implements Runnable {
 		}
 		if (someServentPort == -1) { //bootstrap gave us -1 -> we are first
 			AppConfig.timestampedStandardPrint("First node in system.");
+
+			List<ServentInfo> neigbors = new ArrayList<>();
+			neigbors.add(AppConfig.myServentInfo);
+			AppConfig.setNeighbors(neigbors);
+			AppConfig.setServentCount(1);
+
+
 		} else { //bootstrap gave us something else - let that node tell our successor that we are here
-			ServentInfo serventInfo = new ServentInfo("empty",10000,someServentPort,new ArrayList<>());
+
+
+			//TODO EMPty IP Adress
+			ServentInfo serventInfo = new ServentInfo("localhost",10000,someServentPort,new ArrayList<>());
 			NewNodeMessage nnm = new NewNodeMessage(AppConfig.myServentInfo, serventInfo);
 			MessageUtil.sendMessage(nnm);
+
+			log("Sending new node message to: "+nnm.getReceiverInfo());
 		}
 	}
 

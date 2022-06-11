@@ -1,2 +1,1 @@
-Error: Could not find or load main class app.ServentMain
-Caused by: java.lang.ClassNotFoundException: app.ServentMain
+15:26:53 - Couldn't send message: [9|0||NEW_NODE|10000]

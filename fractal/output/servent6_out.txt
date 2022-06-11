@@ -1,2 +1,4 @@
-15:23:04 - Starting servent [6|localhost|1700]
-15:23:04 - Pausing for 180000 ms
+15:36:14 - Starting servent [6|localhost|1700]
+15:36:14 - Pausing for 180000 ms
+15:36:14 - [ServentInitializer]: Sending new node message
+15:36:15 - Sending message [6|0||NEW_NODE|10000]

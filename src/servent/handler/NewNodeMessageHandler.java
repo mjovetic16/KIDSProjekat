@@ -22,6 +22,8 @@ public class NewNodeMessageHandler implements MessageHandler{
 
     @Override
     public void run() {
+
+        log("GOT new node message");
         log("New node message arrived :"+clientMessage+"");
 
 

@@ -1,3 +1,19 @@
-15:25:21 - Starting servent [0|localhost|1100]
-15:25:21 - Pausing for 180000 ms
-15:25:21 - First node in system.
+15:39:06 - Starting servent [0|localhost|1100]
+15:39:06 - Pausing for 180000 ms
+15:39:06 - First node in system.
+15:39:17 - Got message [1|0||NEW_NODE|10000]
+15:39:17 - [NewNodeMH]: GOT new node message
+15:39:17 - [NewNodeMH]: New node message arrived :[1|0||NEW_NODE|10000]
+15:39:18 - Sending message [0|0||WELCOME|1]
+15:39:28 - Got message [2|0||NEW_NODE|10000]
+15:39:28 - [NewNodeMH]: GOT new node message
+15:39:28 - [NewNodeMH]: New node message arrived :[2|0||NEW_NODE|10000]
+15:39:29 - Sending message [0|1||WELCOME|2]
+15:39:37 - Got message [3|0||NEW_NODE|10000]
+15:39:37 - [NewNodeMH]: GOT new node message
+15:39:37 - [NewNodeMH]: New node message arrived :[3|0||NEW_NODE|10000]
+15:39:38 - Sending message [0|2||WELCOME|3]
+15:39:48 - Got message [4|0||NEW_NODE|10000]
+15:39:48 - [NewNodeMH]: GOT new node message
+15:39:48 - [NewNodeMH]: New node message arrived :[4|0||NEW_NODE|10000]
+15:39:49 - Sending message [0|3||WELCOME|4]
