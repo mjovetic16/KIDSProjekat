@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
+import java.util.Arrays;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -60,6 +61,7 @@ public class SimpleServentListener implements Runnable, Cancellable {
 				 * If we can get away with stateless handlers, we will,
 				 * because that way is much simpler and less error prone.
 				 */
+				log("Got message type: "+clientMessage.getMessageType());
 				switch (clientMessage.getMessageType()) {
 
 					case JOB_REQUEST :
@@ -95,6 +97,19 @@ public class SimpleServentListener implements Runnable, Cancellable {
 	@Override
 	public void stop() {
 		this.working = false;
+	}
+
+
+	public void log(String s){
+
+		AppConfig.timestampedStandardPrint("[SSListener]: "+s);
+	}
+
+	public void errorLog(String s, Exception e){
+
+		AppConfig.timestampedErrorPrint("[SSListener]: "+s);
+		AppConfig.timestampedErrorPrint("[SSListener]: "+e.toString());
+		AppConfig.timestampedErrorPrint("[SSListener]: "+ Arrays.toString(e.getStackTrace()));
 	}
 
 }

@@ -46,6 +46,8 @@ public class NewNodeMessageHandler implements MessageHandler{
             WelcomeMessage welcomeMessage = new WelcomeMessage(AppConfig.myServentInfo,clientMessage.getOriginalSenderInfo(),newNodeData);
             MessageUtil.sendMessage(welcomeMessage);
 
+            log("Sending welcome message: "+welcomeMessage);
+
 
 
         }catch (Exception e){

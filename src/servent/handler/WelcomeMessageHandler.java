@@ -29,6 +29,8 @@ public class WelcomeMessageHandler implements MessageHandler{
     public void run() {
 
         try {
+            log("Got welcome message");
+
             WelcomeMessage message = (WelcomeMessage) clientMessage;
 
             NewNodeData newNodeData = message.getNewNodeData();

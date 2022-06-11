@@ -2,10 +2,16 @@ package app.models.message;
 
 import app.ServentInfo;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NewNodeData {
+public class NewNodeData implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = -1130437091212308563L;
+
 
 
     private int serventCount;

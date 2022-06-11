@@ -1,3 +1,70 @@
-15:27:21 - Starting servent [12|localhost|1113]
-15:27:21 - Pausing for 180000 ms
-15:27:23 - Sending message [12|0||NEW_NODE|10000]
+15:53:49 - Starting servent [12|localhost|1113]
+15:53:49 - Pausing for 180000 ms
+15:53:49 - [ServentInitializer]: Sending new node message to: [10000|localhost|1100]
+15:53:51 - Sending message [12|0||NEW_NODE|10000]
+15:53:52 - Got message [0|11||WELCOME|12]
+15:53:52 - [MessageUtil]: Message type: WELCOME
+15:53:52 - [SSListener]: Got message type: WELCOME
+15:53:52 - [WelcomeMessageHandler]: Got welcome message
+15:53:53 - Sending message [12|10||UPDATE|9]
+15:53:53 - Sending message [12|11||UPDATE|10]
+15:53:53 - Sending message [12|4||UPDATE|3]
+15:53:53 - Sending message [12|12||UPDATE|11]
+15:53:53 - Sending message [12|2||UPDATE|1]
+15:53:53 - Sending message [12|1||UPDATE|0]
+15:53:53 - Sending message [12|6||UPDATE|5]
+15:53:53 - Sending message [12|3||UPDATE|2]
+15:53:53 - Sending message [12|13||UPDATE|12]
+15:53:53 - Got message [12|13||UPDATE|12]
+15:53:53 - [MessageUtil]: Message type: UPDATE
+15:53:53 - [SSListener]: Got message type: UPDATE
+15:53:53 - [UpdateMessageHandler]: Current servent state:NewNodeData{serventCount=13, neighbors=[[0|localhost|1100], [1|localhost|1200], [2|localhost|1300], [3|localhost|1400], [4|localhost|1500], [5|localhost|1600], [6|localhost|1700], [7|localhost|1800], [8|localhost|1900], [9|localhost|2000], [10|localhost|1111], [11|localhost|1112], [12|localhost|1113]]}
+15:53:53 - Sending message [12|9||UPDATE|8]
+15:53:53 - Sending message [12|8||UPDATE|7]
+15:53:54 - Sending message [12|5||UPDATE|4]
+15:53:54 - Sending message [12|7||UPDATE|6]
+15:54:02 - Got message [13|13||UPDATE|12]
+15:54:02 - [MessageUtil]: Message type: UPDATE
+15:54:02 - [SSListener]: Got message type: UPDATE
+15:54:02 - [UpdateMessageHandler]: Current servent state:NewNodeData{serventCount=14, neighbors=[[0|localhost|1100], [1|localhost|1200], [2|localhost|1300], [3|localhost|1400], [4|localhost|1500], [5|localhost|1600], [6|localhost|1700], [7|localhost|1800], [8|localhost|1900], [9|localhost|2000], [10|localhost|1111], [11|localhost|1112], [12|localhost|1113], [13|localhost|1114]]}
+15:54:13 - Got message [14|13||UPDATE|12]
+15:54:13 - [MessageUtil]: Message type: UPDATE
+15:54:13 - [SSListener]: Got message type: UPDATE
+15:54:13 - [UpdateMessageHandler]: Current servent state:NewNodeData{serventCount=15, neighbors=[[0|localhost|1100], [1|localhost|1200], [2|localhost|1300], [3|localhost|1400], [4|localhost|1500], [5|localhost|1600], [6|localhost|1700], [7|localhost|1800], [8|localhost|1900], [9|localhost|2000], [10|localhost|1111], [11|localhost|1112], [12|localhost|1113], [13|localhost|1114], [14|localhost|1115]]}
+15:54:23 - Got message [15|13||UPDATE|12]
+15:54:23 - [MessageUtil]: Message type: UPDATE
+15:54:23 - [SSListener]: Got message type: UPDATE
+15:54:23 - [UpdateMessageHandler]: Current servent state:NewNodeData{serventCount=16, neighbors=[[0|localhost|1100], [1|localhost|1200], [2|localhost|1300], [3|localhost|1400], [4|localhost|1500], [5|localhost|1600], [6|localhost|1700], [7|localhost|1800], [8|localhost|1900], [9|localhost|2000], [10|localhost|1111], [11|localhost|1112], [12|localhost|1113], [13|localhost|1114], [14|localhost|1115], [15|localhost|1116]]}
+15:54:33 - Got message [16|13||UPDATE|12]
+15:54:33 - [MessageUtil]: Message type: UPDATE
+15:54:33 - [SSListener]: Got message type: UPDATE
+15:54:33 - [UpdateMessageHandler]: Current servent state:NewNodeData{serventCount=17, neighbors=[[0|localhost|1100], [1|localhost|1200], [2|localhost|1300], [3|localhost|1400], [4|localhost|1500], [5|localhost|1600], [6|localhost|1700], [7|localhost|1800], [8|localhost|1900], [9|localhost|2000], [10|localhost|1111], [11|localhost|1112], [12|localhost|1113], [13|localhost|1114], [14|localhost|1115], [15|localhost|1116], [16|localhost|1117]]}
+15:54:42 - Got message [17|13||UPDATE|12]
+15:54:42 - [MessageUtil]: Message type: UPDATE
+15:54:42 - [SSListener]: Got message type: UPDATE
+15:54:42 - [UpdateMessageHandler]: Current servent state:NewNodeData{serventCount=18, neighbors=[[0|localhost|1100], [1|localhost|1200], [2|localhost|1300], [3|localhost|1400], [4|localhost|1500], [5|localhost|1600], [6|localhost|1700], [7|localhost|1800], [8|localhost|1900], [9|localhost|2000], [10|localhost|1111], [11|localhost|1112], [12|localhost|1113], [13|localhost|1114], [14|localhost|1115], [15|localhost|1116], [16|localhost|1117], [17|localhost|1118]]}
+15:54:50 - Got message [0|28||JOB_REQUEST|12]
+15:54:50 - [MessageUtil]: Message type: JOB_REQUEST
+15:54:50 - [SSListener]: Got message type: JOB_REQUEST
+15:54:50 - [JobHandler]: Elsovao
+15:54:50 - [JobHandler]: ActiveJob{job=null, active=false, jobNodes={}, section=null, myNode=null}
+15:54:50 - Sending message [12|14|true|JOB_RESPONSE|0]
+15:54:52 - Got message [0|37|true|JOB_RESPONSE|12]
+15:54:52 - [MessageUtil]: Message type: JOB_RESPONSE
+15:54:52 - [SSListener]: Got message type: JOB_RESPONSE
+15:54:52 - [Fractal Worker]: Started fractal worker
+15:55:05 - Got message [0|63|RESULT_REQUEST|RESULT|12]
+15:55:05 - [MessageUtil]: Message type: RESULT
+15:55:05 - [SSListener]: Got message type: RESULT
+15:55:05 - [ResultMessageHandler]: Got request message from: triangle
+15:55:06 - Sending message [12|15|RESULT_RESPONSE|RESULT|0]
+15:55:42 - Got message [5|19||JOB_REQUEST|12]
+15:55:42 - [MessageUtil]: Message type: JOB_REQUEST
+15:55:42 - [SSListener]: Got message type: JOB_REQUEST
+15:55:42 - [JobHandler]: Elsovao
+15:55:42 - [JobHandler]: ActiveJob{job=Job{name='triangle', n=3, p=0.5, w=1920, h=1080, A={(0, 1080)=Dot{x=0, y=1080}, (960, 0)=Dot{x=960, y=0}, (1920, 1080)=Dot{x=1920, y=1080}}}, active=true, jobNodes={00=Node{serventInfo=[11|localhost|1112], ID='NOT_SET'}, 11=Node{serventInfo=[14|localhost|1115], ID='NOT_SET'}, 22=Node{serventInfo=[9|localhost|2000], ID='NOT_SET'}, 01=Node{serventInfo=[12|localhost|1113], ID='NOT_SET'}, 12=Node{serventInfo=[3|localhost|1400], ID='NOT_SET'}, 02=Node{serventInfo=[2|localhost|1300], ID='NOT_SET'}, 20=Node{serventInfo=[4|localhost|1500], ID='NOT_SET'}, 10=Node{serventInfo=[13|localhost|1114], ID='NOT_SET'}, 21=Node{serventInfo=[16|localhost|1117], ID='NOT_SET'}}, section=Section{size=0, depth=0, dots=[Dot{x=480, y=540}, Dot{x=720, y=810}, Dot{x=240, y=810}]}, myNode=Node{serventInfo=[12|localhost|1113], ID='01'}}
+15:55:43 - Sending message [12|16|true|JOB_RESPONSE|5]
+15:55:57 - Got message [5|37|RESULT_REQUEST|RESULT|12]
+15:55:57 - [MessageUtil]: Message type: RESULT
+15:55:57 - [SSListener]: Got message type: RESULT
+15:55:57 - [ResultMessageHandler]: Got request message from: pentagon

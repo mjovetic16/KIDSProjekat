@@ -3,6 +3,7 @@ package servent.message.util;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.net.Socket;
+import java.util.Arrays;
 
 import app.AppConfig;
 import servent.message.Message;
@@ -45,6 +46,8 @@ public class MessageUtil {
 		
 		if (MESSAGE_UTIL_PRINTING) {
 			AppConfig.timestampedStandardPrint("Got message " + clientMessage);
+			log("Message type: "+clientMessage.getMessageType());
+
 		}
 				
 		return clientMessage;
@@ -54,5 +57,17 @@ public class MessageUtil {
 		Thread delayedSender = new Thread(new DelayedMessageSender(message));
 		
 		delayedSender.start();
+	}
+
+	public static void log(String s){
+
+		AppConfig.timestampedStandardPrint("[MessageUtil]: "+s);
+	}
+
+	public static void errorLog(String s, Exception e){
+
+		AppConfig.timestampedErrorPrint("[MessageUtil]: "+s);
+		AppConfig.timestampedErrorPrint("[MessageUtil]: "+e.toString());
+		AppConfig.timestampedErrorPrint("[MessageUtil]: "+ Arrays.toString(e.getStackTrace()));
 	}
 }
