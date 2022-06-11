@@ -1,4 +1,4 @@
-package app.architecture;
+package app;
 
 import app.AppConfig;
 import app.ServentInfo;
@@ -21,7 +21,8 @@ public class ServentInitializer implements Runnable {
 		int retVal = -2;
 		
 		try {
-			Socket bsSocket = new Socket(AppConfig.getBootstrapNode().getIpAddress(), bsPort);
+			//TODO PORT
+			Socket bsSocket = new Socket("localhost", bsPort);
 			
 			PrintWriter bsWriter = new PrintWriter(bsSocket.getOutputStream());
 			bsWriter.write("Hail\n" + AppConfig.myServentInfo.getListenerPort() + "\n");

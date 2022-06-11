@@ -1,6 +1,4 @@
-package app.architecture;
-
-import app.AppConfig;
+package app;
 
 import java.io.IOException;
 import java.io.PrintWriter;

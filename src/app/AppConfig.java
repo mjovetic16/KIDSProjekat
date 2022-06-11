@@ -264,7 +264,7 @@ public class AppConfig {
 	 * @return {@link ServentInfo} object for this id
 	 */
 	public static ServentInfo getInfoById(int id) {
-		if (id >= getServentCount()) {
+		if (id >= getInitServentCount()) {
 			throw new IllegalArgumentException(
 					"Trying to get info for servent " + id + " when there are " + getServentCount() + " servents.");
 		}
@@ -274,9 +274,9 @@ public class AppConfig {
 	/**
 	 * Get number of servents in this system.
 	 */
-//	public static int getServentCount() {
-//		return serventInfoList.size();
-//	}
+	public static int getInitServentCount() {
+		return serventInfoList.size();
+	}
 
 	public String getJobLock(){
 		return jobLock;

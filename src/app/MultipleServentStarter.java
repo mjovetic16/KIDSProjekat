@@ -32,9 +32,12 @@ public class MultipleServentStarter {
 	private static class ServentCLI implements Runnable {
 		
 		private List<Process> serventProcesses;
+
+		private Process bsProcess;
 		
-		public ServentCLI(List<Process> serventProcesses) {
+		public ServentCLI(List<Process> serventProcesses, Process bsProcess) {
 			this.serventProcesses = serventProcesses;
+			this.bsProcess = bsProcess;
 		}
 		
 		@Override
@@ -71,8 +74,30 @@ public class MultipleServentStarter {
 		
 		AppConfig.timestampedStandardPrint("Starting multiple servent runner. "
 				+ "If servents do not finish on their own, type \"stop\" to finish them");
+
+		Process bsProcess = null;
+		ProcessBuilder bsBuilder = new ProcessBuilder("java", "-cp", "out/production/KiDSProjekat/", "app.BootstrapServer", String.valueOf(AppConfig.getBootstrapNode().getListenerPort()));
+		try {
+			bsBuilder.redirectOutput(new File(testName+"/output/servent" + "bootstrap" + "_out.txt"));
+			bsBuilder.redirectError(new File(testName+"/error/servent" + "bootstrap" + "_err.txt"));
+			bsProcess = bsBuilder.start();
+			log("Started bootstrap");
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+
+		//wait for bootstrap to start
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e1) {
+			e1.printStackTrace();
+		}
+
+
+
+
 		
-		int serventCount = AppConfig.getServentCount();
+		int serventCount = AppConfig.getInitServentCount();
 		
 		for(int i = 0; i < serventCount; i++) {
 			try {
@@ -92,11 +117,18 @@ public class MultipleServentStarter {
 			} catch (IOException e) {
 				e.printStackTrace();
 				errorLog("",e);
+			}try { //give each node 10s to start up
+				Thread.sleep(10000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
 			}
+
+
+
 		}
+		Thread t = new Thread(new ServentCLI(serventProcesses, bsProcess));
 		
-		Thread t = new Thread(new ServentCLI(serventProcesses));
-		
+
 		t.start(); //CLI thread waiting for user to type "stop".
 		
 		for (Process process : serventProcesses) {
@@ -109,6 +141,12 @@ public class MultipleServentStarter {
 		}
 		
 		AppConfig.timestampedStandardPrint("All servent processes finished. Type \"stop\" to exit.");
+		try {
+			bsProcess.waitFor();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
 	}
 	
 	public static void main(String[] args) {

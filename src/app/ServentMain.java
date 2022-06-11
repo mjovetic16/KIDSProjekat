@@ -1,9 +1,10 @@
 package app;
 
-import app.architecture.ServentInitializer;
 import app.manager.JobManager;
 import cli.CLIParser;
 import servent.SimpleServentListener;
+
+import java.util.Arrays;
 
 /**
  * Describes the procedure for starting a single Servent
@@ -36,7 +37,7 @@ public class ServentMain {
 			System.exit(0);
 		}
 		
-		if (serventId >= AppConfig.getServentCount()) {
+		if (serventId >= AppConfig.getInitServentCount()) {
 			AppConfig.timestampedErrorPrint("Invalid servent id provided");
 			System.exit(0);
 		}
@@ -72,5 +73,18 @@ public class ServentMain {
 		Thread cliThread = new Thread(cliParser);
 		cliThread.start();
 		
+	}
+
+
+	public void log(String s){
+
+		AppConfig.timestampedStandardPrint("[ServentMain]: "+s);
+	}
+
+	public void errorLog(String s, Exception e){
+
+		AppConfig.timestampedErrorPrint("[ServentMain]: "+s);
+		AppConfig.timestampedErrorPrint("[ServentMain]: "+e.toString());
+		AppConfig.timestampedErrorPrint("[ServentMain]: "+ Arrays.toString(e.getStackTrace()));
 	}
 }
