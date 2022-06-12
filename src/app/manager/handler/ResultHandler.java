@@ -51,9 +51,10 @@ public class ResultHandler {
 
         String[] arguments = args.split(" ");
         if(arguments.length>1){
-            sendResultRequestMessages(arguments[0]);
-            this.singleResult = true;
-            this.fractalIdSingleResult=arguments[1];
+            return;
+//            sendResultRequestMessages(arguments[0]);
+//            this.singleResult = true;
+//            this.fractalIdSingleResult=arguments[1];
         }else{
 
             sendResultRequestMessages(arguments[0]);
