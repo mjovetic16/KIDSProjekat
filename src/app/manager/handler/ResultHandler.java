@@ -27,6 +27,10 @@ public class ResultHandler {
 
     private ActiveJob requestedJob;
 
+    private boolean singleResult;
+
+    private String fractalIdSingleResult;
+
     private ConcurrentHashMap<String,Response> responseMap = new ConcurrentHashMap<>();
 
     private String path;
@@ -37,6 +41,8 @@ public class ResultHandler {
     public ResultHandler(JobManager jobManager, ActiveJob activeJob) {
         this.jobManager = jobManager;
         this.path = "fractal/images/"+"empty"+".png";
+        this.singleResult = false;
+        this.fractalIdSingleResult="";
     }
 
     public void start(String args){
@@ -45,8 +51,9 @@ public class ResultHandler {
 
         String[] arguments = args.split(" ");
         if(arguments.length>1){
-            //TODO Result samo za zadati id
-            return;
+            sendResultRequestMessages(arguments[0]);
+            this.singleResult = true;
+            this.fractalIdSingleResult=arguments[1];
         }else{
 
             sendResultRequestMessages(arguments[0]);
@@ -165,21 +172,25 @@ public class ResultHandler {
         graphics2D.setPaint(Color.WHITE);
         graphics2D.fillRect(0, 0, requestedJob.getJob().getW(), requestedJob.getJob().getH());
 
-        for(Response r: responseMap.values()){
 
 
-            Color randColor = new Color((int)(Math.random() * 0x1000000));
-            graphics2D.setPaint(randColor);
-
-            Result result = (Result) r.getData();
-            HashMap<String, Dot> filledDotsMap = result.getFilledDotMap();
+            for(Response r: responseMap.values()){
 
 
-            for (Dot d : filledDotsMap.values()) {
-                graphics2D.drawOval(d.getX(), d.getY(), 1, 1);
+                Color randColor = new Color((int)(Math.random() * 0x1000000));
+                graphics2D.setPaint(randColor);
+
+                Result result = (Result) r.getData();
+                HashMap<String, Dot> filledDotsMap = result.getFilledDotMap();
+
+
+                for (Dot d : filledDotsMap.values()) {
+                    graphics2D.drawOval(d.getX(), d.getY(), 1, 1);
+                }
+
             }
 
-        }
+
 
 
         try {
@@ -240,6 +251,7 @@ public class ResultHandler {
     }
 
 
+
     public ActiveJob getActiveJob() {
         return activeJob;
     }
@@ -258,6 +270,22 @@ public class ResultHandler {
 
     public ActiveJob getRequestedJob() {
         return requestedJob;
+    }
+
+    public boolean isSingleResult() {
+        return singleResult;
+    }
+
+    public void setSingleResult(boolean singleResult) {
+        this.singleResult = singleResult;
+    }
+
+    public String getFractalIdSingleResult() {
+        return fractalIdSingleResult;
+    }
+
+    public void setFractalIdSingleResult(String fractalIdSingleResult) {
+        this.fractalIdSingleResult = fractalIdSingleResult;
     }
 
     public void setRequestedJob(ActiveJob requestedJob) {

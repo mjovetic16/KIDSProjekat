@@ -1,31 +1,37 @@
-19:19:36 - Bootstrap server started on port: 1000
-19:19:39 - [BS]: Got HAIL
+19:45:32 - Bootstrap server started on port: 1000
+19:45:34 - [BS]: Got HAIL
 got 1100
-19:19:49 - [BS]: Got HAIL
+19:45:44 - [BS]: Got HAIL
 got 1200
-19:19:59 - [BS]: Got HAIL
+19:45:54 - [BS]: Got HAIL
 got 1300
-19:20:09 - [BS]: Got HAIL
+19:46:04 - [BS]: Got HAIL
 got 1400
-19:20:19 - [BS]: Got HAIL
+19:46:14 - [BS]: Got HAIL
 got 1500
-19:20:29 - [BS]: Got HAIL
+19:46:24 - [BS]: Got HAIL
 got 1600
-19:20:39 - [BS]: Got HAIL
+19:46:34 - [BS]: Got HAIL
 got 1700
-19:20:49 - [BS]: Got HAIL
+19:46:44 - [BS]: Got HAIL
 got 1800
-19:20:59 - [BS]: Got HAIL
+19:46:54 - [BS]: Got HAIL
 got 1900
-19:21:09 - [BS]: Got HAIL
+19:47:04 - [BS]: Got HAIL
 got 2000
-19:21:19 - [BS]: Got HAIL
+19:47:14 - [BS]: Got HAIL
 got 1111
-19:21:29 - [BS]: Got HAIL
+19:47:24 - [BS]: Got HAIL
 got 1112
-19:21:39 - [BS]: Got HAIL
+19:47:34 - [BS]: Got HAIL
 got 1113
-19:21:49 - [BS]: Got HAIL
+19:47:44 - [BS]: Got HAIL
 got 1114
-19:21:59 - [BS]: Got HAIL
+19:47:54 - [BS]: Got HAIL
 got 1115
+19:48:05 - [BS]: Got HAIL
+got 1116
+19:48:15 - [BS]: Got HAIL
+got 1117
+19:48:25 - [BS]: Got HAIL
+got 1118
