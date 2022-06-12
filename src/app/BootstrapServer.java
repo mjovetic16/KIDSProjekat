@@ -11,7 +11,7 @@ public class BootstrapServer {
 
 	private volatile boolean working = true;
 	private List<Integer> activeServents;
-	
+	private HashMap<Integer,String> activeServentIP;
 	private class CLIWorker implements Runnable {
 		@Override
 		public void run() {
@@ -33,6 +33,7 @@ public class BootstrapServer {
 	
 	public BootstrapServer() {
 		activeServents = new ArrayList<>();
+		activeServentIP = new HashMap<>();
 	}
 	
 	public void doBootstrap(int bsPort) {
@@ -72,6 +73,7 @@ public class BootstrapServer {
 				if (message.equals("Hail")) {
 					log("Got HAIL");
 					int newServentPort = socketScanner.nextInt();
+					String newIp = socketScanner.nextLine();
 					
 					System.out.println("got " + newServentPort);
 					PrintWriter socketWriter = new PrintWriter(newServentSocket.getOutputStream());
@@ -79,9 +81,12 @@ public class BootstrapServer {
 					if (activeServents.size() == 0) {
 						socketWriter.write(String.valueOf(-1) + "\n");
 						activeServents.add(newServentPort); //first one doesn't need to confirm
+						activeServentIP.put(newServentPort,newIp);
 					} else {
 						int randServent = activeServents.get(rand.nextInt(activeServents.size()));
+						String stringIP = activeServentIP.get(randServent);
 						socketWriter.write(String.valueOf(randServent) + "\n");
+						socketWriter.write(String.valueOf(stringIP) + "\n");
 					}
 					
 					socketWriter.flush();

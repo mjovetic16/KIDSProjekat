@@ -16,34 +16,40 @@ import java.util.Scanner;
 
 public class ServentInitializer implements Runnable {
 
-	private int getSomeServentPort() {
+	private ServentInfo getSomeServentPort() {
 		int bsPort = AppConfig.getBootstrapNode().getListenerPort();
 		
 		int retVal = -2;
+
+		ServentInfo info = new ServentInfo("",1000,0,new ArrayList<>());
 		
 		try {
-			//TODO PORT
-			Socket bsSocket = new Socket("localhost", bsPort);
+			Socket bsSocket = new Socket(AppConfig.getBootstrapNode().getIpAddress(), bsPort);
 			
 			PrintWriter bsWriter = new PrintWriter(bsSocket.getOutputStream());
-			bsWriter.write("Hail\n" + AppConfig.myServentInfo.getListenerPort() + "\n");
+			bsWriter.write("Hail\n" + AppConfig.myServentInfo.getListenerPort()+"\n"+ AppConfig.myServentInfo.getIpAddress() + "\n");
 			bsWriter.flush();
 			
 			Scanner bsScanner = new Scanner(bsSocket.getInputStream());
-			retVal = bsScanner.nextInt();
-			
+			int port = bsScanner.nextInt();
+			String ipAddress = bsScanner.nextLine();
+			info = new ServentInfo(ipAddress, info.getId(), port,info.getNeighbors());
+
 			bsSocket.close();
 		} catch (Exception e){
 
 			errorLog("Error",e);
 		}
 		
-		return retVal;
+		return info;
 	}
 	
 	@Override
 	public void run() {
-		int someServentPort = getSomeServentPort();
+
+		ServentInfo info = getSomeServentPort();
+		int someServentPort = info.getListenerPort();
+		String ip = info.getIpAddress();
 		
 		if (someServentPort == -2) {
 			AppConfig.timestampedErrorPrint("Error in contacting bootstrap. Exiting...");
@@ -61,8 +67,7 @@ public class ServentInitializer implements Runnable {
 		} else { //bootstrap gave us something else - let that node tell our successor that we are here
 
 
-			//TODO EMPty IP Adress
-			ServentInfo serventInfo = new ServentInfo("localhost",10000,someServentPort,new ArrayList<>());
+			ServentInfo serventInfo = new ServentInfo(ip,10000,someServentPort,new ArrayList<>());
 			NewNodeMessage nnm = new NewNodeMessage(AppConfig.myServentInfo, serventInfo);
 			MessageUtil.sendMessage(nnm);
 

@@ -125,8 +125,18 @@ public class AppConfig {
 		
 		for (int i = 0; i < serventCount; i++) {
 			String portProperty = "servent"+i+".port";
+			String ipProperty = "servent"+i+".ip";
 			
 			int serventPort = -1;
+			String serventIp = "localhost";
+
+
+			try {
+				serventIp = properties.getProperty(ipProperty);
+			} catch (NumberFormatException e) {
+				timestampedErrorPrint("Problem reading " + ipProperty + ". Exiting...");
+				System.exit(0);
+			}
 			
 			try {
 				serventPort = Integer.parseInt(properties.getProperty(portProperty));
@@ -162,7 +172,7 @@ public class AppConfig {
 				}
 			}
 			
-			ServentInfo newInfo = new ServentInfo("localhost", i, serventPort, neighborList);
+			ServentInfo newInfo = new ServentInfo(serventIp, i, serventPort, neighborList);
 			serventInfoList.add(newInfo);
 		}
 

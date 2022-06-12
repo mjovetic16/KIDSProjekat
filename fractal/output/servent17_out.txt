@@ -1,56 +1,59 @@
-18:09:28 - Starting servent [17|localhost|1118]
-18:09:29 - Pausing for 20000 ms
-18:09:29 - [ServentInitializer]: Sending new node message to: [10000|localhost|1100]
-18:09:30 - Sending message [17|0||NEW_NODE|10000]
-18:09:31 - Got message [0|16||WELCOME|17]
-18:09:31 - [WelcomeMessageHandler]: Got welcome message
-18:09:31 - Sending message [17|2||UPDATE|1]
-18:09:31 - Sending message [17|4||UPDATE|3]
-18:09:31 - Sending message [17|10||UPDATE|9]
-18:09:31 - Sending message [17|11||UPDATE|10]
-18:09:31 - Sending message [17|7||UPDATE|6]
-18:09:32 - Sending message [17|17||UPDATE|16]
-18:09:32 - Sending message [17|13||UPDATE|12]
-18:09:32 - Sending message [17|5||UPDATE|4]
-18:09:32 - Sending message [17|14||UPDATE|13]
-18:09:32 - Sending message [17|9||UPDATE|8]
-18:09:32 - Sending message [17|12||UPDATE|11]
-18:09:32 - Sending message [17|8||UPDATE|7]
-18:09:32 - Sending message [17|16||UPDATE|15]
-18:09:32 - Sending message [17|18||UPDATE|17]
-18:09:32 - Sending message [17|6||UPDATE|5]
-18:09:32 - Got message [17|18||UPDATE|17]
-18:09:32 - [UpdateMessageHandler]: Current servent state:NewNodeData{serventCount=18, neighbors=[[0|localhost|1100], [1|localhost|1200], [2|localhost|1300], [3|localhost|1400], [4|localhost|1500], [5|localhost|1600], [6|localhost|1700], [7|localhost|1800], [8|localhost|1900], [9|localhost|2000], [10|localhost|1111], [11|localhost|1112], [12|localhost|1113], [13|localhost|1114], [14|localhost|1115], [15|localhost|1116], [16|localhost|1117], [17|localhost|1118]]}
-18:09:32 - [UpdateMessageHandler]: Current node count: 18
-18:09:32 - Sending message [17|15||UPDATE|14]
-18:09:32 - Sending message [17|3||UPDATE|2]
-18:09:32 - Sending message [17|1||UPDATE|0]
-18:09:49 - Pausing for 25000 ms
-18:09:50 - Got message [0|34||JOB_REQUEST|17]
-18:09:50 - [JobHandler]: Dobio zahtev za novi posao, stavljam ga kao aktivnom i saljem true response
-18:09:50 - [JobHandler]: ActiveJob{job=null, active=false, jobNodes={}, section=null, myNode=null, isSet=false}
-18:09:50 - [AppConfig]: Set active job (is it set?) : true
-18:09:50 - [JobHandler]: Uspesno poslat response
-18:09:51 - Sending message [17|19|true|JOB_RESPONSE|0]
-18:09:52 - Got message [5|25||JOB_REQUEST|17]
-18:09:52 - [JobHandler]: Dobio zahtev za novi posao ali je vec aktivan drugi
-18:09:52 - [JobHandler]: Stavio u queue da odgovorim kasnije
-18:09:52 - Got message [0|53|false|JOB_RESPONSE|17]
-18:09:52 - [JobHandler]: Pozvan clear, kada nije prihvacen job, znaci odgovaram sa true na element u queue-u
-18:09:52 - [JobHandler]: Uspesno odgovorio
-18:09:53 - Sending message [17|20|true|JOB_RESPONSE|5]
-18:09:54 - Got message [5|31|true|JOB_RESPONSE|17]
-18:09:54 - [JobHandler]: Pozvan clear kad je bool accepted, znaci svima odgovaram sa false responsom
-18:09:54 - [AppConfig]: Set active job (is it set?) : true
-18:09:54 - [Fractal Worker]: Started fractal worker
-18:10:04 - Got message [0|72|RESULT_REQUEST|RESULT|17]
-18:10:04 - [ResultMessageHandler]: Got request message from: triangle
-18:10:04 - [ResultMessageHandler]: Went through with the request
-18:10:06 - Got message [5|53|RESULT_REQUEST|RESULT|17]
-18:10:06 - [ResultMessageHandler]: Got request message from: pentagon
-18:10:06 - [ResultMessageHandler]: Went through with the request
-18:10:07 - Sending message [17|21|RESULT_RESPONSE|RESULT|5]
-18:10:14 - Quitting...
-18:10:14 - [JobManager]: I started my job: pentagon
-18:10:14 - [JobManager]: My job ID is: 02
-18:10:15 - [Fractal Worker]: Done drawing part of job: pentagon with dots:[Dot{x=800, y=872}, Dot{x=859, y=829}, Dot{x=918, y=872}, Dot{x=899, y=944}, Dot{x=825, y=944}]
+19:16:02 - Starting servent [17|localhost|1118]
+19:16:02 - Pausing for 20000 ms
+19:16:02 - [ServentInitializer]: Sending new node message to: [10000||1100]
+19:16:03 - Sending message [17|0||NEW_NODE|10000]
+19:16:04 - Got message [0|16||WELCOME|17]
+19:16:04 - [WelcomeMessageHandler]: Got welcome message
+19:16:05 - Sending message [17|17||UPDATE|16]
+19:16:05 - Sending message [17|7||UPDATE|6]
+19:16:05 - Sending message [17|3||UPDATE|2]
+19:16:05 - Sending message [17|4||UPDATE|3]
+19:16:05 - Sending message [17|13||UPDATE|12]
+19:16:05 - Sending message [17|2||UPDATE|1]
+19:16:05 - Sending message [17|5||UPDATE|4]
+19:16:05 - Sending message [17|6||UPDATE|5]
+19:16:05 - Sending message [17|15||UPDATE|14]
+19:16:05 - Sending message [17|10||UPDATE|9]
+19:16:05 - Sending message [17|11||UPDATE|10]
+19:16:05 - Sending message [17|16||UPDATE|15]
+19:16:05 - Sending message [17|14||UPDATE|13]
+19:16:05 - Sending message [17|9||UPDATE|8]
+19:16:05 - Sending message [17|1||UPDATE|0]
+19:16:05 - Sending message [17|18||UPDATE|17]
+19:16:05 - Sending message [17|12||UPDATE|11]
+19:16:05 - Got message [17|18||UPDATE|17]
+19:16:05 - [UpdateMessageHandler]: Current servent state:NewNodeData{serventCount=18, neighbors=[[0|localhost|1100], [1|localhost|1200], [2|localhost|1300], [3|localhost|1400], [4|localhost|1500], [5|localhost|1600], [6|localhost|1700], [7|localhost|1800], [8|localhost|1900], [9|localhost|2000], [10|localhost|1111], [11|localhost|1112], [12|localhost|1113], [13|localhost|1114], [14|localhost|1115], [15|localhost|1116], [16|localhost|1117], [17|localhost|1118]]}
+19:16:05 - [UpdateMessageHandler]: Current node count: 18
+19:16:05 - Sending message [17|8||UPDATE|7]
+19:16:22 - Pausing for 25000 ms
+19:16:22 - Got message [0|34||JOB_REQUEST|17]
+19:16:22 - [JobHandler]: Dobio zahtev za novi posao, stavljam ga kao aktivnom i saljem true response
+19:16:23 - [JobHandler]: ActiveJob{job=null, active=false, jobNodes={}, section=null, myNode=null, isSet=false}
+19:16:23 - [AppConfig]: Set active job (is it set?) : true
+19:16:23 - [JobHandler]: Uspesno poslat response
+19:16:24 - Sending message [17|19|true|JOB_RESPONSE|0]
+19:16:25 - Got message [0|50|false|JOB_RESPONSE|17]
+19:16:25 - [JobHandler]: Pozvan clear, kada nije prihvacen job, znaci odgovaram sa true na element u queue-u
+19:16:25 - [JobHandler]: Size je nula zasto?
+19:16:25 - [AppConfig]: Set active job (is it set?) : false
+19:16:25 - Got message [5|25||JOB_REQUEST|17]
+19:16:25 - [JobHandler]: Dobio zahtev za novi posao, stavljam ga kao aktivnom i saljem true response
+19:16:25 - [JobHandler]: ActiveJob{job=null, active=false, jobNodes={}, section=null, myNode=null, isSet=false}
+19:16:25 - [AppConfig]: Set active job (is it set?) : true
+19:16:25 - [JobHandler]: Uspesno poslat response
+19:16:26 - Sending message [17|20|true|JOB_RESPONSE|5]
+19:16:28 - Got message [5|29|true|JOB_RESPONSE|17]
+19:16:28 - [JobHandler]: Pozvan clear kad je bool accepted, znaci svima odgovaram sa false responsom
+19:16:28 - [AppConfig]: Set active job (is it set?) : true
+19:16:28 - [Fractal Worker]: Started fractal worker
+19:16:38 - Got message [0|72|RESULT_REQUEST|RESULT|17]
+19:16:38 - [ResultMessageHandler]: Got request message from: triangle
+19:16:38 - [ResultMessageHandler]: Went through with the request
+19:16:40 - Got message [5|54|RESULT_REQUEST|RESULT|17]
+19:16:40 - [ResultMessageHandler]: Got request message from: pentagon
+19:16:40 - [ResultMessageHandler]: Went through with the request
+19:16:41 - Sending message [17|21|RESULT_RESPONSE|RESULT|5]
+19:16:47 - Quitting...
+19:16:47 - [JobManager]: I started my job: pentagon
+19:16:47 - [JobManager]: My job ID is: 01
+19:16:49 - [Fractal Worker]: Done drawing part of job: pentagon with dots:[Dot{x=757, y=749}, Dot{x=733, y=678}, Dot{x=792, y=635}, Dot{x=831, y=749}, Dot{x=850, y=678}]
