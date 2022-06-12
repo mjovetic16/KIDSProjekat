@@ -52,6 +52,8 @@ public class ResultMessageHandler implements MessageHandler{
                     jobManager.getResultHandler().sendResult(message.getResponse());
                 }
 
+                log("Went through with the request");
+
 
             //Ako je primljen odgovor na zahtev za rezultat
             }else if(message.getResponse().getResponseType()==ResponseType.RESULT_RESPONSE){

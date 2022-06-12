@@ -1,8 +1,0 @@
-15:55:42 - Couldn't send message: [5|9||JOB_REQUEST|1]
-15:55:42 - Couldn't send message: [5|8||JOB_REQUEST|0]
-15:55:42 - Couldn't send message: [5|10||JOB_REQUEST|2]
-15:55:57 - Couldn't send message: [5|29|RESULT_REQUEST|RESULT|4]
-15:55:57 - Couldn't send message: [5|26|RESULT_REQUEST|RESULT|1]
-15:55:57 - Couldn't send message: [5|28|RESULT_REQUEST|RESULT|3]
-15:55:58 - Couldn't send message: [5|27|RESULT_REQUEST|RESULT|2]
-15:55:58 - Couldn't send message: [5|25|RESULT_REQUEST|RESULT|0]

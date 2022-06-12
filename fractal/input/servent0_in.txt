@@ -1,4 +1,4 @@
-pause 180000
+pause 190000
 start triangle
 pause 15000
 result triangle

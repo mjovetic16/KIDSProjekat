@@ -25,6 +25,7 @@ public class UpdateMessageHandler implements MessageHandler{
             //TODO Update
 
             log("Current servent state:"+message.getNewNodeData());
+            log("Current node count: "+message.getNewNodeData().getServentCount());
 
             AppConfig.setNeighbors(message.getNewNodeData().getNeighbors());
             AppConfig.setServentCount(message.getNewNodeData().getServentCount());

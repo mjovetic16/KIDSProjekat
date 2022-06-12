@@ -23,8 +23,8 @@ public class NewNodeMessageHandler implements MessageHandler{
     @Override
     public void run() {
 
-        log("GOT new node message");
-        log("New node message arrived :"+clientMessage+"");
+//        log("GOT new node message");
+//        log("New node message arrived :"+clientMessage+"");
 
 
         try {
@@ -46,7 +46,7 @@ public class NewNodeMessageHandler implements MessageHandler{
             WelcomeMessage welcomeMessage = new WelcomeMessage(AppConfig.myServentInfo,clientMessage.getOriginalSenderInfo(),newNodeData);
             MessageUtil.sendMessage(welcomeMessage);
 
-            log("Sending welcome message: "+welcomeMessage);
+//            log("Sending welcome message: "+welcomeMessage);
 
 
 

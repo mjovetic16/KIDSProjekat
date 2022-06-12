@@ -91,6 +91,7 @@ public class JobManager implements Runnable, Cancellable {
             setFractalWorker(f1);
             f1.run();
 
+            log("I started my job: "+activeJob.getJob().getName());
             log("My job ID is: "+activeJob.getMyNode().getID());
 
 

@@ -46,7 +46,7 @@ public class MessageUtil {
 		
 		if (MESSAGE_UTIL_PRINTING) {
 			AppConfig.timestampedStandardPrint("Got message " + clientMessage);
-			log("Message type: "+clientMessage.getMessageType());
+//			log("Message type: "+clientMessage.getMessageType());
 
 		}
 				

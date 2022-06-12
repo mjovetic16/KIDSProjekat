@@ -50,6 +50,7 @@ public class MultipleServentStarter {
 				if (line.equals("stop")||line.equals("quit")) {
 					for (Process process : serventProcesses) {
 						process.destroy();
+						bsProcess.destroy();
 					}
 					break;
 				}

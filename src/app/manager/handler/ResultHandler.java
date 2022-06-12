@@ -105,7 +105,11 @@ public class ResultHandler {
         //log("Not done yet rm:"+ responseMap.size());
         //log("Not done yet ac:"+ activeJob.getJobNodes().size());
 
-        if(requestedJob==null)return false;
+
+        if(requestedJob==null){
+            log("Requested job is null");
+            return false;
+        }
 
         return responseMap.size() >= requestedJob.getJobNodes().size();
     }

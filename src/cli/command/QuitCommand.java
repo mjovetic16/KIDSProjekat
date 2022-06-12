@@ -1,6 +1,7 @@
 package cli.command;
 
 import app.AppConfig;
+import app.BootstrapServer;
 import app.manager.JobManager;
 import cli.CLIParser;
 import servent.SimpleServentListener;
@@ -13,6 +14,8 @@ public class QuitCommand implements CLICommand{
     private SimpleServentListener listener;
 
     private JobManager jobManager;
+
+    private BootstrapServer bs;
 
     public QuitCommand(CLIParser parser, SimpleServentListener listener, JobManager jobManager) {
         this.parser = parser;

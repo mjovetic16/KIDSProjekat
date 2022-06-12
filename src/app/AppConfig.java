@@ -297,7 +297,7 @@ public class AppConfig {
 		synchronized (jobLock){
 			AppConfig.activeJob = activeJob;
 
-			//log("Set active job to : "+activeJob.isActive());
+			log("Set active job (is it set?) : "+activeJob.isSet());
 		}
 	}
 

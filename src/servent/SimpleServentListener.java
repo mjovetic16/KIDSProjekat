@@ -61,7 +61,7 @@ public class SimpleServentListener implements Runnable, Cancellable {
 				 * If we can get away with stateless handlers, we will,
 				 * because that way is much simpler and less error prone.
 				 */
-				log("Got message type: "+clientMessage.getMessageType());
+//				log("Got message type: "+clientMessage.getMessageType());
 				switch (clientMessage.getMessageType()) {
 
 					case JOB_REQUEST :
