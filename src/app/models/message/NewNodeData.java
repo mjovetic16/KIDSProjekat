@@ -13,7 +13,6 @@ public class NewNodeData implements Serializable {
     private static final long serialVersionUID = -1130437091212308563L;
 
 
-
     private int serventCount;
 
     private List<ServentInfo> neighbors;
