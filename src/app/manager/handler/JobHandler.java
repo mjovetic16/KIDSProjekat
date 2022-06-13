@@ -74,7 +74,7 @@ public class JobHandler {
 
         limit = AppConfig.getServentCount()/AppConfig.getJobList().size();
         if(limit<job.getN())limit = 1;
-        log("The limit is: "+limit+" The servent count is:"+AppConfig.getServentCount());
+        //log("The limit is: "+limit+" The servent count is:"+AppConfig.getServentCount());
 
         jobToStart.setJobNodesLimit(limit);
 
@@ -168,7 +168,7 @@ public class JobHandler {
         jobToStart.setSet(true);
 
 
-        log("Sending requst to neighbors: "+AppConfig.getNeighbors());
+        //log("Sending requst to neighbors: "+AppConfig.getNeighbors());
         for(ServentInfo neighbor : AppConfig.getNeighbors()){
 
             Message jobRequestMessage = new JobRequestMessage(
@@ -396,7 +396,7 @@ public class JobHandler {
 
         if(accepted){
 
-            log("Pozvan clear kad je bool accepted, znaci svima odgovaram sa false responsom");
+            //log("Pozvan clear kad je bool accepted, znaci svima odgovaram sa false responsom");
 
             while(jobToRespondTo.size()!=0){
                 ServentInfo sender = jobToRespondTo.poll().getServentInfo();
@@ -411,16 +411,16 @@ public class JobHandler {
 
                 MessageUtil.sendMessage(jobResponseMessage);
 
-                log("Poslat jedan od false responsova");
+                //log("Poslat jedan od false responsova");
 
             }
 
         }else{
 
-            log("Pozvan clear, kada nije prihvacen job, znaci odgovaram sa true na element u queue-u");
+            //log("Pozvan clear, kada nije prihvacen job, znaci odgovaram sa true na element u queue-u");
 
             if(jobToRespondTo.size()==0){
-                log("Size je nula zasto?");
+                //log("Size je nula zasto?");
 
                 if(AppConfig.getActiveJob().isActive())return;
 
@@ -442,7 +442,7 @@ public class JobHandler {
 
             MessageUtil.sendMessage(jobResponseMessage);
 
-            log("Uspesno odgovorio");
+            //log("Uspesno odgovorio");
 
         }
 
@@ -465,7 +465,7 @@ public class JobHandler {
         //odbijanje ako je vec u procesu stavljanja posla ili je vec aktivan posao
         if(AppConfig.getActiveJob().isSet()){
 
-            log("Dobio zahtev za novi posao ali je vec aktivan drugi");
+            //log("Dobio zahtev za novi posao ali je vec aktivan drugi");
 
             //Ako je aktivan odma reject ako nije, onda dodajem u queue da odgovorim kasnije
             if(AppConfig.getActiveJob().isActive()){
@@ -479,7 +479,7 @@ public class JobHandler {
 
                 MessageUtil.sendMessage(jobResponseMessage);
 
-                log("Poslao odbijanje jer mi je posao vec aktivan");
+                //log("Poslao odbijanje jer mi je posao vec aktivan");
 
                 return;
             }
@@ -489,7 +489,7 @@ public class JobHandler {
             jr.setServentInfo(sender);
             jobToRespondTo.add(jr);
 
-            log("Stavio u queue da odgovorim kasnije");
+            //log("Stavio u queue da odgovorim kasnije");
 
 
 
@@ -497,8 +497,8 @@ public class JobHandler {
 
         }else{
 
-            log("Dobio zahtev za novi posao, stavljam ga kao aktivnom i saljem true response");
-            log(AppConfig.getActiveJob()+"");
+            //log("Dobio zahtev za novi posao, stavljam ga kao aktivnom i saljem true response");
+            //log(AppConfig.getActiveJob()+"");
 
 
             AppConfig.setActiveJob(activeJob);
@@ -512,7 +512,7 @@ public class JobHandler {
                     AppConfig.myServentInfo, sender, response);
 
             MessageUtil.sendMessage(jobResponseMessage);
-            log("Uspesno poslat response");
+            //log("Uspesno poslat response");
 
 
         }

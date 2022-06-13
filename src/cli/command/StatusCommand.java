@@ -1,10 +1,19 @@
 package cli.command;
 
 import app.AppConfig;
+import app.manager.JobManager;
 
 import java.util.MissingResourceException;
 
 public class StatusCommand implements CLICommand{
+
+    private JobManager jobManager;
+
+
+    public StatusCommand(JobManager jobManager) {
+        this.jobManager = jobManager;
+    }
+
     @Override
     public String commandName() {
         return "status";
@@ -49,13 +58,18 @@ public class StatusCommand implements CLICommand{
 
     public void getStatusAll(){
 
+        jobManager.getStatusHandler().getAll();
+
     }
 
     public void getStatusSingle(String jobName){
 
+        jobManager.getStatusHandler().getJobStatus(jobName, "NO_ID");
     }
 
     public void getStatusForNode(String jobName, String nodeID){
+
+        jobManager.getStatusHandler().getJobStatus(jobName,nodeID);
 
     }
 }

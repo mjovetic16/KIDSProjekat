@@ -115,7 +115,7 @@ public class ResultHandler {
 
 
         if(requestedJob==null){
-            log("Requested job is null");
+            //log("Requested job is null");
             return false;
         }
 
@@ -165,14 +165,12 @@ public class ResultHandler {
 
         log("Drawing result");
 
-
         BufferedImage image = new BufferedImage(requestedJob.getJob().getW(), requestedJob.getJob().getH(), BufferedImage.TYPE_INT_ARGB);
         final Graphics2D graphics2D = image.createGraphics ();
+        try {
 
-
-        graphics2D.setPaint(Color.WHITE);
-        graphics2D.fillRect(0, 0, requestedJob.getJob().getW(), requestedJob.getJob().getH());
-
+            graphics2D.setPaint(Color.WHITE);
+            graphics2D.fillRect(0, 0, requestedJob.getJob().getW(), requestedJob.getJob().getH());
 
 
             for(Response r: responseMap.values()){
@@ -191,6 +189,10 @@ public class ResultHandler {
 
             }
 
+
+        }catch (Exception e){
+            errorLog("",e);
+        }
 
 
 

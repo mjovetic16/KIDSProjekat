@@ -1,60 +1,47 @@
-20:06:14 - Starting servent [14|localhost|1115]
-20:06:14 - Pausing for 50000 ms
-20:06:14 - [ServentInitializer]: Sending new node message to: [10000||1100]
-20:06:15 - Sending message [14|0||NEW_NODE|10000]
-20:06:17 - Got message [0|13||WELCOME|14]
-20:06:17 - [WelcomeMessageHandler]: Got welcome message
-20:06:17 - Sending message [14|1||UPDATE|0]
-20:06:18 - Sending message [14|2||UPDATE|1]
-20:06:18 - Sending message [14|3||UPDATE|2]
-20:06:18 - Sending message [14|12||UPDATE|11]
-20:06:18 - Sending message [14|15||UPDATE|14]
-20:06:18 - Got message [14|15||UPDATE|14]
-20:06:18 - [UpdateMessageHandler]: Current servent state:NewNodeData{serventCount=15, neighbors=[[0|localhost|1100], [1|localhost|1200], [2|localhost|1300], [3|localhost|1400], [4|localhost|1500], [5|localhost|1600], [6|localhost|1700], [7|localhost|1800], [8|localhost|1900], [9|localhost|2000], [10|localhost|1111], [11|localhost|1112], [12|localhost|1113], [13|localhost|1114], [14|localhost|1115]]}
-20:06:18 - [UpdateMessageHandler]: Current node count: 15
-20:06:18 - Sending message [14|7||UPDATE|6]
-20:06:18 - Sending message [14|13||UPDATE|12]
-20:06:18 - Sending message [14|5||UPDATE|4]
-20:06:18 - Sending message [14|9||UPDATE|8]
-20:06:18 - Sending message [14|6||UPDATE|5]
-20:06:18 - Sending message [14|8||UPDATE|7]
-20:06:18 - Sending message [14|11||UPDATE|10]
-20:06:18 - Sending message [14|10||UPDATE|9]
-20:06:18 - Sending message [14|14||UPDATE|13]
-20:06:18 - Sending message [14|4||UPDATE|3]
-20:06:27 - Got message [15|15||UPDATE|14]
-20:06:27 - [UpdateMessageHandler]: Current servent state:NewNodeData{serventCount=16, neighbors=[[0|localhost|1100], [1|localhost|1200], [2|localhost|1300], [3|localhost|1400], [4|localhost|1500], [5|localhost|1600], [6|localhost|1700], [7|localhost|1800], [8|localhost|1900], [9|localhost|2000], [10|localhost|1111], [11|localhost|1112], [12|localhost|1113], [13|localhost|1114], [14|localhost|1115], [15|localhost|1116]]}
-20:06:27 - [UpdateMessageHandler]: Current node count: 16
-20:06:38 - Got message [16|15||UPDATE|14]
-20:06:38 - [UpdateMessageHandler]: Current servent state:NewNodeData{serventCount=17, neighbors=[[0|localhost|1100], [1|localhost|1200], [2|localhost|1300], [3|localhost|1400], [4|localhost|1500], [5|localhost|1600], [6|localhost|1700], [7|localhost|1800], [8|localhost|1900], [9|localhost|2000], [10|localhost|1111], [11|localhost|1112], [12|localhost|1113], [13|localhost|1114], [14|localhost|1115], [15|localhost|1116], [16|localhost|1117]]}
-20:06:38 - [UpdateMessageHandler]: Current node count: 17
-20:06:48 - Got message [17|15||UPDATE|14]
-20:06:48 - [UpdateMessageHandler]: Current servent state:NewNodeData{serventCount=18, neighbors=[[0|localhost|1100], [1|localhost|1200], [2|localhost|1300], [3|localhost|1400], [4|localhost|1500], [5|localhost|1600], [6|localhost|1700], [7|localhost|1800], [8|localhost|1900], [9|localhost|2000], [10|localhost|1111], [11|localhost|1112], [12|localhost|1113], [13|localhost|1114], [14|localhost|1115], [15|localhost|1116], [16|localhost|1117], [17|localhost|1118]]}
-20:06:48 - [UpdateMessageHandler]: Current node count: 18
-20:07:04 - Pausing for 25000 ms
-20:07:05 - Got message [0|31||JOB_REQUEST|14]
-20:07:05 - [JobHandler]: Dobio zahtev za novi posao, stavljam ga kao aktivnom i saljem true response
-20:07:05 - [JobHandler]: ActiveJob{job=null, active=false, jobNodes={}, section=null, myNode=null, isSet=false}
-20:07:05 - [AppConfig]: Set active job (is it set?) : true
-20:07:05 - [JobHandler]: Uspesno poslat response
-20:07:05 - Sending message [14|16|true|JOB_RESPONSE|0]
-20:07:07 - Got message [5|22||JOB_REQUEST|14]
-20:07:07 - [JobHandler]: Dobio zahtev za novi posao ali je vec aktivan drugi
-20:07:07 - [JobHandler]: Stavio u queue da odgovorim kasnije
-20:07:07 - Got message [0|44|true|JOB_RESPONSE|14]
-20:07:07 - [JobHandler]: Pozvan clear kad je bool accepted, znaci svima odgovaram sa false responsom
-20:07:07 - [JobHandler]: Poslat jedan od false responsova
-20:07:07 - [AppConfig]: Set active job (is it set?) : true
-20:07:07 - [Fractal Worker]: Started fractal worker
-20:07:08 - Sending message [14|17|false|JOB_RESPONSE|5]
-20:07:20 - Got message [0|69|RESULT_REQUEST|RESULT|14]
-20:07:20 - [ResultMessageHandler]: Got request message from: triangle
-20:07:20 - [ResultMessageHandler]: Went through with the request
-20:07:22 - Got message [5|50|RESULT_REQUEST|RESULT|14]
-20:07:22 - [ResultMessageHandler]: Got request message from: pentagon
-20:07:22 - [ResultMessageHandler]: Went through with the request
-20:07:22 - Sending message [14|18|RESULT_RESPONSE|RESULT|0]
-20:07:29 - Quitting...
-20:07:29 - [JobManager]: I started my job: triangle
-20:07:29 - [JobManager]: My job ID is: 10
-20:07:31 - [Fractal Worker]: Done drawing part of job: triangle with dots:[Dot{x=960, y=0}, Dot{x=720, y=270}, Dot{x=1200, y=270}]
+14:42:15 - Starting servent [14|localhost|1115]
+14:42:15 - Pausing for 50000 ms
+14:42:15 - [ServentInitializer]: Sending new node message to: [10000||1100]
+14:42:15 - Sending message [14|0||NEW_NODE|10000]
+14:42:16 - Got message [0|13||WELCOME|14]
+14:42:16 - [WelcomeMessageHandler]: Got welcome message
+14:42:17 - Sending message [14|9||UPDATE|8]
+14:42:17 - Sending message [14|15||UPDATE|14]
+14:42:17 - Sending message [14|3||UPDATE|2]
+14:42:17 - Got message [14|15||UPDATE|14]
+14:42:17 - [UpdateMessageHandler]: Current servent state:NewNodeData{serventCount=15, neighbors=[[0|localhost|1100], [1|localhost|1200], [2|localhost|1300], [3|localhost|1400], [4|localhost|1500], [5|localhost|1600], [6|localhost|1700], [7|localhost|1800], [8|localhost|1900], [9|localhost|2000], [10|localhost|1111], [11|localhost|1112], [12|localhost|1113], [13|localhost|1114], [14|localhost|1115]]}
+14:42:17 - [UpdateMessageHandler]: Current node count: 15
+14:42:17 - Sending message [14|13||UPDATE|12]
+14:42:17 - Sending message [14|2||UPDATE|1]
+14:42:17 - Sending message [14|10||UPDATE|9]
+14:42:17 - Sending message [14|6||UPDATE|5]
+14:42:17 - Sending message [14|14||UPDATE|13]
+14:42:17 - Sending message [14|1||UPDATE|0]
+14:42:17 - Sending message [14|5||UPDATE|4]
+14:42:17 - Sending message [14|7||UPDATE|6]
+14:42:17 - Sending message [14|12||UPDATE|11]
+14:42:17 - Sending message [14|11||UPDATE|10]
+14:42:17 - Sending message [14|4||UPDATE|3]
+14:42:18 - Sending message [14|8||UPDATE|7]
+14:42:27 - Got message [15|15||UPDATE|14]
+14:42:27 - [UpdateMessageHandler]: Current servent state:NewNodeData{serventCount=16, neighbors=[[0|localhost|1100], [1|localhost|1200], [2|localhost|1300], [3|localhost|1400], [4|localhost|1500], [5|localhost|1600], [6|localhost|1700], [7|localhost|1800], [8|localhost|1900], [9|localhost|2000], [10|localhost|1111], [11|localhost|1112], [12|localhost|1113], [13|localhost|1114], [14|localhost|1115], [15|localhost|1116]]}
+14:42:27 - [UpdateMessageHandler]: Current node count: 16
+14:42:38 - Got message [16|15||UPDATE|14]
+14:42:38 - [UpdateMessageHandler]: Current servent state:NewNodeData{serventCount=17, neighbors=[[0|localhost|1100], [1|localhost|1200], [2|localhost|1300], [3|localhost|1400], [4|localhost|1500], [5|localhost|1600], [6|localhost|1700], [7|localhost|1800], [8|localhost|1900], [9|localhost|2000], [10|localhost|1111], [11|localhost|1112], [12|localhost|1113], [13|localhost|1114], [14|localhost|1115], [15|localhost|1116], [16|localhost|1117]]}
+14:42:38 - [UpdateMessageHandler]: Current node count: 17
+14:42:48 - Got message [17|15||UPDATE|14]
+14:42:48 - [UpdateMessageHandler]: Current servent state:NewNodeData{serventCount=18, neighbors=[[0|localhost|1100], [1|localhost|1200], [2|localhost|1300], [3|localhost|1400], [4|localhost|1500], [5|localhost|1600], [6|localhost|1700], [7|localhost|1800], [8|localhost|1900], [9|localhost|2000], [10|localhost|1111], [11|localhost|1112], [12|localhost|1113], [13|localhost|1114], [14|localhost|1115], [15|localhost|1116], [16|localhost|1117], [17|localhost|1118]]}
+14:42:48 - [UpdateMessageHandler]: Current node count: 18
+14:43:05 - Pausing for 25000 ms
+14:43:06 - Got message [0|31||JOB_REQUEST|14]
+14:43:06 - Sending message [14|16|true|JOB_RESPONSE|0]
+14:43:07 - Got message [5|22||JOB_REQUEST|14]
+14:43:07 - Got message [0|41|true|JOB_RESPONSE|14]
+14:43:07 - [Fractal Worker]: Started fractal worker
+14:43:09 - Sending message [14|17|false|JOB_RESPONSE|5]
+14:43:21 - Got message [0|69|RESULT_REQUEST|RESULT|14]
+14:43:22 - Sending message [14|18|RESULT_RESPONSE|RESULT|0]
+14:43:22 - Got message [5|52|RESULT_REQUEST|RESULT|14]
+14:43:30 - Quitting...
+14:43:30 - [JobManager]: I started my job: triangle
+14:43:30 - [JobManager]: My job ID is: 12
+14:43:31 - [Fractal Worker]: Done drawing part of job: triangle with dots:[Dot{x=960, y=540}, Dot{x=1440, y=540}, Dot{x=1200, y=270}]

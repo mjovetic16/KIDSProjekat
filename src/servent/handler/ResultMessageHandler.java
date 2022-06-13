@@ -39,7 +39,7 @@ public class ResultMessageHandler implements MessageHandler{
 //                ResultHandler resultHandler = jobManager.getResultHandler();
 //                log("Zadnji"+resultHandler);
 
-                log("Got request message from: "+message.getResponse().getData()+"");
+                //log("Got request message from: "+message.getResponse().getData()+"");
 
                 if(AppConfig.getActiveJob()==null)return;
                 if(AppConfig.getActiveJob().getJob()==null)return;
@@ -52,7 +52,7 @@ public class ResultMessageHandler implements MessageHandler{
                     jobManager.getResultHandler().sendResult(message.getResponse());
                 }
 
-                log("Went through with the request");
+                //log("Went through with the request");
 
 
             //Ako je primljen odgovor na zahtev za rezultat
